@@ -111,7 +111,9 @@ When you connect your keyboard for the first time, this is the default keymap:
 ## Physical Key Remapping
 
 MagicStick supports the remapping of a physical key to a different location. For instance you may decide that you'd want to swap the blue and the red keys.
+
 ![](20230928220051.png)
+
 To do so, follow these steps:
 1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function. Once activated you will see the MagicStick LED flashing quickly.
 2. Press the source key (**red**), that is the key that you would like to change. 
