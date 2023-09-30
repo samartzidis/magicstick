@@ -152,8 +152,10 @@ This is the recommended way as it is easier than the manual one but you need to 
 
 1. Right click on the MagicStickUI tray icon and select _"Check for updates..."_. 
 ![](20230927210205.png)
+
 2. If a new update is found, you will get a confirmation dialog asking to update. Accept, and the upgrade will start and complete automatically. 
 ![](20230927211852.png)
+
 3. The device will automatically reboot to the updated version.
 
 #### Manual Firmware Update
