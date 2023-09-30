@@ -151,9 +151,11 @@ Can be done via the MagicStickUI utility or alternatively:
 This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run MagicStickUI.
 
 1. Right click on the MagicStickUI tray icon and select _"Check for updates..."_. 
+
 ![](20230927210205.png)
 
 2. If a new update is found, you will get a confirmation dialog asking to update. Accept, and the upgrade will start and complete automatically. 
+
 ![](20230927211852.png)
 
 3. The device will automatically reboot to the updated version.
@@ -163,15 +165,19 @@ This _"brute force"_ method is useful if you have no access to a Windows PC or i
 
 1. To download the firmware for your MagicStick device, you need your device's serial number. On **Windows**, use the MagicStickUI utility to retrieve it. On **Linux**, you can find it by typing this command in a terminal: ```upower -d```
 The content in the red box is the device's serial number.
+
 ![](20230928223602.png)
+
 So in that case, the serial number starts with E66 and finishes with 32.
 
 2. Download the latest MagicStick firmware by opening the following link in your browser, but by first replacing the word SERIAL with your actual serial number: ```https://magicstick-app.azurewebsites.net/api/download/SERIAL/magicstick-latest.uf2``` 
 (E.g. ```https://magicstick-app.azurewebsites.net/api/download/E66138468234AA31/magicstick-latest.uf2```)
 3. Enter MagicStick into [BOOTSEL mode](#bootsel). 
 4. Once MagicStick enters BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open if manually in **File Explorer**:
+
 ![](20230927212729.png) 
 ![](20230927212434.png)
+
 5. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your MagicStick device will automatically restart running the new firmware.
 
 ## Entering into BOOTSEL Mode {#bootsel}
