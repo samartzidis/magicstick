@@ -20,7 +20,7 @@ MagicStick.io started as a personal hobby project, inspired by my need to connec
     <td>
     <a href="docs/8.png"><img src="docs/8_tn.png" alt=""></a>
     </br>
-    An extra male PC USB adaptor</br>is provided as an alternative</br>to the cable.
+    With a male PC</br>USB adaptor.
     </td>
     <td>
     <a href="docs/10.png"><img src="docs/10_tn.png" alt=""></a>
@@ -32,12 +32,12 @@ MagicStick.io started as a personal hobby project, inspired by my need to connec
     <td>
     <a href="docs/11.png"><img src="docs/11_tn.png" alt=""></a>
     </br>
-    On wired connection.
+    On wired</br>connection.
     </td>
     <td>
     <a href="docs/12.png"><img src="docs/12_tn.png" alt=""></a>
     </br>
-    On Bluetooth connection.
+    On Bluetooth</br>connection.
     </td>    
     <td>
     <a href="docs/9.png"><img src="docs/9_tn.png" alt=""></a>
@@ -47,6 +47,7 @@ MagicStick.io started as a personal hobby project, inspired by my need to connec
   </tr>
   </body>
 </table>
+
 
 You can visit the [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickIO) shop to order a MagicStick.io device. The rest of the software stuff, such as documentation, utilities and firmware updates are provided here.
 
