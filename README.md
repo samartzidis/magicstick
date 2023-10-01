@@ -11,7 +11,7 @@ MagicStick.io started as a personal hobby project, inspired by my need to connec
 
 
 
-You can visit the [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickShop) shop to order a MagicStick.io device. The rest of the software stuff, such as documentation, utilities and firmware updates are provided here.
+You can visit the [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickIO) shop to order a MagicStick.io device. The rest of the software stuff, such as documentation, utilities and firmware updates are provided here.
 
 ## User Manual
 
@@ -50,6 +50,7 @@ Technically, MagicStick.io just is a programmed Raspberry Pi Zero microcontrolle
 MagicStick.io was professionally developed with love and attention to detail, following software engineering best practices. There is no guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment or to you directly or indirectly through its use. By accepting to use the device you also accept full responsibility for all of the above. 
 
 MagicStick.io hand-made Etsy devices are returnable and refundable as per the Etsy shop policy.
+ 
 
 
 
