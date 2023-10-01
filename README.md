@@ -40,7 +40,7 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     <td>
     <a href="docs/9.png"><img src="docs/9_tn.png" alt=""></a>
     </br>
-    Taking a peek inside.
+    For the curious.
     </td>
   </tr>
   </body>
@@ -69,7 +69,9 @@ The user manual is [here](docs/README.md).
 
 - MagicStick.io is powered by a Raspberry Pi Pico board with a **133MHz dual-core Arm Cortex M0+** processor. All processing logic is implemented in **optimized C/C++ and assembly** code, utilizing both processor cores. The dual USB stack is managed by the first core and the Bluetooth stack is managed by the second core, unless Bluetooth is disabled, and the secondary PIO-backed USB stack is managed by the second core.
 - MagicStick.io can function **both wired and wirelessly**. You can connect your Apple keyboard either via a standard USB to Lightning cable or wirelessly via Bluetooth. You can freely switch between wired or wireless connection modes at any time.
-- Wired operation provides **surprisingly fast response times** (measured just **1ms** of extra overhead on top of the standard response time of about 15ms of the A1644 keyboard). This makes the wired connection ideal for **gaming** users (1).
+- Wired and Bluetooth operation modes provide **surprisingly fast response times**. Tests performed with online measurement tools could not detect any extra delays over the default 16ms rebounce delay of the A1644 keyboard).
+![](docs/20231001222021.png)
+_The above measurement on [clickspeedtester.com](https://www.clickspeedtester.com) using an A1644 keyboard, averaged the same between (all) MagicStick-wired, MagicStick-Bluetooth, and direct PC USB (that is without MagicStick and with no extra Windows drivers installed)_.
 - MagicStick.io is a microcontroller-based device. It **works immediately** as soon as it is powered on. This allows you to use the keyboard as early as at the PC boot process, e.g. for accessing the BIOS/UEFI menus. Also since there is no Operating System driver required, the keyboard just works correctly in BIOS/UEFI mode.
 - MagicStick.io is **programmable** so that you can reposition almost all keys as you like.
 - MagicStick.io supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the MagicStickUI utility.
