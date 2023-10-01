@@ -1,4 +1,5 @@
 [![magicstick-logo](magicstick-logo.png)](https://github.com/samartzidis/magicstick.io)
+###### Apple Keyboard USB Adapter for PCs
 
 # User Manual
 
