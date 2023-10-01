@@ -58,7 +58,9 @@ as well as to change the keyboard's special keys configuration. You can also use
 Download the latest MagicStickUI version from the [MagicStick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page. It is a single executable that needs no installer. Just save it on your Desktop or any other convenient folder location.
 
 MagicStickUI is not available on Linux yet, but at least Linux has native support for showing the devices battery level. E.g. on Ubuntu Linux you can directly use the system's Settings application as shown below,
+
 ![](20230928224646.png)
+
 which readily recognises MagicStick.io and shows the connected keyboard's battery level.
 
 ## LED Status Reference
