@@ -179,10 +179,11 @@ So in that case, the serial number starts with E66 and finishes with 32.
 3. Enter MagicStick.io into [BOOTSEL mode](#bootsel). 
 4. Once MagicStick.io enters BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open if manually in **File Explorer**:
 
-   ![](20230927212729.png) 
+   ![](20230927212729.png)
+   
    ![](20230927212434.png)
 
-5. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your MagicStick.io device will automatically restart running the new firmware.
+6. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your MagicStick.io device will automatically restart running the new firmware.
 
 ## Entering into BOOTSEL Mode {#bootsel}
 
