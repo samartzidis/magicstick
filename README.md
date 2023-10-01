@@ -9,37 +9,37 @@ Additionally, any device that accepts conventional USB keyboards should work wit
 
 MagicStick.io started as a personal hobby project, inspired by my need to connect the excellent quality but "eccentric" Apple keyboard peripherals to a PC, without having to develop any special kernel-mode drivers and after realizing the ideal potential (e.g. speedy cores, powerful PIO subsystem, Bluetooth chip) of the Raspberry Pi Pico/RP2040 board. The plastic case was proudly designed by my 6 y.o. daughter with a bit of help from me :)
   
-<table style="font-size: 11px;word-wrap: break-word;">
+<table>
 <body>
   <tr>
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/6.png"><img src="docs/6_tn.png" alt=""></a>
     </br>
     Overview.
     </td>
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/8.png"><img src="docs/8_tn.png" alt=""></a>
     </br>
-    An extra male PC USB adaptor is provided as an alternative to the cable.
+    An extra male PC USB adaptor</br>is provided as an alternative</br>to the cable.
     </td>
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/10.png"><img src="docs/10_tn.png" alt=""></a>
     </br>
     On wired connection.
     </td>
   </tr>
   <tr>
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/11.png"><img src="docs/11_tn.png" alt=""></a>
     </br>
     On wired connection.
     </td>
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/12.png"><img src="docs/12_tn.png" alt=""></a>
     </br>
     On Bluetooth connection.
     </td>    
-    <td style="width:100px; border:none;">
+    <td>
     <a href="docs/9.png"><img src="docs/9_tn.png" alt=""></a>
     </br>
     Taking a peek inside.
