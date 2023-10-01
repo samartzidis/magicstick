@@ -46,7 +46,7 @@ Additionally, any device that accepts conventional USB keyboards should work wit
   </body>
 </table>
 
-MagicStick.io started as a personal hobby project, inspired by my need to connect the excellent quality but "eccentric" Apple keyboard peripherals to a PC, without having to develop any special kernel-mode drivers and after realizing the ideal potential (e.g. speedy cores, powerful PIO subsystem, Bluetooth chip) of the Raspberry Pi Pico/RP2040 board. The plastic case was proudly designed by my 6 y.o. daughter with a bit of help from me :)
+MagicStick.io started as a personal hobby project, inspired by my need to connect the excellent quality but "eccentric" Apple keyboard peripherals to my PC, without having to develop any special kernel-mode drivers and after realizing the ideal potential (e.g. speedy cores, powerful PIO subsystem, Bluetooth chip) of the Raspberry Pi Pico/RP2040 board. The plastic case was designed by my 6 y.o. daughter with a little bit of help from me :)
 
 You can order a hand-made MagicStick.io device from [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickIO) 
 
