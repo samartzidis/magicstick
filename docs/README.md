@@ -12,7 +12,7 @@
 | **C** | **PC** connection, micro-USB port. |
 | **D** | Operation **LED** |
 
-## Connecting a Keyboard {#connecting}
+## Connecting a Keyboard
 
 ### Wired Connection
 
@@ -37,7 +37,7 @@ Connecting any these keyboards is pretty straightforward.
 
 The older A1314 keyboard has a little bit more complicated pairing process. 
 
-**Important:** Make sure that the MagicStick.io device is first **reset to factory settings**, so that it holds no previous paired keyboard data in its internal memory, by following [these steps](#reset).
+**Important:** Make sure that the MagicStick.io device is first **reset to factory settings**, so that it holds no previous paired keyboard data in its internal memory, by following [these steps](#Factory-Resetting-the-Device).
 
 1. Remove any keyboard currently plugged-in to MagicStick.io.
 2. Turn the A1314 keyboard off by constantly pressing the right side button for a few seconds. You will see the green keyboard led powering off in a fading out fashion.
@@ -72,7 +72,7 @@ The LED is located at the diagram position marked **D**. The following table sum
 |------------|---------|
 | LED is **on**. | A keyboard is connected via a wired or Bluetooth connection. |
 | LED is **off**. | Device malfunction. |
-| LED is **flashing** non-stop. | Two possible and unrelated reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#connecting) for details. <br> _Or_ </br>2. Keyboard is in key **programming** mode, awaiting for you to press a key to program. |
+| LED is **flashing** non-stop. | Two possible and unrelated reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. Keyboard is in key **programming** mode, awaiting for you to press a key to program. |
 | **1 flash** and a pause. | **IDLE**. MagicStick.io is operational but no keyboard is connected via wire connection in or by Bluetooth. |
 | **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. MagicStick.io Bluetooth is trying to connect to an already paired device via Bluetooth. |
 | **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. MagicStick.io Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
@@ -177,7 +177,7 @@ So in that case, the serial number starts with E66 and finishes with 32.
 
 2. Download the latest MagicStick.io firmware by opening the following link in your browser, but by first replacing the word SERIAL with your actual serial number: ```https://magicstick-app.azurewebsites.net/api/download/SERIAL/magicstick-latest.uf2``` 
 (E.g. ```https://magicstick-app.azurewebsites.net/api/download/E66138468234AA31/magicstick-latest.uf2```)
-3. Enter MagicStick.io into [BOOTSEL mode](#bootsel). 
+3. Enter MagicStick.io into [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
 4. Once MagicStick.io enters BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open if manually in **File Explorer**:
 
    ![](20230927212729.png)
@@ -186,7 +186,7 @@ So in that case, the serial number starts with E66 and finishes with 32.
 
 6. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your MagicStick.io device will automatically restart running the new firmware.
 
-## Entering into BOOTSEL Mode {#bootsel}
+## Entering into BOOTSEL Mode
 
 BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this if you would like to run a manual firmware update or downgrade process. There are two ways to achieve this:
 
@@ -194,7 +194,7 @@ BOOTSEL is a special device mode that allows you to write new firmware to it. Yo
 
 **Second way:** Unplug MagicStick.io and then plug it in with the bootsel button being constantly pressed. This will enter the MagicStick.io into bootsel mode.
 
-## Factory Resetting the Device {#reset}
+## Factory Resetting the Device
 
 You can reset your device's internal memory (programmed keys, Bluetooth pairing etc.) by any of the 2 following ways:
 
