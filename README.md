@@ -9,7 +9,9 @@ Additionally, any device that accepts conventional USB keyboards should work wit
 
 MagicStick started as a personal hobby project, inspired by my need to connect the excellent quality but "eccentric" Apple keyboard peripherals to a PC, without having to develop any special kernel-mode drivers and after realizing the tremendous potential (e.g. highly clocked multiple cores, powerful PIO subsystem, Bluetooth chip) of the Raspberry Pi Pico/RP2040 chip. The plastic case on the Etsy Shop was proudly designed by my 6 year old daughter with some help from me.
 
-You can visit the [MagicStick Etsy Page](https://www.etsy.com/your/shops/MagicStickShop) to order a hand-made MagicStick device. The rest of the software stuff, such as documentation, utilities and firmware updates are provided here.
+
+
+You can visit the [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickShop) shop to order a MagicStick device. The rest of the software stuff, such as documentation, utilities and firmware updates are provided here.
 
 ## User Manual
 
