@@ -8,23 +8,6 @@ MagicStick.io is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or t
 Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
 MagicStick.io started as a personal hobby project, inspired by my need to connect the excellent quality but "eccentric" Apple keyboard peripherals to a PC, without having to develop any special kernel-mode drivers and after realizing the tremendous potential (e.g. highly clocked multiple cores, powerful PIO subsystem, Bluetooth chip) of the Raspberry Pi Pico/RP2040 chip. The plastic case on the Etsy Shop was proudly designed by my 6 year old daughter with some help from me.
-
-<style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    td {
-      text-align: center;
-      padding: 10px;
-      vertical-align: top;
-      word-wrap: break-word; /* This enables word wrapping */
-    }
-    td img {
-      display: block; /* Ensures the image doesn't sit on the same line as the text */
-      margin: 0 auto; /* Centers the image within the cell */
-    }
-  </style>
   
 <table style="font-size: 11px;word-wrap: break-word; border:none;">
 <body>
@@ -37,7 +20,7 @@ MagicStick.io started as a personal hobby project, inspired by my need to connec
     <td style="width:100px; border:none;">
     <a href="docs/8.png"><img src="docs/8_tn.png" alt=""></a>
     </br>
-    Am extra male PC USB adaptor is provided as an alternative to the cable.
+    An extra male PC USB adaptor is provided as an alternative to the cable.
     </td>
     <td style="width:100px; border:none;">
     <a href="docs/10.png"><img src="docs/10_tn.png" alt=""></a>
