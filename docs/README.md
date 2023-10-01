@@ -28,7 +28,7 @@ Connecting any these keyboards is pretty straightforward.
 1. Remove any keyboard currently plugged-in to MagicStick.io.
 2. Turn the keyboard off and then on again. 
 
-![](20230928230341.png)
+   ![](20230928230341.png)
 
 3. Plug the MagicStick.io device to a USB port and keep it close to the keyboard. MagicStick.io should discover the keyboard and pair with it. There is no PIN code entry required.
 
