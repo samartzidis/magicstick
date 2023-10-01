@@ -60,10 +60,10 @@ The user manual is [here](docs/README.md).
 
 | Model | Status |
 | -------- | ------- |
-| A1314 | Supported but no UI battery level indicator in MagicstickUI |
-| A1644 | Fully supported |
-| A2450 | Fully supported |
-| A2449 | Supported - no fingerprint sensor (yet!) |
+| A1314 | Old keyboard. Supported but no UI battery level indicator in MagicstickUI. |
+| A1644 | Fully supported. |
+| A2450 | Fully supported. |
+| A2449 | Supported - but no fingerprint sensor (yet!). |
 
 ## Features
 
@@ -86,7 +86,7 @@ Technically, MagicStick.io just is a programmed Raspberry Pi Zero microcontrolle
 
 ## Disclaimer
 
-MagicStick.io was professionally developed with love and attention to detail, following software engineering best practices. There is no guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment or to you directly or indirectly through its use. By accepting to use the device you also accept full responsibility for all of the above. The MagicStick.io hand-made devices are returnable as per the Etsy shop policy.
+MagicStick.io was professionally developed with love and attention to detail, following software engineering best practices. There is no 100% guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment or to you directly or indirectly through its use. By accepting to use the device you also accept full responsibility for all of the above. The MagicStick.io hand-made devices are returnable as per the Etsy shop policy.
 
 
  
