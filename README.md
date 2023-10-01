@@ -1,7 +1,7 @@
 ![magicstick-logo](docs/magicstick-logo.png)
 ###### Apple Keyboard USB Adapter for PCs
 
-# MagicStick.io
+# About
 
 MagicStick is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or the older Apple Wireless) keyboard to a PC, providing the correct keymap translation for PCs. That is, you get a working Delete, Ctrl, Page Up/Down, Print Screen, Multimedia keys etc. You also get dual keyboard connection modes, wired and Bluetooth. All modern versions of Windows and Linux are supported.
 
