@@ -17,10 +17,12 @@ The user manual is [here](docs/README.md).
 
 ## Currently Supported Apple Keyboard Models
 
-- A1314 (no battery level indicator)
-- A1644
-- A2450 
-- A2449 (no fingerprint sensor capability yet)
+| Model | Status |
+| -------- | ------- |
+| A1314 | Supported but no UI battery level indicator in MagicstickUI |
+| A1644 | Fully supported |
+| A2450 | Fully supported |
+| A2449 | Supported - no fingerprint sensor (yet!) |
 
 ## Features
 
@@ -30,7 +32,7 @@ The user manual is [here](docs/README.md).
 - MagicStick is a microcontroller-based device. It **works immediately** as soon as it is powered on. This allows you to use the keyboard as early as at the PC boot process, e.g. for accessing the BIOS/UEFI menus. Also since there is no Operating System driver required, the keyboard just works correctly in BIOS/UEFI mode.
 - MagicStick is **programmable** so that you can reposition almost all keys as you like.
 - MagicStick supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the MagicStickUI utility.
-- MagicStick is built with **security** in mind. It is locked down to standard keyboard HID IO operations on the side that connects to the PC. The Bluetooth connection uses a licensed [BlueKitchen](https://bluekitchen-gmbh.com/) Bluetooth stack with Level 2 security enabled (wireless encryption).
+- MagicStick is built with **security** in mind. It is locked down to standard keyboard HID API on the side that connects to the PC. The Bluetooth connection uses a licensed [BlueKitchen](https://bluekitchen-gmbh.com/) Bluetooth stack with Level 2 security enabled (wireless encryption). Additionally, Bluetooth can be disabled if needed.
 - In contrast to other similar solutions (e.g. MagicUtilities), MagicStick has **no subscription fees** or any connected device restrictions. You own the device, and you can connect it to **as many keyboards or computers** as you like.
 - **PC sleep/wake-up** is supported and works **in both wired and Bluetooth** connection modes.
 - **Firmware updates**. Any future improvements, such as support for new keyboard models or the A2449 fingerprint sensor are easy and provided for free.
@@ -39,11 +41,11 @@ The user manual is [here](docs/README.md).
 
 ## Compliance and Safety
 
-Technically, MagicStick just is a reprogrammed Raspberry Pi Zero device. Please refer to this official link for further details on the compliance and safety of the Raspberry Pi Pico device: https://pip.raspberrypi.com/categories/688
+Technically, MagicStick just is a programmed Raspberry Pi Zero microcontroller. Please refer to this official link for further details on the compliance and safety of the Raspberry Pi Pico: https://pip.raspberrypi.com/categories/688
 
 ## Disclaimer
 
-MagicStick was developed with love and dedication following software engineering best practices by a professional software engineer. There is no guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong in your equipment or you through its use. MagicStick is not designed for critical systems use. By accepting to use the device you also accept full responsibility for all of the above. 
+MagicStick was professionally developed with love and attention to detail, following software engineering best practices. There is no guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment or to you directly or indirectly through its use. By accepting to use the device you also accept full responsibility for all of the above. 
 
 MagicStick hand-made Etsy devices are returnable and refundable as per the Etsy shop policy.
 
