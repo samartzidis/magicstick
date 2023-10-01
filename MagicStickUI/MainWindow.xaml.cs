@@ -275,8 +275,8 @@ namespace MagicStickUI
 
             var sb = new StringBuilder();
             sb.AppendLine($"MagicStickUI Version: {version?.Major}.{version?.Minor}.{version?.Build}.");
-            sb.AppendLine($"MagicStick Device Model: {SelectedDevice?.DeviceName ?? "disconnected"}.");
-            sb.AppendLine($"MagicStick Device Serial: {SelectedDevice?.DeviceSerialNumber ?? "disconnected"}.");
+            sb.AppendLine($"MagicStick.io Device Model: {SelectedDevice?.DeviceName ?? "disconnected"}.");
+            sb.AppendLine($"MagicStick.io Device Serial: {SelectedDevice?.DeviceSerialNumber ?? "disconnected"}.");
             Clipboard.SetText(sb.ToString());
 
             MessageBox.Show($"{sb}\r\nInformation copied to clipboard.", "MagicStickUI");
@@ -330,7 +330,7 @@ namespace MagicStickUI
                         if (piRoot == null)
                         {
                             _pbw.Close();
-                            MessageBox.Show("Update cancelled. Failed to detect MagicStick in update mode. Please unplug and re-insert your MagicStick device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Update cancelled. Failed to detect MagicStick.io in update mode. Please unplug and re-insert your MagicStick.io device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
 
@@ -347,13 +347,13 @@ namespace MagicStickUI
                     catch (Exception m)
                     {
                         _pbw.Close();
-                        MessageBox.Show($"Update cancelled. {m.Message}. Please unplug and re-insert your MagicStick device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Update cancelled. {m.Message}. Please unplug and re-insert your MagicStick.io device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show($"MagicStick device is running the latest firmware.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"MagicStick.io device is running the latest firmware.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         #endregion
