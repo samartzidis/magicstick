@@ -50,15 +50,19 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     <a href="docs/20230927213111.png"><img src="docs/20230927213111_tn.png" alt=""></a>
     </br>
     MagicStickUI</br>
-    settings
+    Settings
     </td>
     <td>
     <a href="docs/20230927210205.png"><img src="docs/20230927210205_tn.png" alt=""></a>
     </br>
     MagicStickUI</br>
-    battery indicator
+    Battery indicator
     </td>    
     <td>
+    <a href="docs/20230927211852.png"><img src="docs/20230927211852_tn.png" alt=""></a>
+    </br>
+    MagicStickUI</br>
+    Firmware update
     </td>
   </tr>
   </body>
