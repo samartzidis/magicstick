@@ -15,34 +15,34 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     <td>
     <a href="docs/front.png"><img src="docs/front_tn.png" alt=""></a>
     </br>
-    Keyboard port.
+    Keyboard port
     </td>
     <td>
     <a href="docs/side.png"><img src="docs/side_tn.png" alt=""></a>
     </br>
-    Side view.
+    Side view
     </td>
     <td>
     <a href="docs/wired.png"><img src="docs/wired_tn.png" alt=""></a>
     </br>
-    On wired</br>connection.
+    On wired</br>connection
     </td>
   </tr>
   <tr>
     <td>
     <a href="docs/wireless.png"><img src="docs/wireless_tn.png" alt=""></a>
     </br>
-    On wireless</br>BT connection.
+    On wireless</br>BT connection
     </td>
     <td>
     <a href="docs/open-1.png"><img src="docs/open-1_tn.png" alt=""></a>
     </br>
-    Inside wiring.
+    Inside
     </td>    
     <td>
     <a href="docs/open-2.png"><img src="docs/open-2_tn.png" alt=""></a>
     </br>
-    Inside wiring.
+    Inside
     </td>
   </tr>
   </body>
