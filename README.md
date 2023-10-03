@@ -1,11 +1,11 @@
 [![magicstick-logo](docs/magicstick-logo.png)](https://github.com/samartzidis/magicstick.io)
-###### Apple Keyboard USB Adapter for PCs
+###### Apple Keyboards USB Adapter for PC
 
 # About
 
 MagicStick.io is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or the older Apple Wireless) keyboard to a PC, providing the correct keymap translation for PCs. 
 
-That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual keyboard connection modes. Both wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux systems are also supported. Although most recent Linux distros already support Apple keyboard devices natively.
+That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual keyboard connection modes. Both wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Although most recent Linux distros already support Apple keyboard devices natively.
 
 Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
   
@@ -15,42 +15,60 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     <td>
     <a href="docs/front.png"><img src="docs/front_tn.png" alt=""></a>
     </br>
-    Keyboard port.
+    Keyboard port
     </td>
     <td>
     <a href="docs/side.png"><img src="docs/side_tn.png" alt=""></a>
     </br>
-    Side view.
+    Side view
     </td>
     <td>
     <a href="docs/wired.png"><img src="docs/wired_tn.png" alt=""></a>
     </br>
-    On wired</br>connection.
+    On wired</br>connection
     </td>
   </tr>
   <tr>
     <td>
     <a href="docs/wireless.png"><img src="docs/wireless_tn.png" alt=""></a>
     </br>
-    On wireless</br>BT connection.
+    On wireless</br>BT connection
     </td>
     <td>
     <a href="docs/open-1.png"><img src="docs/open-1_tn.png" alt=""></a>
     </br>
-    Inside wiring.
+    Inside
     </td>    
     <td>
     <a href="docs/open-2.png"><img src="docs/open-2_tn.png" alt=""></a>
     </br>
-    Inside wiring.
+    Inside
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <a href="docs/20230927213111.png"><img src="docs/20230927213111_tn.png" alt=""></a>
+    </br>
+    MagicStickUI</br>
+    settings
+    </td>
+    <td>
+    <a href="docs/20230927210205.png"><img src="docs/20230927210205_tn.png" alt=""></a>
+    </br>
+    MagicStickUI</br>
+    battery indicator
+    </td>    
+    <td>
     </td>
   </tr>
   </body>
 </table>
 
-This project started as a spare-time hobby, driven by my need to connect the ultra high quality but "eccentric" Apple keyboards to my PC, without having to develop any Windows kernel mode driver. This became reality after discovering the potential (speedy cores, powerful PIO subsystem, Bluetooth chip and software stack) of the RP2040 Pico board. Most importantly, the plastic case was designed together with my 6 y.o. daughter in the adult and children friendly 3dslash! :)
+This project started as a spare-time hobby, driven by my need to connect the ultra high quality but "eccentric" Apple keyboards to my PC, without having to develop any Windows kernel mode driver. This became reality after discovering the potential (speedy cores, powerful PIO subsystem, Bluetooth chip and software stack) of the RP2040 Pico board. The plastic case was designed together with my 6 y.o. daughter in the adult and children friendly 3dslash! :)
 
-You can order a hand-made "plug-and-play" MagicStick.io device from [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/your/shops/MagicStickIO)
+You can order a hand-made "plug-and-play" MagicStick.io device from: 
+
+[![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
 Software stuff, such as documentation, utilities and firmware updates are here.
 
@@ -88,7 +106,7 @@ The user manual is [here](docs/README.md).
 
 ## Compliance and Safety
 
-Technically, MagicStick.io just is a programmed Raspberry Pi Zero microcontroller. You can refer to this official link for further details on the compliance and safety of the Raspberry Pi Pico: https://pip.raspberrypi.com/categories/688
+Technically, MagicStick.io just is a programmed Raspberry Pi Pico W microcontroller. You can refer to this official link for the details on the [compliance and safety approvals](https://pip.raspberrypi.com/categories/688) of the Raspberry Pi Pico W.
 
 ## Disclaimer
 
