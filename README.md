@@ -45,6 +45,22 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     Inside
     </td>
   </tr>
+  <tr>
+    <td>
+    <a href="docs/20230927213111.png"><img src="docs/20230927213111_tn.png" alt=""></a>
+    </br>
+    MagicStickUI</br>
+    settings
+    </td>
+    <td>
+    <a href="docs/20230927210205.png"><img src="docs/20230927210205_tn.png" alt=""></a>
+    </br>
+    MagicStickUI</br>
+    battery indicator
+    </td>    
+    <td>
+    </td>
+  </tr>
   </body>
 </table>
 
