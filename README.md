@@ -53,10 +53,10 @@ The user manual is [here](docs/README.md).
 - MagicStick.io is a microcontroller-based device so it **works immediately** as soon as it is powered on. This allows you to use the keyboard as early as at the PC boot process, e.g. for accessing the BIOS/UEFI menus. Also since there is no Operating System driver required, the keyboard just works correctly in BIOS/UEFI mode.
 - MagicStick.io is **programmable** so that you can reposition almost all keys as you like.
 - MagicStick.io supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the MagicStickUI utility.
-- MagicStick.io is built with **security** in mind. It is locked down to standard keyboard HID API on the side that connects to the PC. The Bluetooth connection uses a licensed [BlueKitchen](https://bluekitchen-gmbh.com/) Bluetooth stack with Level 2 security enabled (wireless encryption). Additionally, Bluetooth can be disabled if needed.
+- MagicStick.io is built with **security** in mind. Its HID interface is open (see MagicStickUI GitHub source code) and locked down to a standard keyboard HID API on the side that connects to the PC plus a few extra reports for monitoring the battery level and configuring keys. The Bluetooth connection has Level 2 security enabled (wireless encryption). Additionally, Bluetooth can be completely disabled if needed via settings.
 - In contrast to other similar solutions (e.g. MagicUtilities), MagicStick.io has **no subscription fees** or any connected device restrictions. You own the device, and you can connect it to **as many keyboards or computers** as you like.
 - **PC sleep/wake-up** is supported and works **in both wired and Bluetooth** connection modes.
-- **Firmware updates**. Any future improvements, such as support for new keyboard models are easy to install and provided for free.
+- **Firmware updates**. Any future improvements, such as support for new keyboard models are easy to install and are provided for free.
 
 
 ## Compliance and Safety
