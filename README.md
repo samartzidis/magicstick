@@ -49,13 +49,13 @@ Additionally, any device that accepts conventional USB keyboards should work wit
     <td>
     <a href="docs/20230927213111.png"><img src="docs/20230927213111_tn.png" alt=""></a>
     </br>
-    MagicStickUI</br>
+    [MagicStickUI](https://github.com/samartzidis/magicstick.io/tree/main/docs#the-magicstickui-utility)</br>
     Settings
     </td>
     <td>
     <a href="docs/20230927210205.png"><img src="docs/20230927210205_tn.png" alt=""></a>
     </br>
-    MagicStickUI</br>
+    [MagicStickUI](https://github.com/samartzidis/magicstick.io/tree/main/docs#the-magicstickui-utility)</br>
     Battery indicator
     </td>    
     <td>
