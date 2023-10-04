@@ -8,65 +8,16 @@ MagicStick.io is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or t
 That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual keyboard connection modes. Both wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Although most recent Linux distros already support Apple keyboard devices natively.
 
 Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
-  
-<table>
-<body>
-  <tr>
-    <td>
-    <a href="docs/front.png"><img src="docs/front_tn.png" alt=""></a>
-    </br>
-    Keyboard port
-    </td>
-    <td>
-    <a href="docs/side.png"><img src="docs/side_tn.png" alt=""></a>
-    </br>
-    Side view
-    </td>
-    <td>
-    <a href="docs/wired.png"><img src="docs/wired_tn.png" alt=""></a>
-    </br>
-    On wired</br>connection
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <a href="docs/wireless.png"><img src="docs/wireless_tn.png" alt=""></a>
-    </br>
-    On wireless</br>BT connection
-    </td>
-    <td>
-    <a href="docs/open-1.png"><img src="docs/open-1_tn.png" alt=""></a>
-    </br>
-    Inside
-    </td>    
-    <td>
-    <a href="docs/open-2.png"><img src="docs/open-2_tn.png" alt=""></a>
-    </br>
-    Inside
-    </td>
-  </tr>
-  <tr>
-    <td>
-    <a href="docs/20230927213111.png"><img src="docs/20230927213111_tn.png" alt=""></a>
-    </br>
-    MagicStickUI</br>
-    Settings
-    </td>
-    <td>
-    <a href="docs/20230927210205.png"><img src="docs/20230927210205_tn.png" alt=""></a>
-    </br>
-    MagicStickUI</br>
-    Battery indicator
-    </td>    
-    <td>
-    <a href="docs/20230927211852.png"><img src="docs/20230927211852_tn.png" alt=""></a>
-    </br>
-    MagicStickUI</br>
-    Firmware update
-    </td>
-  </tr>
-  </body>
-</table>
+
+|                                  |                          |                                   |
+|----------------------------------|--------------------------|-----------------------------------|
+| [![Keyboard Port](docs/front_tn.png)](docs/front.png) | [![Side View](docs/side_tn.png)](docs/side.png) | [![On Wired Connection](docs/wired_tn.png)](docs/wired.png) |
+| Keyboard</br>USB port                    | Side view                | Wired</br>connection               |
+| [![On Wireless BT Connection](docs/wireless_tn.png)](docs/wireless.png) | [![Inside](docs/open-1_tn.png)](docs/open-1.png) | [![Inside](docs/open-2_tn.png)](docs/open-2.png) |
+| Wireless</br>connection        | RP2040                   | RP2040                            |
+| [![MagicStickUI Settings](docs/20230927213111_tn.png)](docs/20230927213111.png) | [![MagicStickUI Battery Indicator](docs/20230927210205_tn.png)](docs/20230927210205.png) | [![MagicStickUI Firmware Update](docs/20230927211852_tn.png)](docs/20230927211852.png) |
+| MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
+|                                  |                          |                                   |
 
 This project started as a spare-time hobby, driven by my need to connect the ultra high quality but "eccentric" Apple keyboards to my PC, without having to develop any Windows kernel mode driver. This became reality after discovering the potential (speedy cores, powerful PIO subsystem, Bluetooth chip and software stack) of the RP2040 Pico board. The plastic case was designed together with my 6 y.o. daughter in the adult and children friendly [3dslash](https://www.3dslash.net/)! :)
 
