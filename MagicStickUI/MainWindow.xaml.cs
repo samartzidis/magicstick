@@ -66,8 +66,6 @@ namespace MagicStickUI
                     UpdateDevice(SelectedDevice);
             });
             _updateTimer.Start();
-
-            throw new Exception("Ooops!");
         }
 
         
