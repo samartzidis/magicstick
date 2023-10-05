@@ -5,21 +5,22 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Windows;
+using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Events;
 
 namespace MagicStickUI
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private static Mutex? _mutex;
         private const string MutexName = "MagicStickUISingleInstanceMutex";
         private IHost? _host;
         private const string LogFileName = "magicstick-log.txt";
         private readonly string _logFilePath;
+        private Microsoft.Extensions.Logging.ILogger _logger;
 
         public App()
         {
@@ -39,12 +40,12 @@ namespace MagicStickUI
             if (File.Exists(_logFilePath))
                 File.Delete(_logFilePath);
 
-            Log.Logger = new LoggerConfiguration()
+            Serilog.Log.Logger = new Serilog.LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Debug)
+                .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Debug)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
-                .WriteTo.File(_logFilePath, rollingInterval: RollingInterval.Infinite)
+                .WriteTo.File(_logFilePath, rollingInterval: Serilog.RollingInterval.Infinite)
                 .CreateLogger();
             
             _host = Host.CreateDefaultBuilder(e.Args)
@@ -58,6 +59,8 @@ namespace MagicStickUI
                 })              
                 .UseSerilog()
                 .Build();
+
+            _logger = _host.Services.GetRequiredService<ILogger<App>>();
 
             _host.Start();
 
@@ -83,8 +86,9 @@ namespace MagicStickUI
             try 
             {
                 var e = (Exception)args.ExceptionObject;
-                Log.Logger.Error(e.ToString());
-                MessageBox.Show($"Sorry, MagicStickUI crashed. There is a crash log saved at: {_logFilePath}.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                _logger.LogError(e, e.ToString());
+
+                MessageBox.Show($"Sorry, MagicStickUI just crashed. There is a crash log saved at: {_logFilePath}.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
             } 
             catch 
             { 

@@ -9,19 +9,25 @@ namespace MagicStickUI
         private static Bitmap Battery => IsLightTheme ? GetBitmapResource("Battery.png") : GetBitmapResource("Battery_dark.png");
         private static Bitmap Missing => IsLightTheme ? GetBitmapResource("Missing.png") : GetBitmapResource("Missing_dark.png");
 
-        private static Bitmap MixBitmap(Bitmap battery, Bitmap indicator)
+        private static Bitmap MixBitmap(Image battery, Image indicator)
         {
-            var bitmap = new Bitmap(battery.Width, battery.Height, battery.PixelFormat);
-            bitmap.SetResolution(battery.HorizontalResolution, battery.VerticalResolution);
+            var bitmap = new Bitmap(battery.Width, battery.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
             using var canvas = Graphics.FromImage(bitmap);
-            canvas.DrawImage(battery, new Point(0, 0));
+
             canvas.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            canvas.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            canvas.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-            var x = (battery.Width - indicator.Width) / 2;
-            var y = (battery.Height - indicator.Height) / 2;
+            var scaleX = canvas.DpiX / battery.HorizontalResolution;
+            var scaleY = canvas.DpiY / battery.VerticalResolution;
 
-            canvas.DrawImage(indicator, x, y);
+            canvas.DrawImage(battery, 0, 0, battery.Width * scaleX, battery.Height * scaleY);
+
+            var x = (bitmap.Width - indicator.Width * scaleX) / 2;
+            var y = (bitmap.Height - indicator.Height * scaleY) / 2;
+
+            canvas.DrawImage(indicator, x, y, indicator.Width * scaleX, indicator.Height * scaleY);
 
             return bitmap;
         }
