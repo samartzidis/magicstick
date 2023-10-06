@@ -7,6 +7,8 @@ using System.Threading;
 using System.Windows;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace MagicStickUI
 {
@@ -30,7 +32,7 @@ namespace MagicStickUI
                 MessageBox.Show("Another instance of MagicStickUI is already running.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error );
                 Shutdown();
             }
-
+            
             _logFilePath = Path.Combine(Path.GetTempPath(), LogFileName);
             AppDomain.CurrentDomain.UnhandledException += CrashHandler;
         }
@@ -63,6 +65,8 @@ namespace MagicStickUI
             _logger = _host.Services.GetRequiredService<ILogger<App>>();
 
             _host.Start();
+
+            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             var mw = _host.Services.GetRequiredService<MainWindow>();
             mw.ShowActivated = false;

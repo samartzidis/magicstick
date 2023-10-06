@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
+using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Win32;
 
 namespace MagicStickUI
 {
-    public static class TrayIconUtil
+    public class TrayIconManager
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern bool DestroyIcon(IntPtr handle);
+
         private static Bitmap Battery => IsLightTheme ? GetBitmapResource("Battery.png") : GetBitmapResource("Battery_dark.png");
         private static Bitmap Missing => IsLightTheme ? GetBitmapResource("Missing.png") : GetBitmapResource("Missing_dark.png");
+
+        private readonly TaskbarIcon _tbi;
+
+        public TrayIconManager(TaskbarIcon tbi)
+        {
+            _tbi = tbi;
+        }
 
         private static Bitmap MixBitmap(Image battery, Image indicator)
         {
@@ -37,12 +49,7 @@ namespace MagicStickUI
             return MixBitmap(Battery, Missing);
         }
 
-        public static Icon ErrorIcon()
-        {
-            return Icon.FromHandle(ErrorBitMap().GetHicon());
-        }
-
-        public static Icon GenerateIcon(PresentationDevice device)
+        private static Icon CreateIcon(PresentationDevice device)
         {
             Bitmap output;
             if (device is not { Connected: true })
@@ -72,6 +79,19 @@ namespace MagicStickUI
 
             return Icon.FromHandle(output.GetHicon());
         }
+
+        public void UpdateTaskbarIcon(PresentationDevice? device)
+        {
+            var oldIcon = _tbi.Icon;
+            _tbi.Icon = device == null ? Icon.FromHandle(ErrorBitMap().GetHicon()) : CreateIcon(device);
+
+            if (oldIcon != null)
+            {
+                DestroyIcon(oldIcon.Handle);
+                oldIcon.Dispose();
+            }
+        }
+
         private static bool IsLightTheme
         {
             get
@@ -85,7 +105,7 @@ namespace MagicStickUI
 
         private static Bitmap GetBitmapResource(string resourceName)
         {
-            var asm = typeof(TrayIconUtil).Assembly;
+            var asm = typeof(TrayIconManager).Assembly;
             using var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".Resources." + resourceName);
             if (stream == null)
                 throw new InvalidOperationException($"Required resource \"{resourceName}\" not found.");

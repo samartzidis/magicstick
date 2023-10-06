@@ -1,6 +1,8 @@
-﻿using HidLibrary;
+﻿using Hardcodet.Wpf.TaskbarNotification;
+using HidLibrary;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 using Semver;
 using System;
 using System.Collections.Generic;
@@ -25,7 +27,7 @@ namespace MagicStickUI
         private const ushort UsageCharger = 0x14; // HID report USAGE (Charger)
         private const ushort UsagePageGenericDesktopControl = 0x01;
         private const ushort UsageVendorDefined = 0x00;
-        private const double UpdatePollPeriod = 5 * 1000; // 5 seconds
+        private const double UpdatePollPeriodMsec = 5 * 1000; // 5 seconds
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -36,6 +38,7 @@ namespace MagicStickUI
         private ProgressBarWindow? _pbw;
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
+        private readonly TrayIconManager _trayIcon;
 
         //[DependsOn(nameof(SelectedDevice))] 
         public bool HasSelectedDevice => SelectedDevice != null; //{ get; private set; }
@@ -46,7 +49,9 @@ namespace MagicStickUI
 
             _logger = logger;
             _loggerFactory = loggerFactory;
-            TaskbarIcon.Icon = TrayIconUtil.ErrorIcon();
+            _trayIcon = new TrayIconManager(TaskbarIcon);
+
+            _trayIcon.UpdateTaskbarIcon(null);
 
             DataContext = this;
 
@@ -57,9 +62,9 @@ namespace MagicStickUI
 
             PropertyChanged += OnPropertyChanged;
 
-            ScanDevices();            
+            ScanDevices();
 
-            _updateTimer.Interval = UpdatePollPeriod;
+            _updateTimer.Interval = UpdatePollPeriodMsec;
             _updateTimer.Elapsed += (s, e) => Application.Current.Dispatcher.Invoke(() =>
             {
                 if (SelectedDevice != null)
@@ -129,7 +134,7 @@ namespace MagicStickUI
                 }
                 else
                 {
-                    TaskbarIcon.Icon = TrayIconUtil.ErrorIcon();
+                    _trayIcon.UpdateTaskbarIcon(null);
                 }
 
                 _selectedDevice = value;
@@ -151,7 +156,7 @@ namespace MagicStickUI
         {
             if (dev == null)
                 return;
-
+            
             var hd = HidDevices.GetDevice(dev.ChargerDevicePathEndpoint);            
             if (hd is { IsConnected: true })
             {
@@ -176,7 +181,7 @@ namespace MagicStickUI
                 dev.Connected = false;
             }
 
-            TaskbarIcon.Icon = TrayIconUtil.GenerateIcon(dev);
+            _trayIcon.UpdateTaskbarIcon(dev);
         }
 
         private void ScanDevices()
