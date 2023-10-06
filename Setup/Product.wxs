@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?define ProductLineUpgradeCode = "808b4b5c-4334-478e-8f78-d6cbf329714d" ?>
+
+  <Product Id="*"
+           Name="MagicStickUI !(bind.FileVersion.MagicStickUI_exe)"
+           Language="1033"
+           Version="!(bind.FileVersion.MagicStickUI_exe)"
+           Manufacturer="George Samartzidis"
+           UpgradeCode="$(var.ProductLineUpgradeCode)">
+
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser"  InstallPrivileges="limited" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <MediaTemplate EmbedCab="yes" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+
+    <Feature Id="ProductFeature" Title="MagicStickUISetup" Level="1">
+      <ComponentRef Id="ApplicationFiles" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+    </Feature>
+
+    <Property Id="USER_FOLDER" >
+      <DirectorySearch Id="userProfileSearch" Depth="0" Path="[%USERPROFILE]" />
+    </Property>
+
+    <UIRef Id="WixUI_Minimal" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+
+      <Directory Id="USER_FOLDER">
+        <Directory Id="INSTALLFOLDER" Name="MagicStickUI">
+          <Component Id="ApplicationFiles" Guid="505590be-900e-415d-bafb-4ac552551510">
+            <File Id="MagicStickUI_exe" Name="MagicStickUI.exe" Source="$(var.MagicStickUIBin)" />
+          </Component>
+        </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="ApplicationShortcutDesktop" Guid="4014e103-cb6d-438a-8a5b-293240c21ed2">
+          
+          <Shortcut Id="ApplicationDesktopShortcut"
+                    Name="MagicStickUI.lnk"
+                    Target="[INSTALLFOLDER]MagicStickUI.exe"
+                    WorkingDirectory="INSTALLFOLDER"/>
+
+          <RemoveFile Id="CleanUpShortCut" Name="MagicStickUI.lnk" On="uninstall" />
+
+          <RegistryValue
+            Root="HKCU"
+            Key="Software\MagicStick.io\MagicStickUI"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+        </Component>
+      </Directory>
+
+    </Directory>
+
+  </Product>
+
+</Wix>
+
+
