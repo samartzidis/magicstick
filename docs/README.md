@@ -56,7 +56,7 @@ as well as to change the keyboard's special keys configuration. You can also use
 
 ![](20230927213111.png)
 
-Download the latest MagicStickUI version from the [magicstick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page. It is a single executable that needs no installer. Just save it on your Desktop or any other convenient folder location.
+Download the latest MagicStickUI msi installer version from the [magicstick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page.
 
 MagicStickUI is not available on Linux yet, but at least Linux has native support for showing the devices battery level. E.g. on Ubuntu Linux you can directly use the system's Settings application as shown below,
 
