@@ -212,10 +212,8 @@ namespace MagicStickUI
                 Devices.Add(dev);
             }
 
-            var found = Devices.FirstOrDefault(t =>
-                t.DeviceId == Properties.Settings.Default.LastSelectedDeviceId);
-            if (found != null)
-                SelectedDevice = found;
+            var found = Devices.FirstOrDefault(t => t.DeviceId == Properties.Settings.Default.LastSelectedDeviceId);
+            SelectedDevice = found ?? Devices.FirstOrDefault();
         }
 
         private PresentationDevice BuildPredentationDevice(string serial, List<HidDevice> hids)
