@@ -19,13 +19,13 @@ Additionally, any device that accepts conventional USB keyboards should work wit
 | MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
 |                                  |                          |                                   |
 
-This project started as a spare-time hobby, motivated by my need to connect the high-quality but "eccentric" Apple keyboards to my PC, without having to develop any Windows kernel-mode driver. This became a reality after discovering the potential (fast dual cores, a capable PIO subsystem, Bluetooth chip and software stack) of the RP2040 Pico board. The plastic case was designed together with my 6 y.o. daughter in the children-friendly [3dslash](https://www.3dslash.net/)! :)
+This project started as a spare-time hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
 
 You can order a hand-made "plug-and-play" magicstick.io device from: 
 
 [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
-Software stuff, such as documentation, utilities and firmware updates are here.
+Software stuff, such as documentation, utilities and firmware updates are on this page.
 
 ## User Manual
 
