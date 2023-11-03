@@ -317,7 +317,7 @@ namespace MagicStickUI
 
             if (currentVersion.ComparePrecedenceTo(latestVersion) < 0 || currentVersion.MetadataIdentifiers.Any(t => string.Equals(t, "debug", StringComparison.OrdinalIgnoreCase)))
             {
-                var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion} ?\r\n{msRelease.Notes}?", "MagicStickUI", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion}?", "MagicStickUI", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (res == MessageBoxResult.Yes)
                 {
                     _pbw = new ProgressBarWindow();

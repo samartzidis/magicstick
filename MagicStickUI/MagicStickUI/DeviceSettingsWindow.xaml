@@ -23,7 +23,7 @@
 
         <CheckBox HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Content="Swap Fn-Ctrl" IsChecked="{Binding SwapFnCtrl}"/>
         <CheckBox Content="Swap Alt-Cmd" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" IsChecked="{Binding SwapAltCmd}"/>
-        <CheckBox Content="Bluetooth Disabled" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="{Binding BluetoothDisabled}"/>
+        <CheckBox Content="Disable Bluetooth" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="{Binding BluetoothDisabled}"/>
 
         <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
             <Button IsDefault="True" Content="Set" HorizontalAlignment="Left" MinWidth="60" Margin="0,0,10,0" Click="Button_Click_Set"/>

@@ -29,11 +29,11 @@ namespace MagicStickUI
         
         public string? DeviceName { get; set; }
 
-        public double BatteryPercentage { get; set; }
+        public int BatteryPercentage { get; set; }
 
         public DateTime LastUpdate { get; private set; } = DateTime.MinValue;
         
         [DependsOn(nameof(DeviceName), nameof(BatteryPercentage), nameof(LastUpdate))]
-        public string TooltipString => Connected ? $"{DeviceName}, {BatteryPercentage:f2}%" : $"{DeviceName}, Disconnected";
+        public string TooltipString => Connected ? $"{DeviceName}, {BatteryPercentage}%" : $"{DeviceName}, Disconnected";
     }
 }

@@ -56,10 +56,10 @@
                     </MenuItem>
 
                     <MenuItem Header="Scan devices" Click="ScanDevices_OnClick"/>
-                    <MenuItem Header="Version info..." Click="GetInfo_OnClick" />
-                    <MenuItem Header="Device settings..." Click="DeviceSettings_OnClick" 
+                    <MenuItem Header="Version info" Click="GetInfo_OnClick" />
+                    <MenuItem Header="Settings" Click="DeviceSettings_OnClick" 
                               IsEnabled="{Binding HasSelectedDevice}"/>
-                    <MenuItem Header="Check for updates..." Click="CheckUpdate_OnClick" 
+                    <MenuItem Header="Check for updates" Click="CheckUpdate_OnClick" 
                               IsEnabled="{Binding HasSelectedDevice, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <MenuItem Header="Autostart with Windows" 
