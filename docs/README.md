@@ -132,7 +132,7 @@ You can delete a remapped key by pressing the <kbd>Fn</kbd>+<kbd>X</kbd> key com
 
 #### Deleting all the Remapped Keys
 
-To to delete all remapped keys one-off, you can just reset the device to factory settings by following [these steps](#reset).
+To delete all the remapped keys one-off, you can just reset the device to factory settings by following [these steps](#reset).
 
 #### Remapping of Special Keys
 
@@ -140,13 +140,13 @@ The previous sections explained how to remap standard keys such as letter keys. 
 
 ##### Swap Fn-Ctrl
 
-Can be done via the MagicStickUI utility or alternatively:
+This can be done via the MagicStickUI utility or alternatively:
 1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
 2. Press <kbd>Fn</kbd> or <kbd>Ctrl</kbd>
 
 ##### Swap Alt-Cmd
 
-Can be done via the MagicStickUI utility or alternatively:
+This can be done via the MagicStickUI utility or alternatively:
 1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
 2. Press <kbd>⌥ Alt/Option</kbd> or <kbd>⌘ Cmd</kbd>
 
@@ -155,7 +155,7 @@ Can be done via the MagicStickUI utility or alternatively:
 #### Firmware Update Using the MagicStickUI Utility
 This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run MagicStickUI.
 
-1. Right click on the MagicStickUI tray icon and select _"Check for updates..."_. 
+1. Right-click on the MagicStickUI tray icon and select _"Check for updates"_. 
 
    ![](20230927210205.png)
 
