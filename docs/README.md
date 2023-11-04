@@ -70,11 +70,11 @@ The LED is located at the diagram position marked **D**. The following table sum
 
 | LED Status | Meaning |
 |------------|---------|
-| LED is **on**. | A keyboard is connected via a wired or Bluetooth connection. |
+| LED is **on**. | A keyboard is connected via wired or Bluetooth connection. |
 | LED is **off**. | Device malfunction. |
-| LED is **flashing** non-stop. | Two possible and unrelated reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. Keyboard is in key **programming** mode, awaiting for you to press a key to program. |
-| **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection in or by Bluetooth. |
-| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired device via Bluetooth. |
+| LED is **flashing** non-stop. | Two possible reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. The keyboard is in key **programming** mode, waiting for you to press a key to program. |
+| **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection or Bluetooth. |
+| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired keyboard via Bluetooth. |
 | **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. magicstick.io Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
 
 ## Keymap
