@@ -70,11 +70,11 @@ The LED is located at the diagram position marked **D**. The following table sum
 
 | LED Status | Meaning |
 |------------|---------|
-| LED is **on**. | A keyboard is connected via a wired or Bluetooth connection. |
+| LED is **on**. | A keyboard is connected via wired or Bluetooth connection. |
 | LED is **off**. | Device malfunction. |
-| LED is **flashing** non-stop. | Two possible and unrelated reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. Keyboard is in key **programming** mode, awaiting for you to press a key to program. |
-| **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection in or by Bluetooth. |
-| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired device via Bluetooth. |
+| LED is **flashing** non-stop. | Two possible reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. The keyboard is in key **programming** mode, waiting for you to press a key to program. |
+| **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection or Bluetooth. |
+| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired keyboard via Bluetooth. |
 | **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. magicstick.io Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
 
 ## Keymap
@@ -132,7 +132,7 @@ You can delete a remapped key by pressing the <kbd>Fn</kbd>+<kbd>X</kbd> key com
 
 #### Deleting all the Remapped Keys
 
-To to delete all remapped keys one-off, you can just reset the device to factory settings by following [these steps](#reset).
+To delete all the remapped keys one-off, you can just reset the device to factory settings by following [these steps](#reset).
 
 #### Remapping of Special Keys
 
@@ -140,13 +140,13 @@ The previous sections explained how to remap standard keys such as letter keys. 
 
 ##### Swap Fn-Ctrl
 
-Can be done via the MagicStickUI utility or alternatively:
+This can be done via the MagicStickUI utility or alternatively:
 1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
 2. Press <kbd>Fn</kbd> or <kbd>Ctrl</kbd>
 
 ##### Swap Alt-Cmd
 
-Can be done via the MagicStickUI utility or alternatively:
+This can be done via the MagicStickUI utility or alternatively:
 1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
 2. Press <kbd>⌥ Alt/Option</kbd> or <kbd>⌘ Cmd</kbd>
 
@@ -155,7 +155,7 @@ Can be done via the MagicStickUI utility or alternatively:
 #### Firmware Update Using the MagicStickUI Utility
 This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run MagicStickUI.
 
-1. Right click on the MagicStickUI tray icon and select _"Check for updates..."_. 
+1. Right-click on the MagicStickUI tray icon and select _"Check for updates"_. 
 
    ![](20230927210205.png)
 
