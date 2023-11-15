@@ -28,9 +28,7 @@ namespace MagicStickUI
         public DateTimeOffset Timestamp { get; set; }
         public string? ETag { get; set; }
 
-
         public string? Filename { get; set; }
-        public string? Notes { get; set; }
         public bool Latest { get; set; }
         public string? SemVer { get; set; }
     }

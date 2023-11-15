@@ -27,11 +27,8 @@ namespace MagicStickUI
         public App()
         {
             _mutex = new Mutex(true, MutexName, out var createdNew);
-            if (!createdNew)
-            {
-                MessageBox.Show("Another instance of MagicStickUI is already running.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error );
-                Shutdown();
-            }
+            if (!createdNew)            
+                Shutdown(); // Instance already running            
             
             _logFilePath = Path.Combine(Path.GetTempPath(), LogFileName);
             AppDomain.CurrentDomain.UnhandledException += CrashHandler;
@@ -92,7 +89,7 @@ namespace MagicStickUI
                 var e = (Exception)args.ExceptionObject;
                 _logger.LogError(e, e.ToString());
 
-                MessageBox.Show($"Sorry, MagicStickUI just crashed. There is a crash log saved at: {_logFilePath}.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Sorry, {Constants.AppName} just crashed. There is a crash log saved at: {_logFilePath}.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
             } 
             catch 
             { 

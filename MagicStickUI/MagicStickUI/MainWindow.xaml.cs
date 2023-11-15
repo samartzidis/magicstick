@@ -277,12 +277,11 @@ namespace MagicStickUI
             var version = typeof(MainWindow).Assembly.GetName().Version;
 
             var sb = new StringBuilder();
-            sb.AppendLine($"MagicStickUI Version: {version?.Major}.{version?.Minor}.{version?.Build}.");
-            sb.AppendLine($"MagicStick.io Device Model: {SelectedDevice?.DeviceName ?? "disconnected"}.");
-            sb.AppendLine($"MagicStick.io Device Serial: {SelectedDevice?.DeviceSerialNumber ?? "disconnected"}.");
-            Clipboard.SetText(sb.ToString());
+            sb.AppendLine($"MagicStickUI version: {version?.Major}.{version?.Minor}.{version?.Build}.");
+            sb.AppendLine($"Device model: {SelectedDevice?.DeviceName ?? "disconnected"}.");
+            sb.AppendLine($"Device serial: {SelectedDevice?.DeviceSerialNumber ?? "disconnected"}.");
 
-            MessageBox.Show($"{sb}\r\nInformation copied to clipboard.", "MagicStickUI");
+            MessageBox.Show(sb.ToString(), "MagicStickUI");
         }
 
         private void DeviceSettings_OnClick(object sender, RoutedEventArgs e)
@@ -307,7 +306,7 @@ namespace MagicStickUI
             }
             catch (Exception m)
             {
-                MessageBox.Show($"Update cancelled. Failed to check for updates ({m.Message}).", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Update cancelled. Failed to check for updates ({m.Message}).", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -317,7 +316,7 @@ namespace MagicStickUI
 
             if (currentVersion.ComparePrecedenceTo(latestVersion) < 0 || currentVersion.MetadataIdentifiers.Any(t => string.Equals(t, "debug", StringComparison.OrdinalIgnoreCase)))
             {
-                var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion}?", "MagicStickUI", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion}?", Constants.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (res == MessageBoxResult.Yes)
                 {
                     _pbw = new ProgressBarWindow();
@@ -325,7 +324,7 @@ namespace MagicStickUI
                     _pbw.Owner = this;
                     _pbw.Show();
 
-                    MessageBox.Show("As an extra security measure, please approve the firmware update by pressing together [Fn]+[Right Shift]+[Eject] or [Lock] on your keyboard and click OK.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("As an extra security measure, please approve the firmware update by pressing together [Fn]+[Right Shift]+[Eject] or [Lock] on your keyboard and click OK.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     try
                     {                                         
@@ -333,7 +332,7 @@ namespace MagicStickUI
                         if (piRoot == null)
                         {
                             _pbw.Close();
-                            MessageBox.Show("Update cancelled. Failed to detect MagicStick.io in update mode. Please unplug and re-insert your MagicStick.io device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Update cancelled. Failed to detect MagicStick.io in update mode. Please unplug and re-insert your MagicStick.io device.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
 
@@ -345,18 +344,18 @@ namespace MagicStickUI
                             });
 
                         _pbw.Close();
-                        MessageBox.Show("Update completed successfully.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Update completed successfully.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception m)
                     {
                         _pbw.Close();
-                        MessageBox.Show($"Update cancelled. {m.Message}. Please unplug and re-insert your MagicStick.io device.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Update cancelled. {m.Message}. Please unplug and re-insert your MagicStick.io device.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show($"MagicStick.io device is running the latest firmware.", "MagicStickUI", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Your device is running the latest firmware.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         #endregion

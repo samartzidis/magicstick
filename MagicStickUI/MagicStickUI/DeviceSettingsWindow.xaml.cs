@@ -28,7 +28,7 @@ namespace MagicStickUI
                 return;
             else
             {
-                MessageBox.Show("Failed to read device status", "MagicStickUI");
+                MessageBox.Show("Failed to read device status", Constants.AppName);
                 Close();
             }
         }
@@ -52,7 +52,7 @@ namespace MagicStickUI
             var ctrl = new DeviceCtrl(_loggerFactory.CreateLogger<DeviceCtrl>(), Device);
 
             if (!ctrl.SetConfig(SwapFnCtrl, SwapAltCmd, BluetoothDisabled))
-                MessageBox.Show("Failed to update device", "MagicStickUI");
+                MessageBox.Show("Failed to update device", Constants.AppName);
 
             Close();
         }
