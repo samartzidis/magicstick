@@ -23,11 +23,11 @@ You can order a hand-made "plug-and-play" magicstick.io device from:
 
 [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
-Software stuff, such as documentation, utilities and firmware updates are on this page.
+Supporting software, utilities and documentation will be provided on this page.
 
 ## User Manual
 
-The user manual is [here](docs/README.md).
+The magicstick.io user manual is available [here](docs/README.md).
 
 ## Supported Apple Keyboard Models
 
