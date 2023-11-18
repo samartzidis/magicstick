@@ -7,13 +7,14 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\App.ico</ApplicationIcon>
     <IsPackable>false</IsPackable>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\Battery.png" />
     <None Remove="Resources\Battery_dark.png" />
+    <None Remove="Resources\Chip.png" />
     <None Remove="Resources\Indicator_1.png" />
     <None Remove="Resources\Indicator_10.png" />
     <None Remove="Resources\Indicator_100.png" />
@@ -56,6 +57,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Battery.png" />
     <EmbeddedResource Include="Resources\Battery_dark.png" />
+    <Resource Include="Resources\Chip.png" />
     <EmbeddedResource Include="Resources\Indicator_1.png" />
     <EmbeddedResource Include="Resources\Indicator_10.png" />
     <EmbeddedResource Include="Resources\Indicator_100.png" />

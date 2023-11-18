@@ -63,7 +63,7 @@ namespace MagicStickUI
 
             _host.Start();
 
-            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
+            //RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
             var mw = _host.Services.GetRequiredService<MainWindow>();
             mw.ShowActivated = false;

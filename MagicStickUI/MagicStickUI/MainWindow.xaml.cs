@@ -1,8 +1,6 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
-using HidLibrary;
+﻿using HidLibrary;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
-using Newtonsoft.Json.Linq;
 using Semver;
 using System;
 using System.Collections.Generic;
@@ -13,6 +11,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -319,37 +319,45 @@ namespace MagicStickUI
                 var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion}?", Constants.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (res == MessageBoxResult.Yes)
                 {
+                    var updateCancellationTokenSource = new CancellationTokenSource();
                     _pbw = new ProgressBarWindow();
-                    _pbw.Title = $"Flashing {msRelease.SemVer} ...";
-                    _pbw.Owner = this;
+                    _pbw.Title = Constants.AppName;
+                    _pbw.Owner = this;                    
+                    _pbw.Closed += (o, a) => updateCancellationTokenSource.Cancel();
+                    _pbw.SetUserText("Press [Fn] + [Right Shift] + [Eject or Lock] to begin...");
+
                     _pbw.Show();
 
-                    MessageBox.Show("As an extra security measure, please approve the firmware update by pressing together [Fn]+[Right Shift]+[Eject] or [Lock] on your keyboard and click OK.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
-
                     try
-                    {                                         
-                        var piRoot = await Util.GetRpDriveRoot();
+                    {
+                        var piRoot = await Util.GetRpDriveRoot(60, updateCancellationTokenSource.Token);
                         if (piRoot == null)
                         {
                             _pbw.Close();
-                            MessageBox.Show("Update cancelled. Failed to detect MagicStick.io in update mode. Please unplug and re-insert your MagicStick.io device.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Update cancelled. Failed to detect device in update mode.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
+
+                        _pbw.SetUserText($"Flashing: {msRelease.SemVer}...");
 
                         var downloadUri = string.Format(Properties.Settings.Default.DownloadUriTemplate, deviceId, msRelease.Filename);
                         await Util.DownloadFileAsync(downloadUri,
                             Path.Combine(piRoot, msRelease.Filename), p =>
                             {
-                                _pbw.UpdateProgress((int)p);
+                                _pbw.SetProgress((int)p);
                             });
 
                         _pbw.Close();
                         MessageBox.Show("Update completed successfully.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
+                    catch (TaskCanceledException)
+                    {
+                        MessageBox.Show("Update cancelled by user.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                     catch (Exception m)
                     {
                         _pbw.Close();
-                        MessageBox.Show($"Update cancelled. {m.Message}. Please unplug and re-insert your MagicStick.io device.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Update cancelled. {m.Message}.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -358,6 +366,7 @@ namespace MagicStickUI
                 MessageBox.Show("Your device is running the latest firmware.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
         #endregion
     }
 

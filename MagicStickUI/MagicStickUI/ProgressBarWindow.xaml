@@ -6,16 +6,18 @@
         xmlns:local="clr-namespace:MagicStickUI"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Please Wait..." Height="80" Width="400" Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None">
+        Title="Please Wait..." Height="100" Width="400" Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <ProgressBar Grid.Column="0" Grid.Row="0"
                      Name="pbLoad"
                      Visibility="Visible"
                      Margin="12, 4" Height="24"
                      Value="0" Minimum="0" Maximum="100"/>
+        
         <StackPanel Grid.Column="0" Grid.Row="0"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -23,5 +25,7 @@
                        Text="{Binding ElementName=pbLoad, Path=Value, StringFormat={}{0:0}%}" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
+        <TextBlock Grid.Row="1" Name="tbText"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10"/>
     </Grid>
 </Window>

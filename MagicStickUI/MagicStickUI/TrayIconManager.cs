@@ -11,8 +11,8 @@ namespace MagicStickUI
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern bool DestroyIcon(IntPtr handle);
 
-        private static Bitmap Battery => IsLightTheme ? GetBitmapResource("Battery.png") : GetBitmapResource("Battery_dark.png");
-        private static Bitmap Missing => IsLightTheme ? GetBitmapResource("Missing.png") : GetBitmapResource("Missing_dark.png");
+        private static Bitmap Battery => IsLightTheme ? Util.GetBitmapResource("Battery.png") : Util.GetBitmapResource("Battery_dark.png");
+        private static Bitmap Missing => IsLightTheme ? Util.GetBitmapResource("Missing.png") : Util.GetBitmapResource("Missing_dark.png");
 
         private readonly TaskbarIcon _tbi;
 
@@ -60,17 +60,17 @@ namespace MagicStickUI
             {
                 var indicator = device.BatteryPercentage switch
                 {
-                    > 95 => GetBitmapResource("Indicator_100.png"),
-                    > 90 => GetBitmapResource("Indicator_90.png"),
-                    > 80 => GetBitmapResource("Indicator_80.png"),
-                    > 70 => GetBitmapResource("Indicator_70.png"),
-                    > 60 => GetBitmapResource("Indicator_60.png"),
-                    > 50 => GetBitmapResource("Indicator_50.png"),
-                    > 40 => GetBitmapResource("Indicator_40.png"),
-                    > 30 => GetBitmapResource("Indicator_30.png"),
-                    > 20 => GetBitmapResource("Indicator_20.png"),
-                    > 10 => GetBitmapResource("Indicator_10.png"),
-                    > 0 => GetBitmapResource("Indicator_1.png"),
+                    > 95 => Util.GetBitmapResource("Indicator_100.png"),
+                    > 90 => Util.GetBitmapResource("Indicator_90.png"),
+                    > 80 => Util.GetBitmapResource("Indicator_80.png"),
+                    > 70 => Util.GetBitmapResource("Indicator_70.png"),
+                    > 60 => Util.GetBitmapResource("Indicator_60.png"),
+                    > 50 => Util.GetBitmapResource("Indicator_50.png"),
+                    > 40 => Util.GetBitmapResource("Indicator_40.png"),
+                    > 30 => Util.GetBitmapResource("Indicator_30.png"),
+                    > 20 => Util.GetBitmapResource("Indicator_20.png"),
+                    > 10 => Util.GetBitmapResource("Indicator_10.png"),
+                    > 0 => Util.GetBitmapResource("Indicator_1.png"),
                     _ => Missing
                 };
 
@@ -101,15 +101,6 @@ namespace MagicStickUI
 
                 return regFlag != 0;
             }
-        }
-
-        private static Bitmap GetBitmapResource(string resourceName)
-        {
-            var asm = typeof(TrayIconManager).Assembly;
-            using var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".Resources." + resourceName);
-            if (stream == null)
-                throw new InvalidOperationException($"Required resource \"{resourceName}\" not found.");
-            return new Bitmap(stream);
         }
     }
 }

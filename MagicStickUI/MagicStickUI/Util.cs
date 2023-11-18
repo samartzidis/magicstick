@@ -1,16 +1,18 @@
 ﻿using Semver;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MagicStickUI
 {
     public static class Util
     {
-        public static async Task<string?> GetRpDriveRoot()
+        public static async Task<string?> GetRpDriveRoot(int maxWaitSec = 10, CancellationToken ct = default)
         {
-            for (int k = 0; k < 10; k++)
+            for (int k = 0; k < maxWaitSec && !ct.IsCancellationRequested; k++)
             {
                 var allDrives = DriveInfo.GetDrives();
                 foreach (DriveInfo drive in allDrives)
@@ -19,10 +21,19 @@ namespace MagicStickUI
                         return drive.RootDirectory.FullName;
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(1000, ct);
             }
 
             return null;
+        }
+
+        public static Bitmap GetBitmapResource(string resourceName)
+        {
+            var asm = typeof(TrayIconManager).Assembly;
+            using var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".Resources." + resourceName);
+            if (stream == null)
+                throw new InvalidOperationException($"Required resource \"{resourceName}\" not found.");
+            return new Bitmap(stream);
         }
 
         public static SemVersion GetSemVerFromDeviceName(string deviceName)
