@@ -17,7 +17,9 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 | MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
 |                                  |                          |                                   |
 
-This project started as a spare-time hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
+This project started as a hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
+
+# How to get a magicstick.io Device
 
 You can order a hand-made _plug-and-play_ magicstick.io device from: 
 
@@ -27,7 +29,7 @@ Supporting software, utilities and documentation will be provided on this page.
 
 ## User Manual
 
-The magicstick.io user manual is available [here](docs/README.md).
+For the user manual please visit [here](docs/README.md).
 
 ## Supported Apple Keyboard Models
 
