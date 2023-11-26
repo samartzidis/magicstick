@@ -3,7 +3,7 @@
 
 # About
 
-magicstick.io is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or the older Apple Wireless) keyboard to a PC, providing the correct keymap translation. 
+magicstick.io is a USB stick adapter for connecting any Apple keyboard (Magic 1, Magic 2 or the older Apple Wireless) to a PC, providing the correct keymap translation.
 
 That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Although most recent Linux distros already support Apple keyboard devices natively. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
@@ -19,7 +19,7 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 
 This project started as a spare-time hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
 
-You can order a hand-made "plug-and-play" magicstick.io device from: 
+You can order a hand-made _plug-and-play_ magicstick.io device from: 
 
 [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
