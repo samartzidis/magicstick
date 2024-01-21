@@ -3,7 +3,7 @@
 
 # About
 
-magicstick.io is a USB stick adapter to connect any Apple (Magic 1, Magic 2 or the older Apple Wireless) keyboard to a PC, providing the correct keymap translation. 
+magicstick.io is a USB stick adapter for connecting any Apple keyboard (Magic 1, Magic 2 or the older Apple Wireless) to a PC, providing the correct keymap translation.
 
 That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Although most recent Linux distros already support Apple keyboard devices natively. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
@@ -17,9 +17,11 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 | MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
 |                                  |                          |                                   |
 
-This project started as a spare-time hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
+This project started as a hobby. I wanted to use my Apple keyboard on Windows, without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). The RP2040 Pico board was the perfect platform for developing this due to its fast dual cores, a powerful PIO subsystem (for supporting the second USB stack) and a Bluetooth chip and Bluetooth software stack (for supporting optional wireless operation). These features allowed me to fully implement a device with that functionality without any extra hardware components!
 
-You can order a hand-made "plug-and-play" magicstick.io device from: 
+## How to get a magicstick.io Device
+
+You can order a hand-made _plug-and-play_ magicstick.io device from: 
 
 [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
@@ -27,7 +29,7 @@ Supporting software, utilities and documentation will be provided on this page.
 
 ## User Manual
 
-The magicstick.io user manual is available [here](docs/README.md).
+For the user manual please visit [here](docs/README.md).
 
 ## Supported Apple Keyboard Models
 
@@ -63,7 +65,7 @@ Technically, magicstick.io just is a programmed Raspberry Pi Pico W microcontrol
 
 ## Disclaimer
 
-magicstick.io was professionally developed with love and attention to detail, following software engineering best practices. There is no 100% guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment (including explosions, earthquakes and floods) or to you directly or indirectly through its use. By accepting to use the device and related software you also accept full responsibility for all of the above. Obviously if you get a magicstick.io device from Etsy it is returnable and refundable based on the associated Etsy policy.
+magicstick.io was professionally developed with love and attention to detail, following software engineering best practices. There is no 100% guarantee however that it will work for your particular setup neither I accept responsibility for anything going wrong to your equipment (including explosions, earthquakes and floods) or to you directly or indirectly through its use. By accepting to use the device and related software you also accept full responsibility for all of the above. When you order a magicstick.io device from _Etsy_, it is returnable and refundable based on the associated _Etsy_ site policy.
 
 
  
