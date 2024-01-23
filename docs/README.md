@@ -24,7 +24,7 @@ The micro-USB connection labelled **B** must be connected to one of your PC's US
 
 #### Connecting the Newer A1644, A2450, A2449 Keyboards
 
-Connecting any these keyboards is pretty straightforward. 
+Connecting any of these keyboards is pretty straightforward. 
 
 1. Remove any keyboard currently plugged-in to magicstick.io.
 2. Turn the keyboard off and then on again. 
