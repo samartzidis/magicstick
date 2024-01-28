@@ -29,7 +29,7 @@ Supporting software, utilities and documentation are on this page.
 
 ## User Manual
 
-For the user manual please visit [here](docs/README.md).
+The user manual is [here](docs/README.md).
 
 ## Supported Apple Keyboard Models
 
