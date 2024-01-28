@@ -1,11 +1,11 @@
 [![magicstick-logo](docs/magicstick-logo.png)](https://github.com/samartzidis/magicstick.io)
-###### Apple Keyboard USB Adapter for PC
+###### Apple Keyboard USB Adapter
 
 # About
 
-magicstick.io is a USB stick adapter for connecting any Apple keyboard (Magic 1, Magic 2 or the older Apple Wireless) to a PC, providing the correct keymap translation.
+**magicstick.io** is a zero-hassle USB stick adapter for connecting Apple keyboards (Magic 1, Magic 2 or the older Apple Wireless) to PCs, game consoles, smart TVs, etc. providing the correct keymap translation.
 
-That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Although most recent Linux distros already support Apple keyboard devices natively. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
+That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
 |                                  |                          |                                   |
 |----------------------------------|--------------------------|-----------------------------------|
