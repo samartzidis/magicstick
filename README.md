@@ -25,7 +25,7 @@ You can order a hand-made _plug-and-play_ magicstick.io device from:
 
 [![magicstick-logo](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
-Supporting software, utilities and documentation will be provided on this page.
+Supporting software, utilities and documentation are on this page.
 
 ## User Manual
 
