@@ -8,8 +8,8 @@
 | Label | Description |
 | -------- | ------- |
 | **A** | **Keyboard** connection, USB Type-A port. |
-| **B** | **BOOTSEL**/**RESET** button. |
-| **C** | **PC** connection, micro-USB port. |
+| **B** | **PC** connection, micro-USB port. |
+| **C** | **BOOTSEL**/**RESET** button. |
 | **D** | Operation **LED** |
 
 ## Connecting a Keyboard
