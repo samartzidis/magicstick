@@ -60,7 +60,7 @@ The user manual is [here](docs/README.md).
 
 ## Compliance and Safety
 
-Technically, magicstick.io is just a programmed Raspberry Pi Pico W microcontroller. Please refer to this official link for details on [compliance and safety approvals](https://pip.raspberrypi.com/categories/688).
+The magicstick.io hardware is based on a programmed Raspberry Pi Pico W microcontroller. Please refer to this official link for details on [compliance and safety approvals](https://pip.raspberrypi.com/categories/688).
 
 ## Disclaimer
 
