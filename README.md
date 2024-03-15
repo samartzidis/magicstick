@@ -19,8 +19,6 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 
 This project started as a hobby. I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
 
-The RP2040 Pico board was the perfect hardware platform for developing this due to its fast dual cores, powerful PIO subsystem (for the second USB stack), Bluetooth chip and complete Bluetooth software stack (for supporting optional wireless operation). These features allowed me to implement everything without any extra hardware components!
-
 ## How to get a magicstick.io Device
 
 You can order a hand-made _plug-and-play_ magicstick.io device from: 
