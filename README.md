@@ -12,7 +12,7 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 | [![Keyboard Port](docs/front_tn.png)](docs/front.png) | [![Side View](docs/side_tn.png)](docs/side.png) | [![On Wired Connection](docs/wired_tn.png)](docs/wired.png) |
 | Keyboard</br>USB port                    | Side view                | Wired</br>connection               |
 | [![On Wireless BT Connection](docs/wireless_tn.png)](docs/wireless.png) | [![Inside](docs/open-1_tn.png)](docs/open-1.png) | [![Inside](docs/open-2_tn.png)](docs/open-2.png) |
-| Wireless</br>connection        | RP2040                   | RP2040                            |
+| Wireless</br>connection        | Inside                   | Inside                            |
 | [![MagicStickUI Settings](docs/20230927213111_tn.png)](docs/20230927213111.png) | [![MagicStickUI Battery Indicator](docs/20230927210205_tn.png)](docs/20230927210205.png) | [![MagicStickUI Firmware Update](docs/20230927211852_tn.png)](docs/20230927211852.png) |
 | MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
 |                                  |                          |                                   |
