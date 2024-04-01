@@ -6,8 +6,8 @@
 - Fixed F1,F2 to allow brightness control.
 
 _Upgrade Notes:_
-- MagicStickUI v1.1+ required.
-- After flash with new firmware, a device reset is required.
+- [MagicStickUI](https://github.com/samartzidis/magicstick.io/releases) v1.1 upgrade required.
+- After flash with new firmware, a [device reset is required](https://github.com/samartzidis/magicstick.io/blob/main/docs/README.md#factory-resetting-the-device).
 
 ###### magicstick.1.0.42+release.2808866
 - Initial release.
