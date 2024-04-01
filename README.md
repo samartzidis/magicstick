@@ -31,6 +31,10 @@ Supporting software, utilities and documentation are on this page.
 
 The user manual is [here](docs/README.md).
 
+## Firmware Release Notes
+
+The firmware release notes are [here](release-notes.md).
+
 ## Supported Apple Keyboard Models
 
 | Model | Status |
