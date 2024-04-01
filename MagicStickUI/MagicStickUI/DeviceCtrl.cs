@@ -12,7 +12,8 @@ namespace MagicStickUI
         {
             SwapFnCtrl = 0x01,
             SwapAltCmd = 0x02,
-            BluetoothDisabled = 0x04
+            BluetoothDisabled = 0x04,
+            FKeysMultimediaModeEnabled = 0x10
         }
 
         enum HidControlCommand : byte
@@ -32,13 +33,14 @@ namespace MagicStickUI
             _device = device;
         }
 
-        public bool GetConfig(out bool swapFnCtrl, out bool swapAltCmd, out bool bluetoothDisabled)
+        public bool GetConfig(out bool swapFnCtrl, out bool swapAltCmd, out bool bluetoothDisabled, out bool fKeysMultimediaModeEnabled)
         {
             _logger.LogDebug("GetConfig");
 
             swapFnCtrl = false;
             swapAltCmd = false;
             bluetoothDisabled = false;
+            fKeysMultimediaModeEnabled = false;
 
             var hd = HidDevices.GetDevice(_device.ControlDevicePathEndpoint);
             if (hd is not { IsConnected: true })
@@ -56,6 +58,7 @@ namespace MagicStickUI
                     swapFnCtrl = hidConfigValue.HasFlag(HidConfig.SwapFnCtrl);
                     swapAltCmd = hidConfigValue.HasFlag(HidConfig.SwapAltCmd);
                     bluetoothDisabled = hidConfigValue.HasFlag(HidConfig.BluetoothDisabled);
+                    fKeysMultimediaModeEnabled = hidConfigValue.HasFlag(HidConfig.FKeysMultimediaModeEnabled);
                 }
                 else
                 {
@@ -70,7 +73,7 @@ namespace MagicStickUI
             return true;
         }
 
-        public bool SetConfig(bool swapFnCtrl, bool swapAltCmd, bool bluetoothDisabled)
+        public bool SetConfig(bool swapFnCtrl, bool swapAltCmd, bool bluetoothDisabled, bool fKeysMultimediaModeEnabled)
         {
             _logger.LogDebug("SetConfig");
 
@@ -87,7 +90,11 @@ namespace MagicStickUI
                 report.ReportId = 0x11;
                 report.Data = new byte[10];
                 report.Data[0] = (byte)HidControlCommand.SetConfig;
-                report.Data[1] = (byte)((swapFnCtrl ? HidConfig.SwapFnCtrl : 0) | (swapAltCmd ? HidConfig.SwapAltCmd : 0) | (bluetoothDisabled ? HidConfig.BluetoothDisabled : 0));
+                report.Data[1] = (byte)((swapFnCtrl ? HidConfig.SwapFnCtrl : 0) 
+                    | (swapAltCmd ? HidConfig.SwapAltCmd : 0) 
+                    | (bluetoothDisabled ? HidConfig.BluetoothDisabled : 0)
+                    | (fKeysMultimediaModeEnabled ? HidConfig.FKeysMultimediaModeEnabled : 0));
+
                 if (!hd.WriteReport(report))
                     return false;
 

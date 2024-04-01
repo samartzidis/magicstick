@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\App.ico</ApplicationIcon>
     <IsPackable>false</IsPackable>
-    <Version>1.0.8</Version>
+    <Version>1.1.0</Version>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
 

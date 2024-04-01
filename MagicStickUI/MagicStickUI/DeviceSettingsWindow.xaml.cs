@@ -10,6 +10,7 @@ namespace MagicStickUI
         public bool SwapFnCtrl { get; set; }
         public bool SwapAltCmd { get; set; }
         public bool BluetoothDisabled { get; set; }
+        public bool FKeysMultimediaModeEnabled { get; set; }
 
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
@@ -37,12 +38,13 @@ namespace MagicStickUI
         {
             var ctrl = new DeviceCtrl(_loggerFactory.CreateLogger<DeviceCtrl>(), Device);
 
-            if (!ctrl.GetConfig(out var swapFnCtrl, out var swapAltCmd, out var bluetoothDisabled))
+            if (!ctrl.GetConfig(out var swapFnCtrl, out var swapAltCmd, out var bluetoothDisabled, out var fKeysMultimediaModeEnabled))
                 return false;
 
             SwapFnCtrl = swapFnCtrl;
             SwapAltCmd = swapAltCmd;
             BluetoothDisabled = bluetoothDisabled;
+            FKeysMultimediaModeEnabled = fKeysMultimediaModeEnabled;
 
             return true;
         }
@@ -51,7 +53,7 @@ namespace MagicStickUI
         {
             var ctrl = new DeviceCtrl(_loggerFactory.CreateLogger<DeviceCtrl>(), Device);
 
-            if (!ctrl.SetConfig(SwapFnCtrl, SwapAltCmd, BluetoothDisabled))
+            if (!ctrl.SetConfig(SwapFnCtrl, SwapAltCmd, BluetoothDisabled, FKeysMultimediaModeEnabled))
                 MessageBox.Show("Failed to update device", Constants.AppName);
 
             Close();
