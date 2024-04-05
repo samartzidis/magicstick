@@ -9,7 +9,7 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 
 |                                  |                          |                                   |
 |----------------------------------|--------------------------|-----------------------------------|
-| <a href="docs/front.png"><img src="docs/front_tn.png" alt="Keyboard Port"/> | <a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/> | <a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/> |
+| <a href="docs/front.png"><img src="docs/front.png" width="100" alt="Keyboard Port"/> | <a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/> | <a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/> |
 | Keyboard</br>USB port | Side view | Wired</br>connection |
 | <a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a> | <a href="docs/open-1.png"><img src="docs/open-1.png" width="100" alt="Inside"/> | <a href="docs/open-2.png"><img src="docs/open-2.png" width="100" alt="Inside"/> |
 | Wireless</br>connection | Inside view | Inside view |
