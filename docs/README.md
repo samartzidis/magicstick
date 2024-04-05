@@ -85,32 +85,33 @@ When you connect your keyboard for the first time, this is the default keymap:
 | --- | --- |
 | <kbd>Left Ctrl</kbd>  | <kbd>Fn</kbd> |
 | <kbd>Fn</kbd> | <kbd>Left Ctrl</kbd> |
-| <kbd>⏏︎ Eject</kbd> | <kbd>Del</kbd> |
-| <kbd>🔒 Lock</kbd> | <kbd>Del</kbd> |
+| <kbd>⏏︎ Eject</kbd> or <kbd>🔒 Lock</kbd> | <kbd>Del</kbd> |
 | <kbd>⌘ Cmd</kbd>  | <kbd>Alt</kbd>    |
 | <kbd>⌥ Alt/Option</kbd>  | <kbd>Cmd</kbd>    |
-| <kbd>Fn</kbd>+<kbd>[F1]</kbd>...<kbd>[F6]</kbd> | <kbd>[F13]</kbd>...<kbd>[F18]</kbd> |
-| <kbd>Fn</kbd>+<kbd>[F7]</kbd>...<kbd>[F12]</kbd> | Multimedia Keys</kbd> |
-| <kbd>Fn</kbd>+<kbd>LCtrl</kbd>    | <kbd>Right Ctrl</kbd> |
-| <kbd>Fn</kbd>+<kbd>Return</kbd>   | <kbd>Insert</kbd> |
-| <kbd>Fn</kbd>+<kbd>⌫</kbd>    | <kbd>Del</kbd>    |
-| <kbd>Fn</kbd>+<kbd>P</kbd>    | <kbd>Print Screen</kbd> |
-| <kbd>Fn</kbd>+<kbd>S</kbd>    | <kbd>Scroll Lock</kbd> |
-| <kbd>Fn</kbd>+<kbd>B</kbd>    | <kbd>Pause/Break</kbd> |
-| <kbd>Fn</kbd>+<kbd>&uarr;</kbd>   | <kbd>Page Up</kbd> |
-| <kbd>Fn</kbd>+<kbd>&darr;</kbd>   | <kbd>Page Down</kbd> |
-| <kbd>Fn</kbd>+<kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
-| <kbd>Fn</kbd>+<kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
+| <kbd>Fn</kbd> + <kbd>[F1]</kbd> | Brightness Down |
+| <kbd>Fn</kbd> + <kbd>[F2]</kbd> | Brightness Up |
+| <kbd>Fn</kbd> + <kbd>[F6]</kbd> | Sleep (Windows OS) |
+| <kbd>Fn</kbd> + <kbd>[F7]</kbd> ... <kbd>[F12]</kbd> | Multimedia Keys</kbd> |
+| <kbd>Fn</kbd> + <kbd>LCtrl</kbd>    | <kbd>Right Ctrl</kbd> |
+| <kbd>Fn</kbd> + <kbd>Return</kbd>   | <kbd>Insert</kbd> |
+| <kbd>Fn</kbd> + <kbd>⌫</kbd>    | <kbd>Del</kbd>    |
+| <kbd>Fn</kbd> + <kbd>P</kbd>    | <kbd>Print Screen</kbd> |
+| <kbd>Fn</kbd> + <kbd>S</kbd>    | <kbd>Scroll Lock</kbd> |
+| <kbd>Fn</kbd> + <kbd>B</kbd>    | <kbd>Pause/Break</kbd> |
+| <kbd>Fn</kbd> + <kbd>&uarr;</kbd>   | <kbd>Page Up</kbd> |
+| <kbd>Fn</kbd> + <kbd>&darr;</kbd>   | <kbd>Page Down</kbd> |
+| <kbd>Fn</kbd> + <kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
+| <kbd>Fn</kbd> + <kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
 
 ### Special Function Keys
 
 | Input Key(s)  | Action        |
 | --- | --- |
-| <kbd>Fn</kbd>+<kbd>Z</kbd>    | Remap (program) key.   |
-| <kbd>Fn</kbd>+<kbd>X</kbd>    | Delete a previously remapped (programmed) key.  |
-| <kbd>Fn</kbd>+<kbd>Right Shift</kbd>  | Reboot device device in BOOTSEL mode. |
-| <kbd>Fn</kbd>+<kbd>Right Shift</kbd>+<kbd>⏏︎ Eject</kbd>   | Erase (factory reset) device.  |
-| <kbd>Fn</kbd>+<kbd>Right Shift</kbd>+<kbd>🔒 Lock</kbd>   | Erase (factory reset) device.  |
+| <kbd>Fn</kbd> + <kbd>Z</kbd>    | Remap (program) key.   |
+| <kbd>Fn</kbd> + <kbd>X</kbd>    | Delete a previously remapped (programmed) key.  |
+| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>  | Reboot device device in BOOTSEL mode. |
+| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>⏏︎ Eject</kbd>   | Erase (factory reset) device.  |
+| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>🔒 Lock</kbd>   | Erase (factory reset) device.  |
 
   
 ## Physical Key Remapping
