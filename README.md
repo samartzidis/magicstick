@@ -9,13 +9,13 @@ That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Mul
 
 |                                  |                          |                                   |
 |----------------------------------|--------------------------|-----------------------------------|
-| [![Keyboard Port](docs/front_tn.png)](docs/front.png) | [![Side View](docs/side_tn.png)](docs/side.png) | [![On Wired Connection](docs/wired_tn.png)](docs/wired.png) |
-| Keyboard</br>USB port                    | Side view                | Wired</br>connection               |
-| [![On Wireless BT Connection](docs/wireless_tn.png)](docs/wireless.png) | [![Inside](docs/open-1_tn.png)](docs/open-1.png) | [![Inside](docs/open-2_tn.png)](docs/open-2.png) |
-| Wireless</br>connection        | Inside                   | Inside                            |
-| [![MagicStickUI Settings](docs/20230927213111_tn.png)](docs/20230927213111.png) | [![MagicStickUI Battery Indicator](docs/20230927210205_tn.png)](docs/20230927210205.png) | [![MagicStickUI Firmware Update](docs/20230927211852_tn.png)](docs/20230927211852.png) |
-| MagicStickUI</br>Settings            | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update      |
-|                                  |                          |                                   |
+| <a href="docs/front.png"><img src="docs/front_tn.png" alt="Keyboard Port"/> | <a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/> | <a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/> |
+| Keyboard</br>USB port | Side view | Wired</br>connection |
+| <a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a> | <a href="docs/open-1.png"><img src="docs/open-1.png" width="100" alt="Inside"/> | <a href="docs/open-2.png"><img src="docs/open-2.png" width="100" alt="Inside"/> |
+| Wireless</br>connection | Inside view | Inside view |
+| <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" alt="MagicStickUI Settings"/> | <a href="docs/20230927210205.png"><img src="docs/20230927210205.png" width="100" alt="MagicStickUI Battery Indicator"/> | <a href="docs/20230927211852.png"><img src="docs/20230927211852.png" width="100" alt="MagicStickUI Firmware Update"/> |
+| MagicStickUI</br>Settings | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update |
+
 
 This project started as a hobby. I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
 
