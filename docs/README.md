@@ -16,7 +16,7 @@
 
 ### Wired Connection
 
-This is the simplest mode of connection and your keyboard should just work by plugging it into the USB-A female port (the bigger USB port) of the device labelled **A** in the diagram. You will need a **USB-A to Firewire** cable.
+This is the simplest mode of connection and your keyboard should just work by plugging it into the USB-A female port (the bigger USB port) of the device labelled **A** in the diagram. You will need a **USB-A to Lightning** cable.
 
 The micro-USB connection labelled **B** must be connected to one of your PC's USB ports.
 
