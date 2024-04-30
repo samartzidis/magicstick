@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MagicStickUI"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Please Wait..." Height="100" Width="400" Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="Please Wait..." Height="126" Width="400" Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -26,6 +26,7 @@
                        HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
         <TextBlock Grid.Row="1" Name="tbText"
-                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10"/>
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10"
+                   TextWrapping="Wrap" />
     </Grid>
 </Window>

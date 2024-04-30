@@ -9,5 +9,7 @@ namespace MagicStickUI
     internal class Constants
     {
         public const string AppName = "MagicStickUI";
+        public const string MagicStickFirmwareId = "magicstick";
+        public const string MagicStickInitFirmwareId = "magicstick-dummy";
     }
 }

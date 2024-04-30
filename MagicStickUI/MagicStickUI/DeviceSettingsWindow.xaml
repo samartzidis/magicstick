@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
         
-        Title="Device Settings" MinWidth="250" WindowStyle="ToolWindow" ResizeMode="NoResize">
+        Title="Device Settings" MinWidth="250" ResizeMode="NoResize">
     
     <Grid Margin="15">
         <Grid.ColumnDefinitions>

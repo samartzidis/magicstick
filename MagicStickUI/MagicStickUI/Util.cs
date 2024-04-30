@@ -36,12 +36,18 @@ namespace MagicStickUI
             return new Bitmap(stream);
         }
 
-        public static SemVersion GetSemVerFromDeviceName(string deviceName)
+        public static (string? deviceNameId, SemVersion) GetSemVerFromDeviceName(string deviceName)
         {
             var idx = deviceName.IndexOf('.');
+            string deviceNameId = null;
+            string deviceNameVersion = null;
             if (idx > 0)
-                deviceName = deviceName.Substring(idx + 1);
-            return SemVersion.Parse(deviceName, SemVersionStyles.Any);
+            {
+                deviceNameId = deviceName.Substring(0, idx);
+                deviceNameVersion = deviceName.Substring(idx + 1);
+            }
+
+            return (deviceNameId, SemVersion.Parse(deviceNameVersion, SemVersionStyles.Any));
         }
 
         public static async Task DownloadFileAsync(string fileUrl, string savePath, Action<double>? reportProgress = null)

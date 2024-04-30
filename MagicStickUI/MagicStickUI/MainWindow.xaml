@@ -56,18 +56,30 @@
                     </MenuItem>
 
                     <MenuItem Header="Scan devices" Click="ScanDevices_OnClick"/>
-                    <MenuItem Header="Version info" Click="GetInfo_OnClick" />
-                    <MenuItem Header="Settings" Click="DeviceSettings_OnClick" 
-                              IsEnabled="{Binding HasSelectedDevice}"/>
+
+                    <MenuItem Header="Device info" Click="GetInfo_OnClick" />
+                    
+                    <MenuItem Header="Device settings" Click="DeviceSettings_OnClick" 
+                              IsEnabled="{Binding HasNormalSelectedDevice}"/>
+                    
                     <MenuItem Header="Check for updates" Click="CheckUpdate_OnClick" 
                               IsEnabled="{Binding HasSelectedDevice, UpdateSourceTrigger=PropertyChanged}"/>
 
+                    <Separator/>
+                    
+                    <MenuItem Header="Initialize device" Click="InitializeDevice_OnClick"/>
+                    
                     <MenuItem Header="Autostart with Windows" 
                               IsCheckable="True"
                               IsChecked="{Binding AutoStart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               StaysOpenOnClick="True"/>
+
                     <Separator/>
+                    
+                    <MenuItem Header="About" Click="About_OnClick" />
+                    
                     <MenuItem Header="Exit" Click="ExitButton_OnClick" />
+                    
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

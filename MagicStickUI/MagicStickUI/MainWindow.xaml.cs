@@ -39,9 +39,12 @@ namespace MagicStickUI
         private readonly ILogger _logger;
         private readonly ILoggerFactory _loggerFactory;
         private readonly TrayIconManager _trayIcon;
+        private Window _childWindow;
 
         //[DependsOn(nameof(SelectedDevice))] 
-        public bool HasSelectedDevice => SelectedDevice != null; //{ get; private set; }
+        public bool HasSelectedDevice => SelectedDevice != null;
+        public bool HasNormalSelectedDevice => string.Equals(Constants.MagicStickFirmwareId, SelectedDevice?.FirmwareId, StringComparison.OrdinalIgnoreCase);
+
 
         public MainWindow(ILogger<MainWindow> logger, ILoggerFactory loggerFactory)
         {
@@ -141,6 +144,7 @@ namespace MagicStickUI
 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedDevice)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasSelectedDevice)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasNormalSelectedDevice)));
             }
         }
 
@@ -235,6 +239,10 @@ namespace MagicStickUI
             dev.DeviceId = serial;
             dev.DeviceSerialNumber = serial;
 
+            var semVerInfo = Util.GetSemVerFromDeviceName(dev.DeviceName);
+            dev.FirmwareId = semVerInfo.Item1;
+            dev.FirmwareSemVer = semVerInfo.Item2;
+
             var ctrl = new DeviceCtrl(_loggerFactory.CreateLogger<DeviceCtrl>(),dev);
             if (ctrl.TryHidReadBattery(out var battery))
                 dev.BatteryPercentage = battery;
@@ -272,16 +280,30 @@ namespace MagicStickUI
             ScanDevices();
         }
 
-        private void GetInfo_OnClick(object sender, RoutedEventArgs e)
+        private void About_OnClick(object sender, RoutedEventArgs e)
         {
             var version = typeof(MainWindow).Assembly.GetName().Version;
 
             var sb = new StringBuilder();
-            sb.AppendLine($"MagicStickUI version: {version?.Major}.{version?.Minor}.{version?.Build}.");
-            sb.AppendLine($"Device model: {SelectedDevice?.DeviceName ?? "disconnected"}.");
-            sb.AppendLine($"Device serial: {SelectedDevice?.DeviceSerialNumber ?? "disconnected"}.");
+            sb.AppendLine($"MagicStickUI v.{version?.Major}.{version?.Minor}.{version?.Build}.");
 
-            MessageBox.Show(sb.ToString(), "MagicStickUI");
+            MessageBox.Show(this, sb.ToString(), "MagicStickUI");
+        }        
+
+        private void GetInfo_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (SelectedDevice == null)
+                return;
+
+            if (_childWindow != null)
+            {
+                _childWindow.Close();
+                _childWindow = null;
+            }
+
+            _childWindow = new DeviceInfoWindow(SelectedDevice);
+            _childWindow.Owner = this;
+            _childWindow.ShowDialog();
         }
 
         private void DeviceSettings_OnClick(object sender, RoutedEventArgs e)
@@ -289,9 +311,15 @@ namespace MagicStickUI
             if (SelectedDevice == null)
                 return;
 
-            var window = new DeviceSettingsWindow(_loggerFactory.CreateLogger<DeviceSettingsWindow>(), _loggerFactory, SelectedDevice);
-            window.Owner = this;
-            window.ShowDialog();
+            if (_childWindow != null)
+            {
+                _childWindow.Close();
+                _childWindow = null;
+            }
+
+            _childWindow = new DeviceSettingsWindow(_loggerFactory.CreateLogger<DeviceSettingsWindow>(), _loggerFactory, SelectedDevice);
+            _childWindow.Owner = this;
+            _childWindow.ShowDialog();
         }
 
         private async void CheckUpdate_OnClick(object sender, RoutedEventArgs e)
@@ -302,21 +330,29 @@ namespace MagicStickUI
             Release? msRelease;
             try
             {
-                msRelease = await AzureUtil.GetLatestRelease(SelectedDevice.DeviceSerialNumber);
+                msRelease = await AzureUtil.GetLatestRelease(SelectedDevice.DeviceSerialNumber, Constants.MagicStickFirmwareId);
             }
             catch (Exception m)
             {
-                MessageBox.Show($"Update cancelled. Failed to check for updates ({m.Message}).", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Update cancelled. Failed to check for updates ({m.Message}).", 
+                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
 
             var latestVersion = SemVersion.Parse(msRelease?.SemVer, SemVersionStyles.Any);
-            var currentVersion = Util.GetSemVerFromDeviceName(SelectedDevice.DeviceName);
-            var deviceId = SelectedDevice.DeviceId;
 
-            if (currentVersion.ComparePrecedenceTo(latestVersion) < 0 || currentVersion.MetadataIdentifiers.Any(t => string.Equals(t, "debug", StringComparison.OrdinalIgnoreCase)))
+            if (SelectedDevice.FirmwareSemVer.ComparePrecedenceTo(latestVersion) < 0 
+                || SelectedDevice.FirmwareId == Constants.MagicStickInitFirmwareId
+                || SelectedDevice.FirmwareSemVer.MetadataIdentifiers.Any(t => string.Equals(t, "debug", StringComparison.OrdinalIgnoreCase)))
             {
-                var res = MessageBox.Show($"Your current firmware version is {currentVersion}. Update to the latest version {latestVersion}?", Constants.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                var msg = $"Your current firmware version is {SelectedDevice.FirmwareSemVer}. Update to the latest firmware version {latestVersion}?";
+                if (SelectedDevice.FirmwareId == Constants.MagicStickInitFirmwareId)
+                    msg = $"Flash device to the latest firmware version {latestVersion}?";
+
+                var res = MessageBox.Show(msg, Constants.AppName, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
                 if (res == MessageBoxResult.Yes)
                 {
                     var updateCancellationTokenSource = new CancellationTokenSource();
@@ -324,7 +360,11 @@ namespace MagicStickUI
                     _pbw.Title = Constants.AppName;
                     _pbw.Owner = this;                    
                     _pbw.Closed += (o, a) => updateCancellationTokenSource.Cancel();
-                    _pbw.SetUserText("Press [Fn] + [Right Shift] + [Eject or Lock] to begin...");
+
+                    if (SelectedDevice.FirmwareId != Constants.MagicStickInitFirmwareId)
+                        _pbw.SetUserText("Please press [Fn] + [Right Shift] + [Eject or Lock] to begin...");
+                    else
+                        _pbw.SetUserText("Please unplug the device and re-connect it in BOOTSEL mode to begin...");
 
                     _pbw.Show();
 
@@ -334,12 +374,14 @@ namespace MagicStickUI
                         if (piRoot == null)
                         {
                             _pbw.Close();
-                            MessageBox.Show("Update cancelled. Failed to detect device in update mode.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Failed to detect device in update mode.", 
+                                Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
 
                         _pbw.SetUserText($"Flashing: {msRelease.SemVer}...");
 
+                        var deviceId = SelectedDevice.DeviceId;
                         var downloadUri = string.Format(Properties.Settings.Default.DownloadUriTemplate, deviceId, msRelease.Filename);
                         await Util.DownloadFileAsync(downloadUri,
                             Path.Combine(piRoot, msRelease.Filename), p =>
@@ -348,25 +390,77 @@ namespace MagicStickUI
                             });
 
                         _pbw.Close();
-                        MessageBox.Show("Update completed successfully.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Update completed successfully.", 
+                            Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (TaskCanceledException)
                     {
-                        MessageBox.Show("Update cancelled by user.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Update cancelled.", 
+                            Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception m)
                     {
                         _pbw.Close();
-                        MessageBox.Show($"Update cancelled. {m.Message}.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"Update failed. {m.Message}.", 
+                            Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Your device is running the latest firmware.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Your device is running the latest available firmware.",
+                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
+        private async void InitializeDevice_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var updateCancellationTokenSource = new CancellationTokenSource();
+                _pbw = new ProgressBarWindow();
+                _pbw.Title = Constants.AppName;
+                _pbw.Owner = this;
+                _pbw.Closed += (o, a) => updateCancellationTokenSource.Cancel();
+                _pbw.SetUserText("Please connect a device in BOOTSEL mode to continue...");
+                _pbw.Show();
+
+                var piRoot = await Util.GetRpDriveRoot(60, updateCancellationTokenSource.Token);
+                if (piRoot == null)
+                {
+                    _pbw.Close();
+                    MessageBox.Show("Failed to detect a device in BOOTSEL mode. Please consult the user manual.", 
+                        Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                _pbw.SetUserText("Flashing device initialization firmware...");
+
+                const string fileName = $"{Constants.MagicStickInitFirmwareId}-latest.uf2";
+                var downloadUri = string.Format(Properties.Settings.Default.DownloadUriTemplate, "0000000000000000", fileName);
+                await Util.DownloadFileAsync(downloadUri,
+                    Path.Combine(piRoot, fileName), p =>
+                    {
+                        _pbw.SetProgress((int)p);
+                    });
+
+                _pbw.Close();
+                MessageBox.Show("Initialization completed successfully.", 
+                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (TaskCanceledException)
+            {
+                MessageBox.Show("Initialization cancelled.", 
+                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception m)
+            {
+                _pbw.Close();
+                MessageBox.Show($"Initialization failed. {m.Message}.", 
+                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
         #endregion
     }
 

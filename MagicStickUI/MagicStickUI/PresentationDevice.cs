@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using PropertyChanged;
+using Semver;
 
 namespace MagicStickUI
 {
@@ -32,6 +33,9 @@ namespace MagicStickUI
         public int BatteryPercentage { get; set; }
 
         public DateTime LastUpdate { get; private set; } = DateTime.MinValue;
+
+        public string FirmwareId { get; set; }
+        public SemVersion FirmwareSemVer { get; set; }
         
         [DependsOn(nameof(DeviceName), nameof(BatteryPercentage), nameof(LastUpdate))]
         public string TooltipString => Connected ? $"{DeviceName}, {BatteryPercentage}%" : $"{DeviceName}, Disconnected";

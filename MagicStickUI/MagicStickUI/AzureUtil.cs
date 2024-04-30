@@ -6,12 +6,12 @@ namespace MagicStickUI
 {
     public static class AzureUtil
     {
-        private const string GetLatestVersionInfoUri = "https://magicstick-app.azurewebsites.net/api/latest-release/{0}";
+        private const string GetLatestVersionInfoUri = "https://magicstick-app.azurewebsites.net/api/latest-release/{0}?packageId={1}";
 
-        public static async Task<Release?> GetLatestRelease(string deviceId)
+        public static async Task<Release?> GetLatestRelease(string deviceId, string packageId = "magicstick")
         {
             using var client = new HttpClient();
-            var response = await client.GetAsync(string.Format(GetLatestVersionInfoUri, deviceId));
+            var response = await client.GetAsync(string.Format(GetLatestVersionInfoUri, deviceId, packageId));
 
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadAsAsync<Release>();
@@ -29,7 +29,6 @@ namespace MagicStickUI
         public string? ETag { get; set; }
 
         public string? Filename { get; set; }
-        public bool Latest { get; set; }
         public string? SemVer { get; set; }
     }
 }
