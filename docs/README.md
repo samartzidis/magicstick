@@ -218,7 +218,7 @@ As soon as the device resets back to factory settings, it will lose all key rema
 2. Use the wiring schematics [here](../schematics) to solder the USB Type-A port to the board.
 3. Use the 3D print STL files [here](../case) to print the plastic case.
 
-If you are not interested in having wired connectivity (but just Bluetooth) or in a plastic device case, you can skip steps 2 and 3. 
+If you are not interested in having wired connectivity (but just Bluetooth) or in the plastic device case, you can skip steps 2 and 3. 
 
 ### Device Preparation
 
