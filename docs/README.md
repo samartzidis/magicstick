@@ -46,7 +46,7 @@ The older A1314 keyboard has a little bit more complicated pairing process.
 5. The keyboard should be now paired and connected.
 If this process fails repeat from step 1.
 
-## The MagicStickUI Utility
+## The MagicStickUI Windows Utility
 
 The MagicStickUI utility allows you to monitor the keyboard's connection status, the battery level (both when wired or in Bluetooth),
 
@@ -58,11 +58,6 @@ as well as to change the keyboard's special keys configuration. You can also use
 
 Download the latest MagicStickUI msi installer version from the [magicstick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page.
 
-MagicStickUI is not available on Linux yet, but at least Linux has native support for showing the devices battery level. E.g. on Ubuntu Linux you can directly use the system's Settings application as shown below,
-
-![](20230928224646.png)
-
-which readily recognises magicstick.io and shows the connected keyboard's battery level.
 
 ## LED Status Reference
 
@@ -224,17 +219,19 @@ If you are not interested in having wired connectivity (but just Bluetooth) or i
 
 For the following process, you will need to work on a Windows PC.
 
-1. Download and install the MagicStickUI Utility as described earlier in this manual. 
+1. Download and install the [MagicStickUI Utility](#the-magicstickui-windows-utility). 
 
-2. Run the MagicStickUI utility (it installs a desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
+2. Run the MagicStickUI utility (from the desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
 
-3. You will be asked to plug your "Raspberry Pi Pico W" device in BOOTSEL mode. To do so, plug the Pico device to the computer, while constantly pressing the BOOTSEL (the little white) button on the "Raspberry Pi Pico W" board. The device will be flashed with the initialization firmware.
+3. You will be asked to plug your "Raspberry Pi Pico W" device in [BOOTSEL mode](#entering-into-bootsel-mode). The device will be auto-detected flashed with the initialization firmware.
 
-3. In the MagicStickUI Utility, click the "Scan devices" option and select the "magicstick-dummy" device that now appears in the device list. Next, select the "Device info" option and copy the device Serial number.
+3. In the MagicStickUI Utility, click the "Scan devices" option and select the "magicstick-dummy..." device that now appears in the device list. Next, select the "Device info" option and copy the device's serial number.
 
-4. Order your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying your Serial Number in the order form.
+4. Order your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the 16-digit serial number you copied in the previous step in the order form.
 
-5. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again, and now in Windows File Explorer, copy the downloaded firmware file directly to the "Raspberry Pi Pico W" device, which shold appear on Windows as "RPI-RP2".
+5. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again, and now in Windows File Explorer, copy the downloaded firmware file directly to the "Raspberry Pi Pico W" device, which should appear on Windows as "RPI-RP2".
+
+After step 5, the device will automatically restart as a new raspikey.io device.
 
 
 
