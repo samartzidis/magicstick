@@ -27,7 +27,7 @@ You can order a hand-made _plug-and-play_ magicstick.io dongle from [Etsy](https
 ### Option 2
 You can (DIY) build the device yourself and only order the firmware (as a digital download) from [Etsy](https://www.etsy.com/shop/MagicStickIO). 
 
-For the detailed DIY instructions, check the [User Manual](docs/README.md).
+For the detailed DIY instructions, check the [user manual](docs/README.md).
 
 ## User Manual
 
