@@ -210,3 +210,32 @@ It is important to press the BOOTSEL button **after** the LED turns on. If you p
 As soon as the device resets back to factory settings, it will lose all key remapping information, special keys configuration, as well as any Bluetooth pairing information if it was previously paired with a Bluetooth keyboard. Therefore it will immediately enter into Bluetooth discovery mode again, trying to find a suitable keyboard to pair with.
 
 
+## DIY - Build Your Own Device Instructions
+
+### Hardware Resources
+
+1. You will need to purchase a genuine Raspberry Pi Pico W board from a vendor in your area. You will also need some 28AWG silicone cable for the wiring and a female USB Type-A port.
+2. Use the wiring schematics [here](../schematics) to solder the USB Type-A port to the board.
+3. Use the 3D print STL files [here](../case) to print the plastic case.
+
+If you are not interested in having wired connectivity (but just Bluetooth) or in a plastic device case, you can skip steps 2 and 3. 
+
+### Device Preparation
+
+For the following process, you will need to work on a Windows PC.
+
+1. Download and install the MagicStickUI Utility as described earlier in this manual. 
+
+2. Run the MagicStickUI utility (it installs a desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
+
+3. You will be asked to plug your "Raspberry Pi Pico W" device in BOOTSEL mode. To do so, plug the Pico device to the computer, while constantly pressing the BOOTSEL (the little white) button on the "Raspberry Pi Pico W" board. The device will be flashed with the initialization firmware.
+
+3. In the MagicStickUI Utility, click the "Scan devices" option and select the "magicstick-dummy" device that now appears in the device list. Next, select the "Device info" option and copy the device Serial number.
+
+4. Order your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying your Serial Number in the order form.
+
+5. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again, and now in Windows File Explorer, copy the downloaded firmware file directly to the "Raspberry Pi Pico W" device, which shold appear on Windows as "RPI-RP2".
+
+
+
+
