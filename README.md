@@ -33,8 +33,6 @@ For the detailed instructions, check the relevant section of the [user manual](d
 
 The user manual is [here](docs/README.md).
 
-Supporting software, utilities and documentation are on this page.
-
 ## Firmware Release Notes
 
 The firmware release notes are [here](release-notes.md).
