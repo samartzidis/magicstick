@@ -27,8 +27,6 @@ You can order a hand-made _plug-and-play_ magicstick.io dongle from [Etsy](https
 
 The user manual is [here](docs/README.md).
 
-Supporting software, utilities and documentation are on this page.
-
 ## Firmware Release Notes
 
 The firmware release notes are [here](release-notes.md).
