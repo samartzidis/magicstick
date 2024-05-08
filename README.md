@@ -21,13 +21,7 @@ This project started as a hobby. I wanted to use my Apple keyboard on Windows bu
 
 ## How to get a magicstick.io Device
 
-### Option 1 
 You can order a hand-made _plug-and-play_ magicstick.io dongle from [Etsy](https://www.etsy.com/shop/MagicStickIO). 
-
-### Option 2
-You can (DIY) build the device yourself and only order the firmware (as a digital download) from [Etsy](https://www.etsy.com/shop/MagicStickIO). 
-
-For the detailed instructions, check the relevant section of the [user manual](docs/README.md#diy---build-your-own-device-instructions).
 
 ## User Manual
 
