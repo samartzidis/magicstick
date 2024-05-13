@@ -209,11 +209,13 @@ As soon as the device resets back to factory settings, it will lose all key rema
 
 ### Hardware Resources
 
-1. You will need to purchase a genuine Raspberry Pi Pico W board from a vendor in your area. 
+1. You will need to purchase a genuine *Raspberry Pi Pico W* board from a vendor in your area. 
 2. You will also need a female USB Type-A port and some 28AWG silicone cable for the wiring. Use the wiring schematics [here](../schematics) to solder the USB Type-A port to the board as shown.
 3. Use the 3D print STL files [here](../case) to print the plastic case.
 
-If you are not interested in having wired connectivity (but just Bluetooth) or in the plastic device case, you can skip steps 2 and 3. 
+**Notes:**
+If you are OK with just Bluetooth connectivity and not interested in wired connectivity (implying no wired charging as well), you can skip step (2) above.
+If you are not in the plastic enclosure, you can skip step (3) above.
 
 ### Device Preparation
 
