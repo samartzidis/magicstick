@@ -215,7 +215,7 @@ As soon as the device resets back to factory settings, it will lose all key rema
 
 **Notes:**
 If you are OK with just Bluetooth connectivity and not interested in wired connectivity (implying no wired charging as well), you can skip step (2) above.
-If you are not in the plastic enclosure, you can skip step (3) above.
+If you are not interested in the plastic enclosure, you can skip step (3) above.
 
 ### Device Preparation
 
