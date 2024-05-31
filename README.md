@@ -7,21 +7,44 @@
 
 That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth. All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
-|                                  |                          |                                   |
-|----------------------------------|--------------------------|-----------------------------------|
-| <a href="docs/front.png"><img src="docs/front.png" width="100" alt="Keyboard Port"/> | <a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/> | <a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/> |
-| Keyboard</br>USB port | Side view | Wired</br>connection |
-| <a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a> | <a href="docs/open-1.png"><img src="docs/open-1.png" width="100" alt="Inside"/> | <a href="docs/open-2.png"><img src="docs/open-2.png" width="100" alt="Inside"/> |
-| Wireless</br>connection | Inside view | Inside view |
-| <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" alt="MagicStickUI Settings"/> | <a href="docs/20230927210205.png"><img src="docs/20230927210205.png" width="100" alt="MagicStickUI Battery Indicator"/> | <a href="docs/20230927211852.png"><img src="docs/20230927211852.png" width="100" alt="MagicStickUI Firmware Update"/> |
-| MagicStickUI</br>Settings | MagicStickUI</br>Battery Indicator | MagicStickUI</br>Firmware update |
+<table>
+    <tr>
+        <td><a href="docs/front.png"><img src="docs/front.png" width="100" alt="Keyboard Port"/></a></td>
+        <td><a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/></a></td>
+        <td><a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/></a></td>
+        <td><a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a></td>
+        <td><a href="docs/open-1.png"><img src="docs/open-1.png" width="100" alt="Inside"/></a></td>
+    </tr>
+    <tr>
+        <td>Keyboard</br>USB port</td>
+        <td>Side view</td>
+        <td>Wired</br>connection</td>
+        <td>Wireless</br>connection</td>
+        <td>Inside view</td>
+    </tr>
+    <tr>
+        <td><a href="docs/open-2.png"><img src="docs/open-2.png" width="100" alt="Inside"/></a></td>
+        <td><a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" alt="MagicStickUI Settings"/></a></td>
+        <td><a href="docs/20230927210205.png"><img src="docs/20230927210205.png" width="100" alt="MagicStickUI Battery Indicator"/></a></td>
+        <td><a href="docs/20230927211852.png"><img src="docs/20230927211852.png" width="100" alt="MagicStickUI Firmware Update"/></a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Inside view</td>
+        <td>MagicStickUI</br>Settings</td>
+        <td>MagicStickUI</br>Battery Indicator</td>
+        <td>MagicStickUI</br>Firmware update</td>
+        <td></td>
+    </tr>
+</table>
 
 
 This project started as a hobby. I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
 
 ## How to get a magicstick.io Device
 
-You can order a hand-made _plug-and-play_ magicstick.io dongle from [Etsy](https://www.etsy.com/shop/MagicStickIO). 
+You can order a hand-made _plug-and-play_ magicstick.io dongle from: 
+[![Etsy](docs/etsy.png)](https://www.etsy.com/shop/MagicStickIO)
 
 ## User Manual
 
