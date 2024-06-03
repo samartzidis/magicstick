@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MagicStickUI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LastSelectedDeviceId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DownloadUriTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://magicstick-app.azurewebsites.net/api/download/{0}/{1}</Value>
+    </Setting>
+    <Setting Name="ReleaseNotesUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://github.com/samartzidis/magicstick.io/blob/main/release-notes.md</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

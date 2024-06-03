@@ -1,0 +1,141 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- We'll do our own versioning -->
+    <GitVersion>false</GitVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\App.ico</ApplicationIcon>
+    <IsPackable>false</IsPackable>
+    <Version>0.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+    <CompileDependsOn>GitVersionInfo;$(CompileDependsOn)</CompileDependsOn>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <None Remove="Resources\Battery.png" />
+    <None Remove="Resources\Battery_dark.png" />
+    <None Remove="Resources\Chip.png" />
+    <None Remove="Resources\Code.png" />
+    <None Remove="Resources\Indicator_1.png" />
+    <None Remove="Resources\Indicator_10.png" />
+    <None Remove="Resources\Indicator_100.png" />
+    <None Remove="Resources\Indicator_20.png" />
+    <None Remove="Resources\Indicator_30.png" />
+    <None Remove="Resources\Indicator_40.png" />
+    <None Remove="Resources\Indicator_50.png" />
+    <None Remove="Resources\Indicator_60.png" />
+    <None Remove="Resources\Indicator_70.png" />
+    <None Remove="Resources\Indicator_80.png" />
+    <None Remove="Resources\Indicator_90.png" />
+    <None Remove="Resources\Info.png" />
+    <None Remove="Resources\Missing.png" />
+    <None Remove="Resources\Missing_dark.png" />
+    <None Remove="Resources\Save.png" />
+    <None Remove="Resources\Search.png" />
+    <None Remove="Resources\Settings.png" />
+    <None Remove="Resources\syntax_definition.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\App.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
+    <PackageReference Include="GitInfo" Version="3.3.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>    
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Ini" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    <PackageReference Include="Semver" Version="2.3.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Battery.png" />
+    <EmbeddedResource Include="Resources\Battery_dark.png" />
+    <Resource Include="Resources\Code.png" />
+    <Resource Include="Resources\Info.png" />
+    <Resource Include="Resources\Save.png" />
+    <EmbeddedResource Include="Resources\syntax_definition.xml" />
+    <Resource Include="Resources\Chip.png" />
+    <Resource Include="Resources\Search.png" />
+    <Resource Include="Resources\Settings.png" />
+    <EmbeddedResource Include="Resources\Indicator_1.png" />
+    <EmbeddedResource Include="Resources\Indicator_10.png" />
+    <EmbeddedResource Include="Resources\Indicator_100.png" />
+    <EmbeddedResource Include="Resources\Indicator_20.png" />
+    <EmbeddedResource Include="Resources\Indicator_30.png" />
+    <EmbeddedResource Include="Resources\Indicator_40.png" />
+    <EmbeddedResource Include="Resources\Indicator_50.png" />
+    <EmbeddedResource Include="Resources\Indicator_60.png" />
+    <EmbeddedResource Include="Resources\Indicator_70.png" />
+    <EmbeddedResource Include="Resources\Indicator_80.png" />
+    <EmbeddedResource Include="Resources\Indicator_90.png" />
+    <EmbeddedResource Include="Resources\Missing.png" />
+    <EmbeddedResource Include="Resources\Missing_dark.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <Target Name="GitVersionInfo" DependsOnTargets="ReadVersionFile" BeforeTargets="GetAssemblyVersion;GenerateNuspec;GetPackageContents">
+    <PropertyGroup>
+      <Version Condition="$(GitCommits) != ''">$(VersionFile).$(GitCommits)</Version>
+      <PackageVersion>$(Version)</PackageVersion>
+      <InformationalVersion>$(Version)</InformationalVersion>
+      <RepositoryBranch>$(GitBranch)</RepositoryBranch>
+      <RepositoryCommit>$(GitCommit)</RepositoryCommit>
+      <SourceRevisionId>$(GitBranch).$(GitCommit)</SourceRevisionId>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="ReadVersionFile">
+    <PropertyGroup>
+      <VersionFilePath>../../version.txt</VersionFilePath>
+      <DefaultVersion>0.0</DefaultVersion>
+    </PropertyGroup>
+    <ReadLinesFromFile File="$(VersionFilePath)" Condition="Exists('$(VersionFilePath)')">
+      <Output TaskParameter="Lines" ItemName="VersionFileContents" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <VersionFile>$(DefaultVersion)</VersionFile>
+      <VersionFile Condition="Exists('$(VersionFilePath)')">@(VersionFileContents)</VersionFile>
+    </PropertyGroup>
+  </Target>
+  
+</Project>

@@ -1,0 +1,270 @@
+﻿<SyntaxDefinition name="magicstick.io" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+
+  <RuleSet>
+    <Span foreground="Green" begin="#" />
+
+    <Rule fontWeight="bold">
+      \(
+      |
+      \)
+    </Rule>
+
+    <Rule foreground="Magenta" fontWeight="bold">
+      \:
+    </Rule>
+
+    <!-- Keywords -->
+    <Keywords fontWeight="bold" foreground="Blue">
+
+      <Word _description="get_key(position). Get currently pressed key code at specified key position [1-5]. Returns one of the HID_KEY_* constants.">get_key</Word>
+      <Word _description="set_key(position, value). Set key code at specified key position [1-5], or [0] for the next free position. 'value' is one of the HID_KEY_* constants. Returns 1 for success, 0 for error.">set_key</Word>
+      <Word _description="find_key(value). Find the position where the specified key is pressed. 'value' is one of the HID_KEY_* constants. Returns the position [1-5], or [0] if not pressed.">find_key</Word>
+      <Word _description="get_mod(). Get currently pressed modifier value. Will return one, or a mix of the KEYBOARD_MODIFIER_* constants.">get_mod</Word>
+      <Word _description="set_mod(value). Set currently pressed modifier value.">set_mod</Word>
+      <Word _description="set_consumer_report(value). Output a consumer report. Allowed values are one of the HID_USAGE_CONSUMER_*">set_consumer_report</Word>
+      <Word _description="send_alt_key_code(value). Output a special windows alt code symbol.">send_alt_key_code</Word>
+      <Word _description="send_alt_key_code_0(value). Output a special windows alt code symbol (for codes starting with 0, e.g. '0163' for typing '£').">send_alt_key_code_0</Word>
+      <Word _description="ch_key(from, to). Replacing key code 'from' (if pressed) with key code 'to'.">ch_key</Word>
+      <Word _description="ch_key_ex(mod_from, key_from, mod_to, key_to). Replace key code 'key_from' (if pressed) with key code 'key_to' by also matching modifier 'mod_from' and replacing with 'mod_to'.">ch_key_ex</Word>
+      
+      <Word _description="Special 'end' label.">end</Word>
+      <Word _description="Define a label.">label</Word>
+      <Word _description="Go to a defined label.">goto</Word>
+    </Keywords>
+
+    <!-- System variables -->
+    <Keywords foreground="Magenta" fontWeight="bold">
+      <Word _description="Holds the evaluation result of the current action.">res</Word>
+      <Word _description="1 when the Apple 'fn' key is pressed, 0 otherwise.">apple_key_fn</Word>
+      <Word _description="1 when the Apple 'Eject' key is pressed, 0 otherwise.">apple_key_eject</Word>
+      <Word _description="1 when the Apple 'Touch ID' key is pressed, 0 otherwise.">apple_key_touch_id</Word>
+      <Word _description="1 when the Apple 'Lock' key is pressed, 0 otherwise.">apple_key_lock</Word>
+    </Keywords>
+
+    <!-- Key code constants -->
+    <Keywords foreground="Brown" fontWeight="bold">
+      <Word>HID_KEY_NONE</Word>
+      <Word>HID_KEY_A</Word>
+      <Word>HID_KEY_B</Word>
+      <Word>HID_KEY_C</Word>
+      <Word>HID_KEY_D</Word>
+      <Word>HID_KEY_E</Word>
+      <Word>HID_KEY_F</Word>
+      <Word>HID_KEY_G</Word>
+      <Word>HID_KEY_H</Word>
+      <Word>HID_KEY_I</Word>
+      <Word>HID_KEY_J</Word>
+      <Word>HID_KEY_K</Word>
+      <Word>HID_KEY_L</Word>
+      <Word>HID_KEY_M</Word>
+      <Word>HID_KEY_N</Word>
+      <Word>HID_KEY_O</Word>
+      <Word>HID_KEY_P</Word>
+      <Word>HID_KEY_Q</Word>
+      <Word>HID_KEY_R</Word>
+      <Word>HID_KEY_S</Word>
+      <Word>HID_KEY_T</Word>
+      <Word>HID_KEY_U</Word>
+      <Word>HID_KEY_V</Word>
+      <Word>HID_KEY_W</Word>
+      <Word>HID_KEY_X</Word>
+      <Word>HID_KEY_Y</Word>
+      <Word>HID_KEY_Z</Word>
+      <Word>HID_KEY_1</Word>
+      <Word>HID_KEY_2</Word>
+      <Word>HID_KEY_3</Word>
+      <Word>HID_KEY_4</Word>
+      <Word>HID_KEY_5</Word>
+      <Word>HID_KEY_6</Word>
+      <Word>HID_KEY_7</Word>
+      <Word>HID_KEY_8</Word>
+      <Word>HID_KEY_9</Word>
+      <Word>HID_KEY_0</Word>
+      <Word>HID_KEY_ENTER</Word>
+      <Word>HID_KEY_ESCAPE</Word>
+      <Word>HID_KEY_BACKSPACE</Word>
+      <Word>HID_KEY_TAB</Word>
+      <Word>HID_KEY_SPACE</Word>
+      <Word>HID_KEY_MINUS</Word>
+      <Word>HID_KEY_EQUAL</Word>
+      <Word>HID_KEY_BRACKET_LEFT</Word>
+      <Word>HID_KEY_BRACKET_RIGHT</Word>
+      <Word>HID_KEY_BACKSLASH</Word>
+      <Word>HID_KEY_EUROPE_1</Word>
+      <Word>HID_KEY_SEMICOLON</Word>
+      <Word>HID_KEY_APOSTROPHE</Word>
+      <Word>HID_KEY_GRAVE</Word>
+      <Word>HID_KEY_COMMA</Word>
+      <Word>HID_KEY_PERIOD</Word>
+      <Word>HID_KEY_SLASH</Word>
+      <Word>HID_KEY_CAPS_LOCK</Word>
+      <Word>HID_KEY_F1</Word>
+      <Word>HID_KEY_F2</Word>
+      <Word>HID_KEY_F3</Word>
+      <Word>HID_KEY_F4</Word>
+      <Word>HID_KEY_F5</Word>
+      <Word>HID_KEY_F6</Word>
+      <Word>HID_KEY_F7</Word>
+      <Word>HID_KEY_F8</Word>
+      <Word>HID_KEY_F9</Word>
+      <Word>HID_KEY_F10</Word>
+      <Word>HID_KEY_F11</Word>
+      <Word>HID_KEY_F12</Word>
+      <Word>HID_KEY_PRINT_SCREEN</Word>
+      <Word>HID_KEY_SCROLL_LOCK</Word>
+      <Word>HID_KEY_PAUSE</Word>
+      <Word>HID_KEY_INSERT</Word>
+      <Word>HID_KEY_HOME</Word>
+      <Word>HID_KEY_PAGE_UP</Word>
+      <Word>HID_KEY_DELETE</Word>
+      <Word>HID_KEY_END</Word>
+      <Word>HID_KEY_PAGE_DOWN</Word>
+      <Word>HID_KEY_ARROW_RIGHT</Word>
+      <Word>HID_KEY_ARROW_LEFT</Word>
+      <Word>HID_KEY_ARROW_DOWN</Word>
+      <Word>HID_KEY_ARROW_UP</Word>
+      <Word>HID_KEY_NUM_LOCK</Word>
+      <Word>HID_KEY_KEYPAD_DIVIDE</Word>
+      <Word>HID_KEY_KEYPAD_MULTIPLY</Word>
+      <Word>HID_KEY_KEYPAD_SUBTRACT</Word>
+      <Word>HID_KEY_KEYPAD_ADD</Word>
+      <Word>HID_KEY_KEYPAD_ENTER</Word>
+      <Word>HID_KEY_KEYPAD_1</Word>
+      <Word>HID_KEY_KEYPAD_2</Word>
+      <Word>HID_KEY_KEYPAD_3</Word>
+      <Word>HID_KEY_KEYPAD_4</Word>
+      <Word>HID_KEY_KEYPAD_5</Word>
+      <Word>HID_KEY_KEYPAD_6</Word>
+      <Word>HID_KEY_KEYPAD_7</Word>
+      <Word>HID_KEY_KEYPAD_8</Word>
+      <Word>HID_KEY_KEYPAD_9</Word>
+      <Word>HID_KEY_KEYPAD_0</Word>
+      <Word>HID_KEY_KEYPAD_DECIMAL</Word>
+      <Word>HID_KEY_EUROPE_2</Word>
+      <Word>HID_KEY_APPLICATION</Word>
+      <Word>HID_KEY_POWER</Word>
+      <Word>HID_KEY_KEYPAD_EQUAL</Word>
+      <Word>HID_KEY_F13</Word>
+      <Word>HID_KEY_F14</Word>
+      <Word>HID_KEY_F15</Word>
+      <Word>HID_KEY_F16</Word>
+      <Word>HID_KEY_F17</Word>
+      <Word>HID_KEY_F18</Word>
+      <Word>HID_KEY_F19</Word>
+      <Word>HID_KEY_F20</Word>
+      <Word>HID_KEY_F21</Word>
+      <Word>HID_KEY_F22</Word>
+      <Word>HID_KEY_F23</Word>
+      <Word>HID_KEY_F24</Word>
+      <Word>HID_KEY_EXECUTE</Word>
+      <Word>HID_KEY_HELP</Word>
+      <Word>HID_KEY_MENU</Word>
+      <Word>HID_KEY_SELECT</Word>
+      <Word>HID_KEY_STOP</Word>
+      <Word>HID_KEY_AGAIN</Word>
+      <Word>HID_KEY_UNDO</Word>
+      <Word>HID_KEY_CUT</Word>
+      <Word>HID_KEY_COPY</Word>
+      <Word>HID_KEY_PASTE</Word>
+      <Word>HID_KEY_FIND</Word>
+      <Word>HID_KEY_MUTE</Word>
+      <Word>HID_KEY_VOLUME_UP</Word>
+      <Word>HID_KEY_VOLUME_DOWN</Word>
+      <Word>HID_KEY_LOCKING_CAPS_LOCK</Word>
+      <Word>HID_KEY_LOCKING_NUM_LOCK</Word>
+      <Word>HID_KEY_LOCKING_SCROLL_LOCK</Word>
+      <Word>HID_KEY_KEYPAD_COMMA</Word>
+      <Word>HID_KEY_KEYPAD_EQUAL_SIGN</Word>
+      <Word>HID_KEY_KANJI1</Word>
+      <Word>HID_KEY_KANJI2</Word>
+      <Word>HID_KEY_KANJI3</Word>
+      <Word>HID_KEY_KANJI4</Word>
+      <Word>HID_KEY_KANJI5</Word>
+      <Word>HID_KEY_KANJI6</Word>
+      <Word>HID_KEY_KANJI7</Word>
+      <Word>HID_KEY_KANJI8</Word>
+      <Word>HID_KEY_KANJI9</Word>
+      <Word>HID_KEY_LANG1</Word>
+      <Word>HID_KEY_LANG2</Word>
+      <Word>HID_KEY_LANG3</Word>
+      <Word>HID_KEY_LANG4</Word>
+      <Word>HID_KEY_LANG5</Word>
+      <Word>HID_KEY_LANG6</Word>
+      <Word>HID_KEY_LANG7</Word>
+      <Word>HID_KEY_LANG8</Word>
+      <Word>HID_KEY_LANG9</Word>
+      <Word>HID_KEY_ALTERNATE_ERASE</Word>
+      <Word>HID_KEY_SYSREQ_ATTENTION</Word>
+      <Word>HID_KEY_CANCEL</Word>
+      <Word>HID_KEY_CLEAR</Word>
+      <Word>HID_KEY_PRIOR</Word>
+      <Word>HID_KEY_RETURN</Word>
+      <Word>HID_KEY_SEPARATOR</Word>
+      <Word>HID_KEY_OUT</Word>
+      <Word>HID_KEY_OPER</Word>
+      <Word>HID_KEY_CLEAR_AGAIN</Word>
+      <Word>HID_KEY_CRSEL_PROPS</Word>
+      <Word>HID_KEY_EXSEL</Word>
+      <Word>HID_KEY_CONTROL_LEFT</Word>
+      <Word>HID_KEY_SHIFT_LEFT</Word>
+      <Word>HID_KEY_ALT_LEFT</Word>
+      <Word>HID_KEY_GUI_LEFT</Word>
+      <Word>HID_KEY_CONTROL_RIGHT</Word>
+      <Word>HID_KEY_SHIFT_RIGHT</Word>
+      <Word>HID_KEY_ALT_RIGHT</Word>
+      <Word>HID_KEY_GUI_RIGHT</Word>
+
+      <Word>KEYBOARD_MODIFIER_LEFTCTRL</Word>
+      <Word>KEYBOARD_MODIFIER_LEFTSHIFT</Word>
+      <Word>KEYBOARD_MODIFIER_LEFTALT</Word>
+      <Word>KEYBOARD_MODIFIER_LEFTGUI</Word>
+      <Word>KEYBOARD_MODIFIER_RIGHTCTRL</Word>
+      <Word>KEYBOARD_MODIFIER_RIGHTSHIFT</Word>
+      <Word>KEYBOARD_MODIFIER_RIGHTALT</Word>
+      <Word>KEYBOARD_MODIFIER_RIGHTGUI</Word>
+    </Keywords>
+
+    <!-- Key code constants -->
+    <Keywords foreground="Orange" fontWeight="bold">
+      <Word>HID_USAGE_CONSUMER_CONTROL</Word>
+      <Word>HID_USAGE_CONSUMER_POWER</Word>
+      <Word>HID_USAGE_CONSUMER_RESET</Word>
+      <Word>HID_USAGE_CONSUMER_SLEEP</Word>
+      <Word>HID_USAGE_CONSUMER_BRIGHTNESS_INCREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_BRIGHTNESS_DECREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_WIRELESS_RADIO_CONTROLS</Word>
+      <Word>HID_USAGE_CONSUMER_WIRELESS_RADIO_BUTTONS</Word>
+      <Word>HID_USAGE_CONSUMER_WIRELESS_RADIO_LED</Word>
+      <Word>HID_USAGE_CONSUMER_WIRELESS_RADIO_SLIDER_SWITCH</Word>
+      <Word>HID_USAGE_CONSUMER_PLAY_PAUSE</Word>
+      <Word>HID_USAGE_CONSUMER_SCAN_NEXT</Word>
+      <Word>HID_USAGE_CONSUMER_SCAN_PREVIOUS</Word>
+      <Word>HID_USAGE_CONSUMER_STOP</Word>
+      <Word>HID_USAGE_CONSUMER_VOLUME</Word>
+      <Word>HID_USAGE_CONSUMER_MUTE</Word>
+      <Word>HID_USAGE_CONSUMER_BASS</Word>
+      <Word>HID_USAGE_CONSUMER_TREBLE</Word>
+      <Word>HID_USAGE_CONSUMER_BASS_BOOST</Word>
+      <Word>HID_USAGE_CONSUMER_VOLUME_INCREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_VOLUME_DECREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_BASS_INCREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_BASS_DECREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_TREBLE_INCREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_TREBLE_DECREMENT</Word>
+      <Word>HID_USAGE_CONSUMER_AL_CONSUMER_CONTROL_CONFIGURATION</Word>
+      <Word>HID_USAGE_CONSUMER_AL_EMAIL_READER</Word>
+      <Word>HID_USAGE_CONSUMER_AL_CALCULATOR</Word>
+      <Word>HID_USAGE_CONSUMER_AL_LOCAL_BROWSER</Word>
+      <Word>HID_USAGE_CONSUMER_AC_SEARCH</Word>
+      <Word>HID_USAGE_CONSUMER_AC_HOME</Word>
+      <Word>HID_USAGE_CONSUMER_AC_BACK</Word>
+      <Word>HID_USAGE_CONSUMER_AC_FORWARD</Word>
+      <Word>HID_USAGE_CONSUMER_AC_STOP</Word>
+      <Word>HID_USAGE_CONSUMER_AC_REFRESH</Word>
+      <Word>HID_USAGE_CONSUMER_AC_BOOKMARKS</Word>
+      <Word>HID_USAGE_CONSUMER_AC_PAN</Word>
+    </Keywords>
+
+  </RuleSet>
+</SyntaxDefinition>
