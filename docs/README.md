@@ -48,16 +48,11 @@ If this process fails repeat from step 1.
 
 ## The magicstick-ui Windows Utility
 
-The magicstick-ui utility allows you to monitor the keyboard's connection status, the battery level (both when wired or in Bluetooth),
+![alt text](Untitled-1.png)
 
-![](20230927213245.png)
-
-as well as to change the keyboard's special keys configuration. You can also use it for permanently turning the magicstick.io Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
-
-![](image.png)
+The magicstick-ui utility allows you to monitor the keyboard's connection status, monitor the battery level (both when wired or in Bluetooth), as well as to change the keyboard's special keys configuration and default keymap. You can also use it for permanently turning the magicstick.io Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
 
 Download the latest magicstick-ui msi installer version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page.
-
 
 ## LED Status Reference
 
