@@ -192,7 +192,7 @@ The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTGUI
 
 You can add 2 similar rules to swap the KEYBOARD_MODIFIER_RIGHTALT and KEYBOARD_MODIFIER_RIGHTGUI keys.
 
-##### Entering Extended ASCII and Unicode Characters
+### Entering Extended ASCII and Unicode Characters
 
 Please note that this only works on Windows, as it takes advantage of the special Windows Alt-codes functionality. Also, the program that you are typing in to must have Unicode support for entering Unicode characters (e.g. Windows WordPad or Microsoft Word).
 
