@@ -114,9 +114,9 @@ When you connect your keyboard for the first time, this is the default keymap:
 > Warning: This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#reset) option.
 
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
-- Remap physical keys. 
-- Target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
-- It also allows you to to program keys for typing extended ASCII characters, unicode characters and emojis.
+- Physical key remapping. 
+- Remap keys to target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
+- Program keys for typing extended ASCII characters, unicode characters and emojis.
 
 To access the default key map, right-click on the utility icon and select Keymap to open the keymap editor.
 ![](image-1.png)
