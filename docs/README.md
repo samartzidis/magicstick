@@ -119,6 +119,7 @@ The magicstick.io keymap is programmable via custom rules. This allows you to:
 - Program keys for typing extended ASCII characters, unicode characters and emojis.
 
 To access the default key map, right-click on the utility icon and select Keymap to open the keymap editor.
+
 ![](image-1.png)
 
 You will then see the default key map rules. Each rule can be one of the following 3 rule types:
