@@ -117,7 +117,11 @@ To access the default key map, right-click on the utility icon and select Keymap
 
 ![](image-1.png)
 
-You will then see the default key map rules. Each rule can be one of the following 3 rule types:
+You will then see the keymap rules editor showing the current default rules: 
+
+![alt text](image-4.png)
+
+A keymap rule can be one of the following 3:
 
 1. **label** [label name]
 2. **goto** [label name]
@@ -127,30 +131,31 @@ You will then see the default key map rules. Each rule can be one of the followi
    _or_
    [**condition** expression]
 
-A **label** statement defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. lbl_1, _lbl1, lastlbl, etc.
+(1) A **label** rule defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. lbl_1, _lbl1, lastlbl, etc.
 
-A **goto** statement tells the rules execution engine to jump to a particular label location in the program, by label name.
+(2) A **goto** rule tells the rules engine to jump to a particular label location in the list, by label name.
 
-A condition expression, executes and evaluates the result of a condition expression. If the result is true (any number except 0) it jumps to the rules list location specified by [goto **label** if condition evaluates to true]. If the result is false (0), it jumps to the rules list location specified by [goto **label** if condition evaluates to false]. The goto sections are optional and if they are missing, execution will just continue with the next rule in the list until the end of the list.
+(3) A condition rule, executes and evaluates the result of a condition expression. If the result is true (i.e. any number except 0) it jumps to the rules list location specified by [goto **label** if condition evaluates to true]. If the result is false (equals 0), it jumps to the rules list location specified by [goto **label** if condition evaluates to false]. The goto sections are optional and if they are missing, execution will just continue with the next rule in the list until the end of the list.
+
+Below is a further explanation of the default rules:
 
 ![alt text](rules1.drawio-1.png)
 
 
 ### Physical Key Remapping
 
-magicstick.io supports the remapping of a physical key through is programming ability. For instance suppose you decide that you'd like to swap the blue and the red keys.
+magicstick.io supports the remapping of a physical key via keymap rules. For instance, for swapping the blue and red circled keys.
 
 ![](20230928220051.png)
 
-To do so, add 2 rules using the **ch_key** function after the first rule in the list, as shown below. These effectively swap the 2 physical keys.
-
-![alt text](image-3.png)
+The default keymap already includes the following 2 rules using the **ch_key** function:
 
 ```
 ch_key(HID_KEY_EUROPE_2, HID_KEY_GRAVE):end
 ch_key(HID_KEY_GRAVE, HID_KEY_EUROPE_2):end
 ```
 
+You can decide to remove these rules if you would prefer to remove this swapping.
 
 #### Deleting all the Remapped Keys
 
