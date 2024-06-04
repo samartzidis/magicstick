@@ -109,12 +109,14 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>⏏︎ Eject</kbd>   | Erase (factory reset) device.  |
 | <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>🔒 Lock</kbd>   | Erase (factory reset) device.  |
 
-## Key Map Programming
+## Keymap Programming
 
-The magicstick.io key map is programmable via custom rules. This allows you to: 
+> Warning: This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#reset) option.
+
+The magicstick.io keymap is programmable via custom rules. This allows you to: 
 - Remap physical keys. 
 - Target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
-- It also allows you to to program keys for typing special characters, unicode keys and emojis.
+- It also allows you to to program keys for typing extended ASCII characters, unicode characters and emojis.
 
 To access the default key map, right-click on the utility icon and select Keymap to open the keymap editor.
 ![](image-1.png)
@@ -123,9 +125,9 @@ You will then see the default key map rules. Each rule can be one of the followi
 
 1. **label** [label name]
 2. **goto** [label name]
-3. [**condition** expression]:[goto **label** if condition evaluates to true]:[goto **label** if condition evaluates to false]
+3. [**condition** expression] **:** [goto **label** if condition evaluates to true] **:** [goto **label** if condition evaluates to false]
    _or_
-   [**condition** expression]:[goto **label** if condition evaluates to true]
+   [**condition** expression] **:** [goto **label** if condition evaluates to true]
    _or_
    [**condition** expression]
 
@@ -144,7 +146,7 @@ magicstick.io supports the remapping of a physical key through is programming ab
 
 ![](20230928220051.png)
 
-To do so, add 2 rules using the **ch_key()** function after the first rule in the list, as shown below. These effectively swap the 2 physical keys.
+To do so, add 2 rules using the **ch_key** function after the first rule in the list, as shown below. These effectively swap the 2 physical keys.
 
 ![alt text](image-3.png)
 
@@ -225,7 +227,7 @@ Or alternatively, place this somewhere after the line 'label fn_on':
 find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
-Note that in this case we are using the **send_alt_key_code()** and not the **send_alt_key_code_0()** function as done previously because the Alt code **9996** does not have a **0** in front.
+Note that in this case we are using the **send_alt_key_code** and not the **send_alt_key_code_0** function as done previously because the Alt code **9996** does not have a **0** in front.
 
 ## Firmware Updates
 
