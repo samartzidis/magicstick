@@ -111,7 +111,7 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 ## Keymap Programming
 
-> Warning: This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#reset) option.
+> Warning: This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory Resetting the Device) option.
 
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
 - Physical key remapping. 
@@ -162,7 +162,7 @@ ch_key(HID_KEY_GRAVE, HID_KEY_EUROPE_2):end
 To delete all the remapped keys one-off, you can:
 1. Click the **Load Default** button in the keymap editor to load the default keymap.
 Or
-2. Reset the device to factory settings by following [these steps](#reset).
+2. Reset the device to factory settings by following [these steps](#Factory Resetting the Device).
 
 #### Remapping of Special Keys
 
