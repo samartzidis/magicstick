@@ -54,7 +54,7 @@ The MagicStickUI utility allows you to monitor the keyboard's connection status,
 
 as well as to change the keyboard's special keys configuration. You can also use it for permanently turning the magicstick.io Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
 
-![](20230927213111.png)
+![](image.png)
 
 Download the latest MagicStickUI msi installer version from the [magicstick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page.
 
@@ -67,7 +67,7 @@ The LED is located at the diagram position marked **D**. The following table sum
 |------------|---------|
 | LED is **on**. | A keyboard is connected via wired or Bluetooth connection. |
 | LED is **off**. | Device malfunction. |
-| LED is **flashing** non-stop. | Two possible reasons: </br> Either </br>1. Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. <br> _Or_ </br>2. The keyboard is in key **programming** mode, waiting for you to press a key to program. |
+| LED is **flashing** non-stop. | Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. |
 | **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection or Bluetooth. |
 | **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired keyboard via Bluetooth. |
 | **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. magicstick.io Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
@@ -97,6 +97,7 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>&darr;</kbd>   | <kbd>Page Down</kbd> |
 | <kbd>Fn</kbd> + <kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
 | <kbd>Fn</kbd> + <kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
+| <kbd>Fn</kbd> + <kbd>0 - 9</kbd>   | Numeric Keypad <kbd>0 - 9</kbd> |
 
 ### Special Function Keys
 
@@ -108,27 +109,57 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>⏏︎ Eject</kbd>   | Erase (factory reset) device.  |
 | <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>🔒 Lock</kbd>   | Erase (factory reset) device.  |
 
-  
-## Physical Key Remapping
+## Key Map Programming
 
-magicstick.io supports the remapping of a physical key to a different location. For instance you may decide that you'd want to swap the blue and the red keys.
+The magicstick.io key map is programmable via custom rules. This allows you to: 
+- Remap physical keys. 
+- Target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
+- It also allows you to to program keys for typing special characters, unicode keys and emojis.
+
+To access the default key map, right-click on the utility icon and select Keymap to open the keymap editor.
+![](image-1.png)
+
+You will then see the default key map rules. Each rule can be one of the following 3 rule types:
+
+1. **label** [label name]
+2. **goto** [label name]
+3. [**condition** expression]:[goto **label** if condition evaluates to true]:[goto **label** if condition evaluates to false]
+   _or_
+   [**condition** expression]:[goto **label** if condition evaluates to true]
+   _or_
+   [**condition** expression]
+
+A **label** statement defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. lbl_1, _lbl1, lastlbl, etc.
+
+A **goto** statement tells the rules execution engine to jump to a particular label location in the program, by label name.
+
+A condition expression, executes and evaluates the result of a condition expression. If the result is true (any number except 0) it jumps to the rules list location specified by [goto **label** if condition evaluates to true]. If the result is false (0), it jumps to the rules list location specified by [goto **label** if condition evaluates to false]. The goto sections are optional and if they are missing, execution will just continue with the next rule in the list until the end of the list.
+
+![alt text](rules1.drawio-1.png)
+
+
+### Physical Key Remapping
+
+magicstick.io supports the remapping of a physical key through is programming ability. For instance suppose you decide that you'd like to swap the blue and the red keys.
 
 ![](20230928220051.png)
 
-To do so, follow these steps:
-1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function. Once activated you will see the magicstick.io LED flashing quickly.
-2. Press the source key (**red**), that is the key that you would like to change. 
-3. Press the destination key (**blue**), that is the key that you would like it to become. 
-4. The LED will stop flashing. Now whenever you press the **red** key, you get the **blue** key.
-5. Note that you will need to execute this process once more, but now for mapping the **blue** key to the **red** key so that effectively the keys are swapped.
+To do so, add 2 rules using the **ch_key()** function after the first rule in the list, as shown below. These effectively swap the 2 physical keys.
 
-#### Deleting a Remapped Key
+![alt text](image-3.png)
 
-You can delete a remapped key by pressing the <kbd>Fn</kbd>+<kbd>X</kbd> key combination and once the LED starts flashing (key programming mode), press the key that you would like to return back to normal.
+```
+ch_key(HID_KEY_EUROPE_2, HID_KEY_GRAVE):end
+ch_key(HID_KEY_GRAVE, HID_KEY_EUROPE_2):end
+```
+
 
 #### Deleting all the Remapped Keys
 
-To delete all the remapped keys one-off, you can just reset the device to factory settings by following [these steps](#reset).
+To delete all the remapped keys one-off, you can:
+1. Click the **Load Default** button in the keymap editor to load the default keymap.
+Or
+2. Reset the device to factory settings by following [these steps](#reset).
 
 #### Remapping of Special Keys
 
@@ -136,24 +167,72 @@ The previous sections explained how to remap standard keys such as letter keys. 
 
 ##### Swap Fn-Ctrl
 
-This can be done via the MagicStickUI utility or alternatively:
-1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
-2. Press <kbd>Fn</kbd> or <kbd>Ctrl</kbd>
+This can be done in **Settings**.
 
 ##### Swap Alt-Cmd
 
-This can be done via the MagicStickUI utility or alternatively:
-1. Press <kbd>Fn</kbd>+<kbd>Z</kbd> to activate the key programming function
-2. Press <kbd>⌥ Alt/Option</kbd> or <kbd>⌘ Cmd</kbd>
+This can be done in **Settings** by selecting:
+![alt text](image-2.png)
+
+Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the left or right Alt-Cmd keys, etc.
+
+Rule to swap Left Alt with Left Command:
+```
+(get_mod() & KEYBOARD_MODIFIER_LEFTALT) && set_mod((get_mod() & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
+```
+The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTALT, then remove the KEYBOARD_MODIFIER_LEFTALT and add the KEYBOARD_MODIFIER_LEFTGUI.
+
+Rule to swap Left Command with Left Alt:
+```
+(get_mod() & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((get_mod() & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
+```
+The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTGUI, then remove the KEYBOARD_MODIFIER_LEFTGUI and add the KEYBOARD_MODIFIER_LEFTALT.
+
+You can add 2 similar rules to swap the KEYBOARD_MODIFIER_RIGHTALT and KEYBOARD_MODIFIER_RIGHTGUI keys.
+
+##### Entering Extended ASCII and Unicode Characters
+
+Please note that this only works on Windows, as it takes advantage of the special Windows Alt-codes functionality. Also, the program that you are typing in to must have Unicode support for entering Unicode characters (e.g. Windows WordPad or Microsoft Word).
+
+The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>2</kbd> to type the **€** character:
+```
+(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
+```
+
+The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>3</kbd> to type the **£** character:
+```
+(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
+```
+
+For the full list of extended ASCII key codes like the ones above, see [here](https://www.alt-codes.net/).
+
+For entering Unicode characters, you need to use the decimal value of the Unicode character that you'd want to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
+
+As an example, say that you want to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>, you can create the following rule:
+
+```
+(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && (get_mod() & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
+```
+
+Or if you'd want to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this at the start of the rules list:
+
+```
+apple_key_fn && find_key(HID_KEY_V) && send_alt_key_code(9996):end
+```
+
+Or alternatively, place this somewhere after the line 'label fn_on':
+```
+find_key(HID_KEY_V) && send_alt_key_code(9996):end
+```
+
+Note that in this case we are using the **send_alt_key_code()** and not the **send_alt_key_code_0()** function as done previously because the Alt code **9996** does not have a **0** in front.
 
 ## Firmware Updates
 
 #### Firmware Update Using the MagicStickUI Utility
 This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run MagicStickUI.
 
-1. Right-click on the MagicStickUI tray icon and select _"Check for updates"_. 
-
-   ![](20230927210205.png)
+1. Right-click on the MagicStickUI tray icon and select: _Check for updates_. 
 
 2. If a new update is found, you will get a confirmation dialog asking to update. Accept, and the upgrade will start and complete automatically. 
 
@@ -192,12 +271,8 @@ BOOTSEL is a special device mode that allows you to write new firmware to it. Yo
 
 ## Factory Resetting the Device
 
-You can reset your device's internal memory (programmed keys, Bluetooth pairing etc.) by any of the 2 following ways:
+You can reset your device's internal memory (programmed keys, Bluetooth pairing etc.) by following these steps:
 
-**First Way:**
-If there is a keyboard connected to the device, press the <kbd>Fn</kbd> <kbd>⏏︎ Eject</kbd> or the <kbd>Fn</kbd> <kbd>🔒 Lock</kbd> key combinations.
-
-**Second Way:**
 Unplug the device. Plug it in and as soon as the green LED turns on (it is important to wait until it turns on before you press), press the BOOTSEL button and keep pressing it until the LED starts flashing. Now release the BOOTSEL button. The device's memory will be wiped out and the device will reboot.
 
 It is important to press the BOOTSEL button **after** the LED turns on. If you press it before, the device will enter into BOOTSEL mode instead of resetting, which is not what you want in this case.
@@ -210,7 +285,7 @@ As soon as the device resets back to factory settings, it will lose all key rema
 ### Hardware Resources
 
 1. You will need to purchase a genuine *Raspberry Pi Pico W* board from a vendor in your area. 
-2. You will also need a female USB Type-A port and some 28AWG silicone cable for the wiring. Use the wiring schematics [here](../schematics) to solder the USB Type-A port to the board as shown.
+2. You will also need a female USB Type-A port and some _28AWG_ silicone cable for the wiring. Use the wiring schematics [here](../schematics) to solder the USB Type-A port to the board as shown.
 3. Use the 3D print STL files [here](../case) to print the plastic case.
 
 **Notes:**
