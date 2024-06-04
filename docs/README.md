@@ -56,7 +56,7 @@ as well as to change the keyboard's special keys configuration. You can also use
 
 ![](image.png)
 
-Download the latest MagicStickUI msi installer version from the [magicstick.io GitHub Releases](https://github.com/samartzidis/magicstick.io/releases) page.
+Download the latest MagicStickUI msi installer version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page.
 
 
 ## LED Status Reference
