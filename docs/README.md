@@ -46,9 +46,9 @@ The older A1314 keyboard has a little bit more complicated pairing process.
 5. The keyboard should be now paired and connected.
 If this process fails repeat from step 1.
 
-## The MagicStickUI Windows Utility
+## The magicstick-ui Windows Utility
 
-The MagicStickUI utility allows you to monitor the keyboard's connection status, the battery level (both when wired or in Bluetooth),
+The magicstick-ui utility allows you to monitor the keyboard's connection status, the battery level (both when wired or in Bluetooth),
 
 ![](20230927213245.png)
 
@@ -56,7 +56,7 @@ as well as to change the keyboard's special keys configuration. You can also use
 
 ![](image.png)
 
-Download the latest MagicStickUI msi installer version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page.
+Download the latest magicstick-ui msi installer version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page.
 
 
 ## LED Status Reference
@@ -233,10 +233,10 @@ Note that in this case we are using the **send_alt_key_code** and not the **send
 
 ## Firmware Updates
 
-#### Firmware Update Using the MagicStickUI Utility
-This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run MagicStickUI.
+#### Firmware Update Using the magicstick-ui Utility
+This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run magicstick-ui.
 
-1. Right-click on the MagicStickUI tray icon and select: _Check for updates_. 
+1. Right-click on the magicstick-ui tray icon and select: _Check for updates_. 
 
 2. If a new update is found, you will get a confirmation dialog asking to update. Accept, and the upgrade will start and complete automatically. 
 
@@ -247,7 +247,7 @@ This is the recommended way as it is easier than the manual one but you need to 
 #### Manual Firmware Update
 This _"brute force"_ method is useful if you have no access to a Windows PC or if for any reason the device had been previously flashed with a bad, non-working firmware (bricked).
 
-1. To download the firmware for your magicstick.io device, you need your device's serial number. On **Windows**, use the MagicStickUI utility to retrieve it. On **Linux**, you can find it by typing this command in a terminal: ```upower -d```
+1. To download the firmware for your magicstick.io device, you need your device's serial number. On **Windows**, use the magicstick-ui utility to retrieve it. On **Linux**, you can find it by typing this command in a terminal: ```upower -d```
 The content in the red box is the device's serial number.
 
    ![](20230928223602.png)
@@ -300,13 +300,13 @@ If you are not interested in the plastic enclosure, you can skip step (3) above.
 
 For the following process, you will need to work on a Windows PC.
 
-1. Download and install the [MagicStickUI Utility](#the-magicstickui-windows-utility). 
+1. Download and install the [magicstick-ui](#The-magicstick-ui-Windows-Utility). 
 
-2. Run the MagicStickUI utility (from the desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
+2. Run the magicstick-ui utility (from the desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
 
 3. You will be asked to plug your "Raspberry Pi Pico W" device in [BOOTSEL mode](#entering-into-bootsel-mode). The device will be auto-detected flashed with the initialization firmware.
 
-3. In the MagicStickUI Utility, click the "Scan devices" option and select the "magicstick-dummy..." device that now appears in the device list. Next, select the "Device info" option and copy the device's serial number.
+3. In the magicstick-ui Utility, click the "Scan devices" option and select the "magicstick-dummy..." device that now appears in the device list. Next, select the "Device info" option and copy the device's serial number.
 
 4. Order your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the 16-digit serial number you copied in the previous step in the order form.
 
