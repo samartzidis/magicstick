@@ -131,7 +131,7 @@ A keymap rule can be one of the following 3:
    _or_
    [**condition** expression]
 
-(1) A **label** rule defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. lbl_1, _lbl1, lastlbl, etc.
+(1) A **label** rule defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. **lbl_1**, **_lbl1**, **lastlbl**, etc.
 
 (2) A **goto** rule tells the rules engine to jump to a particular label location in the list, by label name.
 
