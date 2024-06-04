@@ -175,6 +175,7 @@ This can be done in **Settings**.
 ##### Swap Alt-Cmd
 
 This can be done in **Settings** by selecting:
+
 ![alt text](image-2.png)
 
 Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the left or right Alt-Cmd keys, etc.
