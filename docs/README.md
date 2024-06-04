@@ -155,7 +155,7 @@ ch_key(HID_KEY_EUROPE_2, HID_KEY_GRAVE):end
 ch_key(HID_KEY_GRAVE, HID_KEY_EUROPE_2):end
 ```
 
-You can decide to remove these rules if you would prefer to remove this swapping.
+You can remove these two rules if you would prefer to not swap these keys.
 
 #### Deleting all the Remapped Keys
 
@@ -196,7 +196,7 @@ You can add 2 similar rules to swap the KEYBOARD_MODIFIER_RIGHTALT and KEYBOARD_
 
 ### Entering Extended ASCII and Unicode Characters
 
-Please note that this only works on Windows, as it takes advantage of the special Windows Alt-codes functionality. Also, the program that you are typing in to must have Unicode support for entering Unicode characters (e.g. Windows WordPad or Microsoft Word).
+Please note that this only works under Windows, as it takes advantage of the special Windows Alt-codes functionality. Also, the program that you are typing in to must have Unicode support for entering Unicode characters (e.g. Windows WordPad or Microsoft Word).
 
 The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>2</kbd> to type the **€** character:
 ```
@@ -208,28 +208,30 @@ The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <k
 (get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
 ```
 
+If you like, add any or both of the above two rules at the end of the default keymap list to test.
+
 For the full list of extended ASCII key codes like the ones above, see [here](https://www.alt-codes.net/).
 
-For entering Unicode characters, you need to use the decimal value of the Unicode character that you'd want to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
+For entering Unicode characters, you need to use the decimal value of the Unicode character that you'd like to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
 
-As an example, say that you want to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>, you can create the following rule:
+As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>. For this, you can create the following rule:
 
 ```
 (get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && (get_mod() & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
-Or if you'd want to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this at the start of the rules list:
+Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this at the end of the rules list:
 
 ```
 apple_key_fn && find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
-Or alternatively, place this somewhere after the line 'label fn_on':
+Or alternatively, place this somewhere after the line 'label fn_on' (so that you can shorten the expression a bit):
 ```
 find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
-Note that in this case we are using the **send_alt_key_code** and not the **send_alt_key_code_0** function as done previously because the Alt code **9996** does not have a **0** in front.
+Note that in this case we are using the **send_alt_key_code** and not the **send_alt_key_code_0** function as done previously because the Alt code **9996** does not have a leading **0**.
 
 ## Firmware Updates
 
