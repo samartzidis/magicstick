@@ -194,6 +194,10 @@ namespace MagicStickUI
                 else
                 {
                     dev.UpdateDeviceDetails();
+                    
+                    // Trigger DeviceList update
+                    Devices.Remove(dev);
+                    Devices.Add(dev);
                 }
 
                 var asmVersion = typeof(MainWindow).Assembly.GetName().Version;
@@ -205,7 +209,6 @@ namespace MagicStickUI
             }
 
             var found = Devices.FirstOrDefault(t => t.DeviceId == Properties.Settings.Default.LastSelectedDeviceId);
-
             SelectedDevice = null; // Set to null to force a property update
             SelectedDevice = found ?? Devices.FirstOrDefault();            
         }
@@ -390,7 +393,7 @@ namespace MagicStickUI
             if (SelectedDevice == null)
                 return;
 
-            Release? msRelease;
+            Release msRelease;
             try
             {
                 msRelease = await AzureUtil.GetLatestRelease(SelectedDevice.DeviceSerialNumber, Constants.MagicStickFirmwareId);
@@ -408,7 +411,7 @@ namespace MagicStickUI
             if (versionComparison != 0)
             {
                 string msg = null;
-                var flashAction = versionComparison < 0 ? "Upgrade" : "DOWNGRADE";
+                var flashAction = (SelectedDevice.FirmwareId == Constants.MagicStickInitFirmwareId || versionComparison < 0) ? "Upgrade" : "DOWNGRADE";
                 if (SelectedDevice.FirmwareId != Constants.MagicStickInitFirmwareId)
                     msg = $"Your current firmware version is: {SelectedDevice.FirmwareSemVer}.\r\n";
                 msg += $"{flashAction} device to the latest official firmware version: {latestVersion}?\r\n";
@@ -461,8 +464,6 @@ namespace MagicStickUI
                     }
                     catch (TaskCanceledException)
                     {
-                        MessageBox.Show("Update cancelled.", 
-                            Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception m)
                     {
@@ -521,8 +522,6 @@ namespace MagicStickUI
             }
             catch (TaskCanceledException)
             {
-                MessageBox.Show("Initialization cancelled.", 
-                    Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception m)
             {

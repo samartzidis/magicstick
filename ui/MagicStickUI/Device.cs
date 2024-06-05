@@ -73,7 +73,8 @@ namespace MagicStickUI
             FirmwareSemVer = semVerInfo.Item2;
 
             var asmVersion = typeof(Device).Assembly.GetName().Version;
-            IsSupportedDevice = FirmwareSemVer.Major == asmVersion.Major;            
+
+            IsSupportedDevice = (FirmwareId == Constants.MagicStickInitFirmwareId) || (FirmwareSemVer.Major == asmVersion.Major);            
         }
 
         public void Dispose()
