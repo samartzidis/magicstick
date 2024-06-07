@@ -20,7 +20,7 @@
       <Word _description="get_key(position). Get currently pressed key code at specified key position [1-5]. Returns one of the HID_KEY_* constants.">get_key</Word>
       <Word _description="set_key(position, value). Set key code at specified key position [1-5], or [0] for the next free position. 'value' is one of the HID_KEY_* constants. Returns 1 for success, 0 for error.">set_key</Word>
       <Word _description="find_key(value). Find the position where the specified key is pressed. 'value' is one of the HID_KEY_* constants. Returns the position [1-5], or [0] if not pressed.">find_key</Word>
-      <Word _description="get_mod(). Get currently pressed modifier value. Will return one, or a mix of the KEYBOARD_MODIFIER_* constants.">get_mod</Word>
+      <!--<Word _description="get_mod(). Get currently pressed modifier value. Will return one, or a mix (bitwise OR) of the KEYBOARD_MODIFIER_* constants.">get_mod</Word>-->
       <Word _description="set_mod(value). Set currently pressed modifier value.">set_mod</Word>
       <Word _description="set_consumer_report(value). Output a consumer report. Allowed values are one of the HID_USAGE_CONSUMER_*">set_consumer_report</Word>
       <Word _description="send_alt_key_code(value). Output a special windows alt code symbol.">send_alt_key_code</Word>
@@ -36,6 +36,8 @@
     <!-- System variables -->
     <Keywords foreground="Magenta" fontWeight="bold">
       <Word _description="Holds the evaluation result of the current action.">res</Word>
+      <Word _description="The currently pressed modifier value. Will return one, or a mix (bitwise OR) of the KEYBOARD_MODIFIER_* constants.">mod</Word>
+
       <Word _description="1 when the Apple 'fn' key is pressed, 0 otherwise.">apple_key_fn</Word>
       <Word _description="1 when the Apple 'Eject' key is pressed, 0 otherwise.">apple_key_eject</Word>
       <Word _description="1 when the Apple 'Touch ID' key is pressed, 0 otherwise.">apple_key_touch_id</Word>

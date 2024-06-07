@@ -4,7 +4,7 @@
     {
         public const string AppName = "magicstick-ui";
         public const string MagicStickFirmwareId = "magicstick";
-        public const string MagicStickInitFirmwareId = "magicstick-dummy";
+        public const string MagicStickInitFirmwareId = "magicstick-init";
 
         public const int VendorIdMagicStick = 0x2E8A; // Raspberry Pi VID
         public const int ProductIdMagicStick = 0xC010;
