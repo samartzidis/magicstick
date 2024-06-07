@@ -186,13 +186,13 @@ Alternatively, you can code the rules in the key map editor. This will allow you
 
 Rule to swap Left Alt with Left Command:
 ```
-(get_mod() & KEYBOARD_MODIFIER_LEFTALT) && set_mod((get_mod() & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
+(get_mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((get_mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
 ```
 The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTALT, then remove the KEYBOARD_MODIFIER_LEFTALT and add the KEYBOARD_MODIFIER_LEFTGUI.
 
 Rule to swap Left Command with Left Alt:
 ```
-(get_mod() & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((get_mod() & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
+(get_mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((get_mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
 ```
 The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTGUI, then remove the KEYBOARD_MODIFIER_LEFTGUI and add the KEYBOARD_MODIFIER_LEFTALT.
 
