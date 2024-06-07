@@ -186,13 +186,16 @@ Alternatively, you can code the rules in the key map editor. This will allow you
 
 Rule to swap Left Alt with Left Command:
 ```
-(get_mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((get_mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
+(mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
 ```
 The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTALT, then remove the KEYBOARD_MODIFIER_LEFTALT and add the KEYBOARD_MODIFIER_LEFTGUI.
 
+Here is a detailed breakdown of the above rule expression:
+![alt text](image-5.png)
+
 Rule to swap Left Command with Left Alt:
 ```
-(get_mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((get_mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
+(mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
 ```
 The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTGUI, then remove the KEYBOARD_MODIFIER_LEFTGUI and add the KEYBOARD_MODIFIER_LEFTALT.
 
@@ -204,12 +207,12 @@ Please note that this only works under Windows, as it takes advantage of the spe
 
 The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>2</kbd> to type the **€** character:
 ```
-(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
+(mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
 ```
 
 The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>3</kbd> to type the **£** character:
 ```
-(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
+(mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
 ```
 
 If you like, add any or both of the above two rules at the end of the default keymap list to test.
@@ -221,16 +224,13 @@ For entering Unicode characters, you need to use the decimal value of the Unicod
 As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>. For this, you can create the following rule:
 
 ```
-(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && (get_mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
+(mod & KEYBOARD_MODIFIER_LEFTCTRL) && (mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
-Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this at the end of the rules list:
+Here is a detailed breakdown of the above rule expression:
+![alt text](image-6.png)
 
-```
-apple_key_fn && find_key(HID_KEY_V) && send_alt_key_code(9996):end
-```
-
-Or alternatively, place this somewhere after the line 'label fn_on' (so that you can shorten the expression a bit):
+Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this somewhere after the **lbl_fn_on** label line:
 ```
 find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
