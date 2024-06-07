@@ -125,17 +125,21 @@ A keymap rule can be one of the following 3:
 
 1. **label** [label name]
 2. **goto** [label name]
-3. [**condition** expression] **:** [goto **label** if condition evaluates to true] **:** [goto **label** if condition evaluates to false]
+3. [**expression**] **:** [goto **label** if expression evaluates to true] **:** [goto **label** if expression evaluates to false]
+
    _or_
-   [**condition** expression] **:** [goto **label** if condition evaluates to true]
+
+   [**expression**] **:** [goto **label** if expression evaluates to true]
+
    _or_
-   [**condition** expression]
+
+   [**expression**]
 
 (1) A **label** rule defines a place/anchor in the program. The label name can be a word consisting of alphanumeric characters and underscores but starting with an underscore or a letter. E.g. **lbl_1**, **_lbl1**, **lastlbl**, etc.
 
 (2) A **goto** rule tells the rules engine to jump to a particular label location in the list, by label name.
 
-(3) A condition rule, executes and evaluates the result of a condition expression. If the result is true (i.e. any number except 0) it jumps to the rules list location specified by [goto **label** if condition evaluates to true]. If the result is false (equals 0), it jumps to the rules list location specified by [goto **label** if condition evaluates to false]. The goto sections are optional and if they are missing, execution will just continue with the next rule in the list until the end of the list.
+(3) An expression rule, executes and evaluates the result of an expression. If the expression result is true (i.e. any number except 0) it jumps to the rules list location specified by [goto **label** if expression evaluates to true]. If the result is false (equals 0), it jumps to the rules list location specified by [goto **label** if expression evaluates to false]. The goto sections are optional and if they are missing, execution will just continue with the next rule in the list until the end of the list.
 
 Below is a further explanation of the default rules:
 
