@@ -200,12 +200,12 @@ Please note that this only works under Windows, as it takes advantage of the spe
 
 The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>2</kbd> to type the **€** character:
 ```
-(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
+(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
 ```
 
 The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>3</kbd> to type the **£** character:
 ```
-(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
+(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
 ```
 
 If you like, add any or both of the above two rules at the end of the default keymap list to test.
@@ -217,7 +217,7 @@ For entering Unicode characters, you need to use the decimal value of the Unicod
 As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>. For this, you can create the following rule:
 
 ```
-(get_mod() & KEYBOARD_MODIFIER_LEFTCTRL) && (get_mod() & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
+(get_mod & KEYBOARD_MODIFIER_LEFTCTRL) && (get_mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
 
 Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this at the end of the rules list:
