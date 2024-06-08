@@ -106,7 +106,7 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 ## Keymap Programming
 
-> Warning: This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
+> This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
 
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
 - Physical key remapping. 
@@ -119,7 +119,7 @@ To access the default key map, right-click on the utility icon and select Keymap
 
 You will then see the keymap rules editor showing the current default rules: 
 
-![alt text](image-4.png)
+![alt text](image-7.png)
 
 A keymap rule can be one of the following 3:
 
@@ -143,7 +143,7 @@ A keymap rule can be one of the following 3:
 
 Below is a further explanation of the default rules:
 
-![alt text](rules1.drawio-1.png)
+![alt text](rules1.drawio.png)
 
 
 ### Physical Key Remapping
@@ -170,36 +170,36 @@ Or
 
 #### Remapping of Special Keys
 
-The previous sections explained how to remap standard keys such as letter keys. Modifier keys such as Shift, Alt and Ctrl cannot be remapped with the exception of swapping the Fn-Ctrl and the Alt-Cmd keys. 
-
 ##### Swap Fn-Ctrl
 
-This can be done in **Settings**.
+This can be easily done in **Settings**.
 
 ##### Swap Alt-Cmd
 
-This can be done in **Settings** by selecting:
+This can be easily done in **Settings** by selecting:
 
 ![alt text](image-2.png)
 
-Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the left or right Alt-Cmd keys, etc.
+Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the Left or the Right Alt-Cmd keys, etc.
 
-Rule to swap Left Alt with Left Command:
+Rule to swap <kbd>Left Alt</kbd> with <kbd>⌘ Left Cmd</kbd> :
+
 ```
 (mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
 ```
-The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTALT, then remove the KEYBOARD_MODIFIER_LEFTALT and add the KEYBOARD_MODIFIER_LEFTGUI.
+
+The above rule says if the pressed modifiers match the **KEYBOARD_MODIFIER_LEFTALT**, then remove the **KEYBOARD_MODIFIER_LEFTALT** and add the **KEYBOARD_MODIFIER_LEFTGUI**.
 
 Here is a detailed breakdown of the above rule expression:
 ![alt text](image-5.png)
 
-Rule to swap Left Command with Left Alt:
+Rule to swap <kbd>⌘ Left Cmd</kbd> with <kbd>Left Alt</kbd>:
 ```
 (mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
 ```
-The above rule says if the pressed modifiers match the KEYBOARD_MODIFIER_LEFTGUI, then remove the KEYBOARD_MODIFIER_LEFTGUI and add the KEYBOARD_MODIFIER_LEFTALT.
+The above rule says if the pressed key(s) modifiers match the **KEYBOARD_MODIFIER_LEFTGUI**, then remove the **KEYBOARD_MODIFIER_LEFTGUI** and add the **KEYBOARD_MODIFIER_LEFTALT**.
 
-You can add 2 similar rules to swap the KEYBOARD_MODIFIER_RIGHTALT and KEYBOARD_MODIFIER_RIGHTGUI keys.
+You can add 2 similar rules to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys.
 
 ### Entering Extended ASCII and Unicode Characters
 
@@ -217,9 +217,9 @@ The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <k
 
 If you like, add any or both of the above two rules at the end of the default keymap list to test.
 
-For the full list of extended ASCII key codes like the ones above, see [here](https://www.alt-codes.net/).
+For the full list of extended **ASCII** key codes like the ones above, see [here](https://www.alt-codes.net/).
 
-For entering Unicode characters, you need to use the decimal value of the Unicode character that you'd like to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
+For entering **Unicode** characters, you need to use the decimal value of the Unicode character that you'd like to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
 
 As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>. For this, you can create the following rule:
 
@@ -231,6 +231,7 @@ Here is a detailed breakdown of the above rule expression:
 ![alt text](image-6.png)
 
 Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this somewhere after the **lbl_fn_on** label line:
+
 ```
 find_key(HID_KEY_V) && send_alt_key_code(9996):end
 ```
