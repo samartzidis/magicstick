@@ -80,7 +80,7 @@ The firmware release notes are [here](release-notes.md).
 - In contrast to other similar solutions (e.g. MagicUtilities), magicstick.io has **no subscription fees** or any connected device restrictions. You own the device, and you can connect it to **as many keyboards or computers** as you like.
 - **PC sleep/wake-up** is supported and works **in both wired and Bluetooth** connection modes (in contrast to pure software solutions such as MagicUtilities). The Bluetooth wake-up support is particularly useful for media centre PCs that you would normally want to wake up from a distance when hitting a key on the keyboard. 
 - **Firmware updates**. Any future improvements, such as support for new keyboard models are easy to install and are provided for free.
-
+- **Programmable**. magicstick.io incorporates a user programmable key rules engine that allows you to remap keys, map keys to custom multimedia functions and output extended ASCII or Unicode characters (on Windows OS).
 
 ## Compliance and Safety
 
