@@ -96,7 +96,7 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 ## Keymap Programming
 
-> This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
+> **Note:** This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
 
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
 - Physical key remapping. 
