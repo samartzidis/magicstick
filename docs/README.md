@@ -82,7 +82,6 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>[F2]</kbd> | Brightness Up |
 | <kbd>Fn</kbd> + <kbd>[F6]</kbd> | Sleep (Windows OS) |
 | <kbd>Fn</kbd> + <kbd>[F7]</kbd> ... <kbd>[F12]</kbd> | Multimedia Keys</kbd> |
-| <kbd>Fn</kbd> + <kbd>Left Ctrl</kbd>    | <kbd>Right Ctrl</kbd> |
 | <kbd>Fn</kbd> + <kbd>Return</kbd>   | <kbd>Insert</kbd> |
 | <kbd>Fn</kbd> + <kbd>⌫</kbd>    | <kbd>Del</kbd>    |
 | <kbd>Fn</kbd> + <kbd>P</kbd>    | <kbd>Print Screen</kbd> |
