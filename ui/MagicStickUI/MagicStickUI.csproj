@@ -6,7 +6,7 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\App.ico</ApplicationIcon>
     <IsPackable>false</IsPackable>
