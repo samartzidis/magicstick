@@ -182,7 +182,7 @@ This can be easily done in **Settings** by selecting:
 
 Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the Left or the Right Alt-Cmd keys, etc.
 
-Rule to swap <kbd>Left Alt</kbd> with <kbd>⌘ Left Cmd</kbd> :
+Rule to swap <kbd>Left ⌥ Alt/Option</kbd> with <kbd>⌘ Left Cmd</kbd>:
 
 ```
 (mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
@@ -193,7 +193,7 @@ The above rule says if the pressed modifiers match the **KEYBOARD_MODIFIER_LEFTA
 Here is a detailed breakdown of the above rule expression:
 ![alt text](image-5.png)
 
-Rule to swap <kbd>⌘ Left Cmd</kbd> with <kbd>Left Alt</kbd>:
+Rule to swap <kbd>⌘ Left Cmd</kbd> with <kbd>Left ⌥ Alt/Option</kbd>:
 ```
 (mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
 ```
