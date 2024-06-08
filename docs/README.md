@@ -264,11 +264,9 @@ So in that case, the serial number starts with E66 and finishes with 32.
 
 ## Entering into BOOTSEL Mode
 
-BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this if you would like to run a manual firmware update or downgrade process. There are two ways to achieve this:
+BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this to run a manual firmware update or downgrade.
 
-**First Way:** Press Fn-Right Shift-Del (i.e. Eject) on your keyboard.
-
-**Second way:** Unplug magicstick.io and then plug it in with the bootsel button being constantly pressed. This will enter the magicstick.io into bootsel mode.
+To enter into BOOTSEL mode, unplug magicstick.io and then plug it in with the bootsel button being constantly pressed. This will enter the magicstick.io into bootsel mode.
 
 ## Factory Resetting the Device
 
