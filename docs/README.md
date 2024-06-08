@@ -82,7 +82,7 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>[F2]</kbd> | Brightness Up |
 | <kbd>Fn</kbd> + <kbd>[F6]</kbd> | Sleep (Windows OS) |
 | <kbd>Fn</kbd> + <kbd>[F7]</kbd> ... <kbd>[F12]</kbd> | Multimedia Keys</kbd> |
-| <kbd>Fn</kbd> + <kbd>LCtrl</kbd>    | <kbd>Right Ctrl</kbd> |
+| <kbd>Fn</kbd> + <kbd>Left Ctrl</kbd>    | <kbd>Right Ctrl</kbd> |
 | <kbd>Fn</kbd> + <kbd>Return</kbd>   | <kbd>Insert</kbd> |
 | <kbd>Fn</kbd> + <kbd>⌫</kbd>    | <kbd>Del</kbd>    |
 | <kbd>Fn</kbd> + <kbd>P</kbd>    | <kbd>Print Screen</kbd> |
@@ -93,16 +93,6 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
 | <kbd>Fn</kbd> + <kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
 | <kbd>Fn</kbd> + <kbd>0 - 9</kbd>   | Numeric Keypad <kbd>0 - 9</kbd> |
-
-### Special Function Keys
-
-| Input Key(s)  | Action        |
-| --- | --- |
-| <kbd>Fn</kbd> + <kbd>Z</kbd>    | Remap (program) key.   |
-| <kbd>Fn</kbd> + <kbd>X</kbd>    | Delete a previously remapped (programmed) key.  |
-| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>  | Reboot device device in BOOTSEL mode. |
-| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>⏏︎ Eject</kbd>   | Erase (factory reset) device.  |
-| <kbd>Fn</kbd> + <kbd>Right Shift</kbd>+<kbd>🔒 Lock</kbd>   | Erase (factory reset) device.  |
 
 ## Keymap Programming
 
@@ -182,7 +172,7 @@ This can be easily done in **Settings** by selecting:
 
 Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the Left or the Right Alt-Cmd keys, etc.
 
-Rule to swap <kbd>Left ⌥ Alt/Option</kbd> with <kbd>⌘ Left Cmd</kbd>:
+Rule to swap left <kbd>⌥ Alt/Option</kbd> with left <kbd>⌘ Cmd</kbd>:
 
 ```
 (mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
@@ -193,7 +183,7 @@ The above rule says if the pressed modifiers match the **KEYBOARD_MODIFIER_LEFTA
 Here is a detailed breakdown of the above rule expression:
 ![alt text](image-5.png)
 
-Rule to swap <kbd>⌘ Left Cmd</kbd> with <kbd>Left ⌥ Alt/Option</kbd>:
+Rule to swap left <kbd>⌘ Cmd</kbd> with left <kbd>⌥ Alt/Option</kbd>:
 ```
 (mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
 ```
@@ -221,7 +211,7 @@ For the full list of extended **ASCII** key codes like the ones above, see [here
 
 For entering **Unicode** characters, you need to use the decimal value of the Unicode character that you'd like to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
 
-As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>LCtrl</kbd>+<kbd>LShift</kbd>+<kbd>V</kbd>. For this, you can create the following rule:
+As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>Ctrl</kbd>+<kbd>Left Shift</kbd>+<kbd>v</kbd>. For this, you can create the following rule:
 
 ```
 (mod & KEYBOARD_MODIFIER_LEFTCTRL) && (mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
@@ -230,7 +220,7 @@ As an example, say that you'd like to map the ✌ (victory hand) character to th
 Here is a detailed breakdown of the above rule expression:
 ![alt text](image-6.png)
 
-Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>V</kbd> key combination, place this somewhere after the **lbl_fn_on** label line:
+Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>v</kbd> key combination, place this somewhere after the **lbl_fn_on** label line:
 
 ```
 find_key(HID_KEY_V) && send_alt_key_code(9996):end
