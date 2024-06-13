@@ -107,7 +107,7 @@ To access the default key map, right-click on the utility icon and select Keymap
 
 You will then see the keymap rules editor showing the current default rules: 
 
-![alt text](image-7.png)
+![alt text](image-10.png)
 
 A keymap rule can be one of the following 3:
 
