@@ -156,7 +156,7 @@ namespace MagicStickUI
                 if (jobj.ContainsKey("event_name"))
                 {
                     var rpcEvent = JsonConvert.DeserializeObject<RpcEvent>(str);
-                    _logger.LogDebug($"Received event: name={rpcEvent?.event_name}, id={rpcEvent?.id}");
+                    _logger.LogDebug($"Received event: name={rpcEvent?.event_name}");
                     
                     if (rpcEvent?.event_name != null)
                         RpcEventReceived?.Invoke(this, new RpcEventArgs(rpcEvent.event_name, str));
@@ -316,8 +316,7 @@ namespace MagicStickUI
 
     public class RpcEvent
     {
-        public string event_name { get; set; }
-        public string id { get; set; }        
+        public string event_name { get; set; }     
     }
 
     public class SendUnicodeCharEvent : RpcEvent
