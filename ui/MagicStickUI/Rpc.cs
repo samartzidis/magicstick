@@ -159,7 +159,7 @@ namespace MagicStickUI
                     _logger.LogDebug($"Received event: name={rpcEvent?.event_name}, id={rpcEvent?.id}");
                     
                     if (rpcEvent?.event_name != null)
-                        RpcEventReceived?.Invoke(this, new RpcEventArgs(rpcEvent.event_name));
+                        RpcEventReceived?.Invoke(this, new RpcEventArgs(rpcEvent.event_name, str));
                 }
                 else
                 {
@@ -259,7 +259,9 @@ namespace MagicStickUI
     public class RpcEventArgs : EventArgs
     {
         public string Name { get; }
-        public RpcEventArgs(string name) { Name = name; }
+        public string Payload { get; }
+
+        public RpcEventArgs(string name, string payload) { Name = name; Payload = payload; }
     }
 
     public class RpcException : Exception
@@ -316,6 +318,11 @@ namespace MagicStickUI
     {
         public string event_name { get; set; }
         public string id { get; set; }        
+    }
+
+    public class SendUnicodeCharEvent : RpcEvent
+    {
+        public int key_code { get; set; }
     }
 
     public sealed class GetSettingsRequest : RpcRequest

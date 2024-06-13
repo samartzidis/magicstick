@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Newtonsoft.Json;
 
 namespace MagicStickUI
 {
@@ -236,14 +237,25 @@ namespace MagicStickUI
         {
             if (sender is Device dev && dev == SelectedDevice)
             {
-                if (e.Name == "connected")                                    
-                    ReadDeviceBattery(dev);                
-                else
+                if (e.Name == "connected")
+                {
+                    ReadDeviceBattery(dev);
+
+                    _trayIcon.UpdateTaskbarIcon(dev);
+                    OnPropertyChanged(nameof(TooltipString));
+                }
+                else if (e.Name == "disconnected")
+                {
                     dev.BatteryPercentage = 0;
 
-                _trayIcon.UpdateTaskbarIcon(dev);
-
-                OnPropertyChanged(nameof(TooltipString));
+                    _trayIcon.UpdateTaskbarIcon(dev);
+                    OnPropertyChanged(nameof(TooltipString));
+                }
+                else if (e.Name == "send_unicode_char_event")
+                {
+                    var ucEvt = JsonConvert.DeserializeObject<SendUnicodeCharEvent>(e.Payload);
+                    KeyboardInputSender.SendUnicodeToActiveWindow(ucEvt.key_code);
+                }                
             }
         }
 
