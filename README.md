@@ -76,7 +76,7 @@ The firmware release notes are [here](release-notes.md).
 
   ![](docs/20231001222021.png)
   
-  _The above measurement was done on [clickspeedtester.com](https://www.clickspeedtester.com) using an A1644 keyboard. It averaged the same between (all) MagicStick-wired, MagicStick-Bluetooth, and direct PC USB (that is without MagicStick and with no extra Windows drivers installed)_.
+  _The above measurement was done on [clickspeedtester.com](https://www.clickspeedtester.com/keyboard-latency-test/) using an A1644 keyboard. It averaged the same between (all) MagicStick-wired, MagicStick-Bluetooth, and direct PC USB (that is without MagicStick and with no extra Windows drivers installed)_.
 - magicstick.io is a microcontroller-based device so it **works immediately** as soon as it is powered on. This allows you to use the keyboard as early as at the PC boot process, e.g. for accessing the BIOS/UEFI menus. Also since there is no Operating System driver required, the keyboard just works correctly in BIOS/UEFI mode.
 - **Programmable**. magicstick.io incorporates a user programmable key rules engine that allows you to directly **map** keys or key combinations to **custom multimedia** functions or to **Unicode** characters (e.g. μ) and **Emojis** (e.g. 👍) (on Windows OS).
 - magicstick.io supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the [MagicStickUI](docs#the-magicstickui-utility) utility.
