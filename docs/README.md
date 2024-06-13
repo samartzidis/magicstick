@@ -91,7 +91,6 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>&darr;</kbd>   | <kbd>Page Down</kbd> |
 | <kbd>Fn</kbd> + <kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
 | <kbd>Fn</kbd> + <kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
-| <kbd>Fn</kbd> + <kbd>0 - 9</kbd>   | Numeric Keypad <kbd>0 - 9</kbd> |
 
 ## Keymap Programming
 
@@ -190,42 +189,65 @@ The above rule says if the pressed key(s) modifiers match the **KEYBOARD_MODIFIE
 
 You can add 2 similar rules to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys.
 
-### Entering Extended ASCII and Unicode Characters
+### Emulating Numeric Keypad Number Keys
 
-Please note that this only works under Windows, as it takes advantage of the special Windows Alt-codes functionality. Also, the program that you are typing in to must have Unicode support for entering Unicode characters (e.g. Windows WordPad or Microsoft Word).
+Emulating these keys can be useful for entering Alt-codes under Windows, that require the use of a numeric keypad, which the Apple Magic keyboard does not have.
 
-The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>2</kbd> to type the **€** character:
-```
-(mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_2) && send_alt_key_code_0(128):end
-```
-
-The following example shows how to program the key shortcut <kbd>Ctrl</kbd> + <kbd>3</kbd> to type the **£** character:
-```
-(mod & KEYBOARD_MODIFIER_LEFTCTRL) && find_key(HID_KEY_3) && send_alt_key_code_0(163):end
-```
-
-If you like, add any or both of the above two rules at the end of the default keymap list to test.
-
-For the full list of extended **ASCII** key codes like the ones above, see [here](https://www.alt-codes.net/).
-
-For entering **Unicode** characters, you need to use the decimal value of the Unicode character that you'd like to enter. You can use [this table](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/dingbats_unicode_character_codes.cfm) to find that.
-
-As an example, say that you'd like to map the ✌ (victory hand) character to the key combination <kbd>Ctrl</kbd>+<kbd>Left Shift</kbd>+<kbd>v</kbd>. For this, you can create the following rule:
+The following set of rules shows how to map the <kbd>Fn</kbd> + <kbd>0 - 9</kbd> key combinations to: Numeric Keypad keys <kbd>0 - 9</kbd>:
 
 ```
-(mod & KEYBOARD_MODIFIER_LEFTCTRL) && (mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_V) && send_alt_key_code(9996):end
+ch_key(HID_KEY_1, HID_KEY_KEYPAD_1):end
+ch_key(HID_KEY_2, HID_KEY_KEYPAD_2):end
+ch_key(HID_KEY_3, HID_KEY_KEYPAD_3):end
+ch_key(HID_KEY_4, HID_KEY_KEYPAD_4):end
+ch_key(HID_KEY_5, HID_KEY_KEYPAD_5):end
+ch_key(HID_KEY_6, HID_KEY_KEYPAD_6):end
+ch_key(HID_KEY_7, HID_KEY_KEYPAD_7):end
+ch_key(HID_KEY_8, HID_KEY_KEYPAD_8):end
+ch_key(HID_KEY_9, HID_KEY_KEYPAD_9):end
+ch_key(HID_KEY_0, HID_KEY_KEYPAD_0):end
 ```
 
-Here is a detailed breakdown of the above rule expression:
-![alt text](image-6.png)
+These rules must be entered after the "label lbl_fn_on" line and before the "goto end" line, so that they are taken into consideration when <kbd>Fn</kbd> is pressed.
 
-Or if you'd like to do the same using the <kbd>Fn</kbd>+<kbd>v</kbd> key combination, place this somewhere after the **lbl_fn_on** label line:
+### Entering Unicode Characters and Emojis
+
+Please note that this currently only works in Windows, as it relies on the magicstick-ui utility. Also, the program that you are typing in to must have Unicode support (e.g. Windows WordPad or Microsoft Word).
+
+For entering **Unicode** characters, you need to know the decimal Unicode point value of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for that and take the number from the **Decimal** column value (without the other characters around it).
+
+The following example shows how to program the key shortcut <kbd>Fn</kbd> + <kbd>2</kbd> to type the **€** character:
 
 ```
-find_key(HID_KEY_V) && send_alt_key_code(9996):end
+find_key(HID_KEY_2) && send_unicode(8364):end
 ```
 
-Note that in this case we are using the **send_alt_key_code** and not the **send_alt_key_code_0** function as done previously because the Alt code **9996** does not have a leading **0**.
+The following example shows how to program the key shortcut <kbd>Fn</kbd> + <kbd>3</kbd> to type the **£** character:
+
+```
+find_key(HID_KEY_3) && send_unicode(8356):end
+```
+
+You will need to add both of the above rules after the "label lbl_fn_on" line and before the "goto end" line so that they are activated when <kbd>Fn</kbd> is pressed, as seen in lines 23-24:
+![alt text](image-8.png)
+
+You can also type Emojis, for example say that you would like to map <kbd>Fn</kbd> + <kbd>Y</kbd> to 👍 and <kbd>Fn</kbd> + <kbd>N</kbd> to 👎:
+
+```
+find_key(HID_KEY_Y) && send_unicode(128077):end
+find_key(HID_KEY_N) && send_unicode(128078):end
+```
+
+This is a more complex example that would allow you to map: 
+<kbd>Fn</kbd> + ![alt text](image-9.png) to Unicode character ≠
+<kbd>Fn</kbd> + <kbd>Shift</kbd> + ![alt text](image-9.png) to Unicode character ±
+
+```
+!mod && find_key(HID_KEY_EQUAL) && send_unicode(8800):end
+(mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_EQUAL) && send_unicode(177):end
+```
+
+Note how we also need to consult the **mod** keystroke modifiers (flags) variable value to check whether the <kbd>Shift</kbd> key is pressed or not.
 
 ## Firmware Updates
 
