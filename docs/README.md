@@ -241,8 +241,12 @@ find_key(HID_KEY_N) && send_unicode(0x1F44E):end
 ```
 
 This is a more complex example that would allow you to map: 
-<kbd>Fn</kbd> + ![alt text](image-9.png) to Unicode character ≠
-<kbd>Fn</kbd> + <kbd>Shift</kbd> + ![alt text](image-9.png) to Unicode character ±
+
+<kbd>Fn</kbd> + ![alt text](image-9.png) to the Unicode character **≠**
+
+and 
+
+<kbd>Fn</kbd> + <kbd>Shift</kbd> + ![alt text](image-9.png) to the Unicode character **±**
 
 ```
 !mod && find_key(HID_KEY_EQUAL) && send_unicode(0x2260):end
