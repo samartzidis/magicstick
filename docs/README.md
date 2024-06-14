@@ -216,18 +216,18 @@ These rules must be entered after the "label lbl_fn_on" line and before the "got
 
 Please note that this currently only works in Windows, as it relies on the magicstick-ui utility. Also, the program that you are typing in to must have Unicode support (e.g. Windows WordPad or Microsoft Word).
 
-For entering **Unicode** characters, you need to know the decimal Unicode point value of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for that and take the number from the **Decimal** column value (without the other characters around it).
+For entering **Unicode** characters, you need to know the hexadecimal Unicode point value of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for this.
 
 The following example shows how to program the key shortcut <kbd>Fn</kbd> + <kbd>2</kbd> to type the **€** character:
 
 ```
-find_key(HID_KEY_2) && send_unicode(8364):end
+find_key(HID_KEY_2) && send_unicode(0x20AC):end
 ```
 
 The following example shows how to program the key shortcut <kbd>Fn</kbd> + <kbd>3</kbd> to type the **£** character:
 
 ```
-find_key(HID_KEY_3) && send_unicode(8356):end
+find_key(HID_KEY_3) && send_unicode(0x20A4):end
 ```
 
 You will need to add both of the above rules after the "label lbl_fn_on" line and before the "goto end" line so that they are activated when <kbd>Fn</kbd> is pressed, as seen in lines 23-24:
@@ -236,8 +236,8 @@ You will need to add both of the above rules after the "label lbl_fn_on" line an
 You can also type Emojis, for example say that you would like to map <kbd>Fn</kbd> + <kbd>Y</kbd> to 👍 and <kbd>Fn</kbd> + <kbd>N</kbd> to 👎:
 
 ```
-find_key(HID_KEY_Y) && send_unicode(128077):end
-find_key(HID_KEY_N) && send_unicode(128078):end
+find_key(HID_KEY_Y) && send_unicode(0x1F44D):end
+find_key(HID_KEY_N) && send_unicode(0x1F44E):end
 ```
 
 This is a more complex example that would allow you to map: 
@@ -245,8 +245,8 @@ This is a more complex example that would allow you to map:
 <kbd>Fn</kbd> + <kbd>Shift</kbd> + ![alt text](image-9.png) to Unicode character ±
 
 ```
-!mod && find_key(HID_KEY_EQUAL) && send_unicode(8800):end
-(mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_EQUAL) && send_unicode(177):end
+!mod && find_key(HID_KEY_EQUAL) && send_unicode(0x2260):end
+(mod & KEYBOARD_MODIFIER_LEFTSHIFT) && find_key(HID_KEY_EQUAL) && send_unicode(0xB1):end
 ```
 
 Note how we also need to consult the **mod** keystroke modifiers (flags) variable value to check whether the <kbd>Shift</kbd> key is pressed or not.
@@ -261,7 +261,7 @@ find_key(HID_KEY_H) && (send_key(0, HID_KEY_H), send_key(0, HID_KEY_I)):end
 
 Or as another example, we will map <kbd>Fn</kbd> + <kbd>X</kbd> to send the 2 emojis: 👍👎. This can be coded like so:
 ```
-find_key(HID_KEY_Y) && (send_unicode(128077), send_unicode(128078)):end
+find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 ```
 
 ## Firmware Updates
