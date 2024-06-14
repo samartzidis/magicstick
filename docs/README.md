@@ -212,6 +212,8 @@ These rules must be entered after the "label lbl_fn_on" line and before the "got
 
 ### Entering Unicode Characters and Emojis
 
+> **Note:** This functionality currently only works in Windows and requires the magicstick-ui utility to be running.
+
 Please note that this currently only works in Windows, as it relies on the magicstick-ui utility. Also, the program that you are typing in to must have Unicode support (e.g. Windows WordPad or Microsoft Word).
 
 For entering **Unicode** characters, you need to know the decimal Unicode point value of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for that and take the number from the **Decimal** column value (without the other characters around it).
@@ -248,6 +250,19 @@ This is a more complex example that would allow you to map:
 ```
 
 Note how we also need to consult the **mod** keystroke modifiers (flags) variable value to check whether the <kbd>Shift</kbd> key is pressed or not.
+
+### Maping a Key to Multiple Sequential Keystrokes
+
+This example shows how to map a single keystroke to multiple sequential keystrokes. We will map <kbd>Fn</kbd> + <kbd>H</kbd> to send 2 sequential keystrokes for typing the word "hi". This can be coded like so:
+
+```
+find_key(HID_KEY_H) && (send_key(0, HID_KEY_H), send_key(0, HID_KEY_I)):end
+```
+
+Or as another example, we will map <kbd>Fn</kbd> + <kbd>X</kbd> to send the 2 emojis: 👍👎. This can be coded like so:
+```
+find_key(HID_KEY_Y) && (send_unicode(128077), send_unicode(128078)):end
+```
 
 ## Firmware Updates
 
