@@ -137,5 +137,13 @@
       <VersionFile Condition="Exists('$(VersionFilePath)')">@(VersionFileContents)</VersionFile>
     </PropertyGroup>
   </Target>
+
+  <Target Name="RenamePublishedExecutable" AfterTargets="Publish">
+    <PropertyGroup>
+      <PublishedExe>$(PublishDir)$(AssemblyName).exe</PublishedExe>
+      <RenamedExe>$(PublishDir)magicstick-ui.exe</RenamedExe>
+    </PropertyGroup>
+    <Move SourceFiles="$(PublishedExe)" DestinationFiles="$(RenamedExe)" />
+  </Target>
   
 </Project>
