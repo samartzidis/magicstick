@@ -7,16 +7,13 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d"
         Height="450" Width="800" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
-    
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <!--<TextBox x:Name="TextEditor" Grid.Row="0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" TextWrapping="Wrap"/>-->
-
-        <!--<local:LinedAvalonEdit x:Name="TextEditor" Grid.Row="0" />-->
 
         <avalonedit:TextEditor
                     Name="avEditor"
@@ -48,20 +45,27 @@
             </avalonedit:TextEditor.ContextMenu>
         </avalonedit:TextEditor>
 
-
-
         <Grid Grid.Row="1" Margin="0,10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <TextBlock Text="Characters Left:" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding CharsLeft, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
 
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Button Content="Load Default" Width="75" Margin="5" Click="DefaultButton_Click" HorizontalAlignment="Left"/>
-
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="Apply" Width="75" Margin="5" Click="ApplyButton_Click"/>
                 <Button Content="Cancel" IsDefault="True" Width="75" Margin="5" Click="CancelButton_Click"/>
             </StackPanel>
         </Grid>
+
     </Grid>
+
 </Window>

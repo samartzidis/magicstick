@@ -11,34 +11,41 @@ using System.Windows.Input;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using System.Xml.Linq;
+using PropertyChanged;
 
 namespace MagicStickUI
 {
     /// <summary>
     /// Interaction logic for EditorWindow.xaml
     /// </summary>
+    [AddINotifyPropertyChangedInterface]
     public partial class EditorWindow : Window
     {
+        public int CharsLeft { get; set; }
+
+        private const int MaxChars = 4000;
+
         private readonly Rpc _rpc;
         private CompletionWindow _completionWindow;
         private readonly List<CompletionData> _allCompletionData;
 
         public EditorWindow(Rpc rpc)
-        {
-            _rpc = rpc;
-
+        {            
             InitializeComponent();
-            ApplyCustomHighlighting();
+            DataContext = this;
 
+            _rpc = rpc;
+            _allCompletionData = new List<CompletionData>();
+            var syntaxDef = Util.GetStringResource("syntax_definition.xml");
+            _allCompletionData = ExtractKeywords(syntaxDef).ToList();
+
+            ApplyCustomHighlighting();
             Title = Constants.AppName;
             avEditor.TextArea.TextEntered += TextEditor_TextArea_TextEntered;
             avEditor.TextArea.TextEntering += TextEditor_TextArea_TextEntering;
             avEditor.TextArea.KeyDown += TextEditor_TextArea_KeyDown;
-            Loaded += EditorWindow_Loaded;
-
-            _allCompletionData = new List<CompletionData>();
-            var syntaxDef = Util.GetStringResource("syntax_definition.xml");
-            _allCompletionData = ExtractKeywords(syntaxDef).ToList();
+            avEditor.TextChanged += (sender, e) => CharsLeft = MaxChars - avEditor.Text.Length;           
+            Loaded += EditorWindow_Loaded;            
         }
 
         public IEnumerable<CompletionData> ExtractKeywords(string xmlContent)
@@ -173,28 +180,19 @@ namespace MagicStickUI
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             var text = avEditor.Document.Text;
-
-            if (text.Length > 4000)
+            if (text.Length > MaxChars)
             {
-                MessageBox.Show("Total size of 4000 characters exceeded.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Total size of {MaxChars} characters exceeded.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
 
                 e.Handled = true;
                 return;
             }
-
-            var items = text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
-            if (items.Count > 100)
-            {
-                MessageBox.Show("Total line limit of 100 lines exceeded.", Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
-
-                e.Handled = true;
-                return;
-            }
-
+            
             try
             {
                 using (new Hourglass())
                 {
+                    var items = text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
                     var req = new SetKeymapRequest { items = items };
                     var setReply = _rpc.SetKeymap(req).GetAwaiter().GetResult();
                     if (!setReply.success)
