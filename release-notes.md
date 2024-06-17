@@ -1,7 +1,7 @@
 ## Firmware Release Notes
 
 #### magicstick.2.0.153+release.d935f6f
-> This is a **major** release, so you must also update the magicstick.io UI client to the latest 2.* version.
+> This is a **major** release, so if you are running an old magicstick-ui (v1) utility, you must also update the UI utility to the latest 2.* version after the firmware update completes.
 - Implementation of key programmability and extensive key remapping features. You can remap keys to perform multimedia functions, type Unicode/Emojis and more.
 - Bug fix for certain not working 3+ key combinations such as Fn-Ctrl-Left (which should translate to Ctrl-Home).
 
