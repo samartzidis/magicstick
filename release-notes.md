@@ -3,7 +3,7 @@
 #### magicstick.2.0.153+release.d935f6f
 > This is a **major** release, so you must also update the magicstick.io UI client to the latest 2.* version.
 - Implementation of key programmability and extensive key remapping features. You can remap keys to perform multimedia functions, type Unicode/Emojis and more.
-- Bug fix for certain not working 3+ key combinations such as Fn-Ctrl-PgUp (which should translate to Ctrl-Home).
+- Bug fix for certain not working 3+ key combinations such as Fn-Ctrl-Left (which should translate to Ctrl-Home).
 
 #### magicstick.1.1.46+release.54916d0
 - feature-request: #8 (Multimedia / function key mode choice).
