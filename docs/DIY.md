@@ -1,6 +1,6 @@
 ## Build Your Own Device Instructions
 
-This process is not 100% free, but it may be cheaper than purchasing a ready-made magicstick.io device, especially if you already own a *Raspberry Pi Pico W* board.
+This process is not 100% free, but it is cheaper than purchasing a ready-made magicstick.io device, especially if you already own a *Raspberry Pi Pico W* board.
 
 ### Hardware
 
