@@ -61,7 +61,7 @@ The firmware release notes are [here](release-notes.md).
 
 | Model | Status |
 | -------- | ------- |
-| A1314 | Old keyboard. Supported but no UI battery level indicator in MagicstickUI. |
+| A1314 | Old keyboard. Supported but no UI battery level indicator in magicstick-ui. |
 | A1644, A1843, A2450 | Fully supported. |
 | A2449 | Supported - but without fingerprint sensor functionality (yet). |
 
@@ -76,9 +76,9 @@ The firmware release notes are [here](release-notes.md).
   
   _The above measurement was done on [clickspeedtester.com](https://www.clickspeedtester.com/keyboard-latency-test/) using an A1644 keyboard. It averaged the same between (all) MagicStick-wired, MagicStick-Bluetooth, and direct PC USB (that is without MagicStick and with no extra Windows drivers installed)_.
 - magicstick.io is a microcontroller-based device so it **works immediately** as soon as it is powered on. This allows you to use the keyboard as early as at the PC boot process, e.g. for accessing the BIOS/UEFI menus. Also since there is no Operating System driver required, the keyboard just works correctly in BIOS/UEFI mode.
-- **Programmable**. magicstick.io incorporates a user programmable key rules engine that allows you to directly **map** keys or key combinations to **custom multimedia** functions or to **Unicode** characters (e.g. μ) and **Emojis** (e.g. 👍) (on Windows OS).
-- magicstick.io supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the [MagicStickUI](docs#the-magicstickui-utility) utility.
-- magicstick.io is built with **security** in mind. Its HID interface is open (see MagicStickUI GitHub source code) and locked down to a standard keyboard HID API on the side that connects to the PC plus a few extra reports for monitoring the battery level and configuring keys. The Bluetooth connection has Level 2 security enabled (wireless encryption). Additionally, Bluetooth can be completely disabled if needed via settings.
+- **Programmable**. magicstick.io incorporates a user programmable key rules engine that allows you to directly **map** keys or key combinations to **custom multimedia** functions or to **Unicode** characters (**μ**) and **Emojis** (👍).
+- magicstick.io supports an OS **battery level indicator** in both wired and wireless connection modes in both **Windows** and **Linux**. Ubuntu Linux natively supports a battery-level indicator whereas for Windows you can use the [magicstick-ui](docs#the-magicstickui-utility) utility.
+- magicstick.io is built with **security** in mind. Its HID interface is open (see magicstick-ui GitHub source code) and locked down to a standard keyboard HID API on the side that connects to the PC plus a few extra reports for monitoring the battery level and configuring keys. The Bluetooth connection has Level 2 security enabled (wireless encryption). Additionally, Bluetooth can be completely disabled if needed via settings.
 - In contrast to other similar solutions (e.g. MagicUtilities), magicstick.io has **no subscription fees** or any connected device restrictions. You own the device, and you can connect it to **as many keyboards or computers** as you like.
 - **PC sleep/wake-up** is supported and works **in both wired and Bluetooth** connection modes (in contrast to pure software solutions such as MagicUtilities). The Bluetooth wake-up support is particularly useful for media centre PCs that you would normally want to wake up from a distance when hitting a key on the keyboard. 
 - **Firmware updates**. Any future improvements, such as support for new keyboard models are easy to install and are provided for free.
