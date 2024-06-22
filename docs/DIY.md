@@ -17,15 +17,15 @@ For the following process, you will need to work on a Windows PC.
 
 1. Download and install the [magicstick-ui](https://github.com/samartzidis/magicstick.io/releases). 
 
-2. Run the magicstick-ui utility (from the desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
+2. Run the magicstick-ui utility (from the desktop icon), then right click on its System Tray icon and select the **Initialize device** option. 
 
-3. You will be asked to plug your "Raspberry Pi Pico W" device in [BOOTSEL mode](./README.md#entering-into-bootsel-mode). The device will be auto-detected flashed with the initialization firmware.
+3. You will be asked to plug your **Raspberry Pi Pico W** device in [BOOTSEL mode](./README.md#entering-into-bootsel-mode). The device will be auto-detected and flashed with the initialization firmware.
 
-3. In the magicstick-ui Utility, click the "Scan devices" option and select the "magicstick-dummy..." device that now appears in the device list. Next, select the "Device info" option and copy the device's serial number.
+3. In the magicstick-ui Utility, click the **Scan devices** option and select the "magicstick-init" device that now appears in the device list. Next, select the **Info** option and copy the 16-letter/digit **Device Serial** number.
 
-4. **Purchase** your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the 16-digit serial number you copied in the previous step in the order form.
+4. **Purchase** your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the **Device Serial** number you copied in the previous step in the order form.
 
-5. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again, and now in Windows File Explorer, copy the downloaded firmware file directly to the "Raspberry Pi Pico W" device, which should appear on Windows as "RPI-RP2".
+5. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again. In Windows File Explorer, copy the downloaded firmware file directly to the "Raspberry Pi Pico W" device, which should appear in Windows as a flash drive named "RPI-RP2".
 
-After step 5, the device will automatically restart as a new raspikey.io device.
+After step 5, the device will automatically restart as a new raspikey.io device. You can now follow the user [manual](./README.md) for connecting your keyboard.
 
