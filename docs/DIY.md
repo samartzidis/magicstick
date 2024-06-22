@@ -21,7 +21,7 @@ For the following process, you will need to work on a Windows PC.
 
 ![alt text](image-5.png)
 
-3. You will be asked to plug your **Raspberry Pi Pico W** device in [BOOTSEL mode](README.md#entering-into-bootsel-mode). The device will be auto-detected and flashed with the initialization firmware.
+3. You will be asked to plug your **Raspberry Pi Pico W** device in [BOOTSEL mode](README.md#entering-into-bootsel-mode) (See: Entering into BOOTSEL Mode). The device will be auto-detected and flashed with the initialization firmware.
 
 ![alt text](image-6.png)
 
