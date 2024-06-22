@@ -20,7 +20,7 @@ For the following process, you will need to work on a Windows PC.
 2. Run the magicstick-ui utility (from the desktop icon), then right click on its System Tray icon and select the **Initialize device** option. 
 ![alt text](image-5.png)
 
-3. You will be asked to plug your **Raspberry Pi Pico W** device in [BOOTSEL mode](./README.md#entering-into-bootsel-mode). The device will be auto-detected and flashed with the initialization firmware.
+3. You will be asked to plug your **Raspberry Pi Pico W** device in [BOOTSEL mode](README.md#entering-into-bootsel-mode). The device will be auto-detected and flashed with the initialization firmware.
 ![alt text](image-6.png)
 
 4. In the magicstick-ui Utility, click the **Scan devices** option and select the "magicstick-init" device that now appears in the device list. 
