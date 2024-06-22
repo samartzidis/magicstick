@@ -14,11 +14,11 @@ If you are not interested in the plastic enclosure, you can skip step (3) above.
 
 For the following process, you will need to work on a Windows PC.
 
-1. Download and install the [magicstick-ui](#The-magicstick-ui-Windows-Utility). 
+1. Download and install the [magicstick-ui](https://github.com/samartzidis/magicstick.io/releases). 
 
 2. Run the magicstick-ui utility (from the desktop icon), then right click on its System Tray icon and select the "Initialize device" option. 
 
-3. You will be asked to plug your "Raspberry Pi Pico W" device in [BOOTSEL mode](#entering-into-bootsel-mode). The device will be auto-detected flashed with the initialization firmware.
+3. You will be asked to plug your "Raspberry Pi Pico W" device in [BOOTSEL mode](./README.md#entering-into-bootsel-mode). The device will be auto-detected flashed with the initialization firmware.
 
 3. In the magicstick-ui Utility, click the "Scan devices" option and select the "magicstick-dummy..." device that now appears in the device list. Next, select the "Device info" option and copy the device's serial number.
 
