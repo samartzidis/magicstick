@@ -25,7 +25,7 @@ For the following process, you will need to work on a Windows PC.
 
 ![alt text](image-6.png)
 
-4. In the magicstick-ui Utility, click the **Scan devices** option and select the "magicstick-init" device that now appears in the device list. 
+4. In the magicstick-ui utility, click the **Scan devices** option and select the new **_magicstick-init_**... device that now appears in the device list. 
 
 ![alt text](image-7.png)
 
