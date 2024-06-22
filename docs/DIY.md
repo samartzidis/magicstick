@@ -29,10 +29,10 @@ For the following process, you will need to work on a Windows PC.
 5. Next, select the **Info** option and copy the 16-letter/digit **Device Serial** number (e.g. E6612385208E4736).
 ![alt text](image-11.png)
 
-6. **Purchase** your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the **Device Serial** number you copied in the previous step in the order form.
+6. **Purchase** your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the **Device Serial** number in the order form.
 
 7. Plug your "Raspberry Pi Pico W" device in BOOTSEL mode again. In Windows File Explorer, copy the purchased and downloaded firmware file (e.g. E6612385208E4736.uf2) directly to the "Raspberry Pi Pico W" device, which should appear in Windows as a flash drive named "RPI-RP2".
-![](image-12.png)
+![alt text](image-13.png)
 
 The device will automatically restart as a brand new raspikey.io device. 
 
