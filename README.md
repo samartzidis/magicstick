@@ -13,31 +13,27 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 <table>
     <tr>
-        <td><a href="docs/front.png"><img src="docs/front.png" width="100" alt="Keyboard Port"/></a></td>
-        <td><a href="docs/side.png"><img src="docs/side.png" width="100" alt="Side View"/></a></td>
+        <td><a href="docs/side-white.png"><img src="docs/side-white.png" width="100" alt="White"/></a></td>
+        <td><a href="docs/white-open.png"><img src="docs/white-open.png" width="100" alt="White"/></a></td>
         <td><a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/></a></td>
         <td><a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a></td>
-        <td><a href="docs/open-1.png"><img src="docs/open-1.png" width="100" alt="Inside"/></a></td>
     </tr>
     <tr>
-        <td>Keyboard</br>USB port</td>
         <td>Side view</td>
-        <td>Wired</br>connection</td>
-        <td>Wireless</br>connection</td>
-        <td>Inside view</td>
+        <td>(In)side view <br/>for the curious:)</td>
+        <td>Wired</br>connection<br/>(Purple Version)</td>
+        <td>Wireless</br>connection<br/>(Purple Version)</td>
     </tr>
     <tr>
-        <td><a href="docs/open-2.png"><img src="docs/open-2.png" width="100" alt="Inside"/></a></td>
         <td><a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" alt="MagicStickUI Settings"/></a></td>
-        <td><a href="docs/20230927210205.png"><img src="docs/20230927210205.png" width="100" alt="MagicStickUI Battery Indicator"/></a></td>
+        <td><a href="docs/Untitled-1.png"><img src="docs/Untitled-1.png" width="100" alt="MagicStickUI Battery Indicator"/></a></td>
         <td><a href="docs/20230927211852.png"><img src="docs/20230927211852.png" width="100" alt="MagicStickUI Firmware Update"/></a></td>
         <td></td>
     </tr>
     <tr>
-        <td>Inside view</td>
-        <td>MagicStickUI</br>Settings</td>
-        <td>MagicStickUI</br>Battery Indicator</td>
-        <td>MagicStickUI</br>Firmware update</td>
+        <td>magicstick-ui utility</br>Settings</td>
+        <td>magicstick-ui utility</br>Battery Indicator</td>
+        <td>magicstick-ui utility</br>Firmware update</td>
         <td></td>
     </tr>
 </table>
