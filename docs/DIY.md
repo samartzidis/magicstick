@@ -26,7 +26,7 @@ For the following process, you will need to work on a Windows PC.
 4. In the magicstick-ui Utility, click the **Scan devices** option and select the "magicstick-init" device that now appears in the device list. 
 ![alt text](image-7.png)
 
-5. Next, select the **Info** option and copy the 16-letter/digit **Device Serial** number.
+5. Next, select the **Info** option and copy the 16-letter/digit **Device Serial** number (e.g. E6612385208E4736).
 ![alt text](image-11.png)
 
 6. **Purchase** your device firmware from [Etsy](https://www.etsy.com/uk/listing/1709718352/magicstickio-firmware), by supplying the **Device Serial** number you copied in the previous step in the order form.
