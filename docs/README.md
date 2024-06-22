@@ -173,21 +173,9 @@ Alternatively, you can code the rules in the key map editor. This will allow you
 Rule to swap left <kbd>⌥ Alt/Option</kbd> with left <kbd>⌘ Cmd</kbd>:
 
 ```
-(mod & KEYBOARD_MODIFIER_LEFTALT) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTALT) | KEYBOARD_MODIFIER_LEFTGUI)
+(mod & KEYBOARD_MODIFIER_LEFTALT != 0) ^ (mod & KEYBOARD_MODIFIER_LEFTGUI != 0) && set_mod(mod ^ (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_LEFTGUI))
 ```
-
-The above rule says if the pressed modifiers match the **KEYBOARD_MODIFIER_LEFTALT**, then remove the **KEYBOARD_MODIFIER_LEFTALT** and add the **KEYBOARD_MODIFIER_LEFTGUI**.
-
-Here is a detailed breakdown of the above rule expression:
-![alt text](image-5.png)
-
-Rule to swap left <kbd>⌘ Cmd</kbd> with left <kbd>⌥ Alt/Option</kbd>:
-```
-(mod & KEYBOARD_MODIFIER_LEFTGUI) && set_mod((mod & ~KEYBOARD_MODIFIER_LEFTGUI) | KEYBOARD_MODIFIER_LEFTALT)
-```
-The above rule says if the pressed key(s) modifiers match the **KEYBOARD_MODIFIER_LEFTGUI**, then remove the **KEYBOARD_MODIFIER_LEFTGUI** and add the **KEYBOARD_MODIFIER_LEFTALT**.
-
-You can add 2 similar rules to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys.
+You can add a similar rule to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys if needed.
 
 ### Emulating Numeric Keypad Number Keys
 
