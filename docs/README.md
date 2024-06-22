@@ -156,7 +156,7 @@ To delete all the remapped keys one-off, you can:
 Or
 2. Reset the device to factory settings by following [these steps](#Factory-Resetting-the-Device).
 
-#### Remapping of Special Keys
+#### Remapping of Special Keys (including standard modifier keys)
 
 ##### Swap Fn-Ctrl
 
@@ -200,11 +200,9 @@ These rules must be entered after the "label lbl_fn_on" line and before the "got
 
 ### Entering Unicode Characters and Emojis
 
-> **Note:** This functionality currently only works in Windows and requires the magicstick-ui utility to be running.
+> **Note:** This functionality only works on Windows OS and requires the magicstick-ui utility to be running in the tray. Also please note that the program that you are typing in to must have Unicode support (e.g. Windows WordPad or Microsoft Word).
 
-Please note that this currently only works in Windows, as it relies on the magicstick-ui utility. Also, the program that you are typing in to must have Unicode support (e.g. Windows WordPad or Microsoft Word).
-
-For entering **Unicode** characters, you need to know the hexadecimal Unicode point value of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for this.
+For entering **Unicode** characters, you need to know the **hexadecimal Unicode point value** of the character. You can use [these tables](https://www.quackit.com/character_sets/unicode/versions/unicode_9.0.0/) for this.
 
 The following example shows how to program the key shortcut <kbd>Fn</kbd> + <kbd>2</kbd> to type the **€** character:
 
