@@ -219,20 +219,22 @@ find_key(HID_KEY_3) && send_unicode(0x20A4):end
 You will need to add both of the above rules after the "label lbl_fn_on" line and before the "goto end" line so that they are activated when <kbd>Fn</kbd> is pressed, as seen in lines 23-24:
 ![alt text](image-8.png)
 
-You can also type Emojis, for example say that you would like to map <kbd>Fn</kbd> + <kbd>Y</kbd> to 👍 and <kbd>Fn</kbd> + <kbd>N</kbd> to 👎:
+You can also type Emojis, for example say that you would like to map <kbd>Fn</kbd> + <kbd>Y</kbd> to 👍 and <kbd>Fn</kbd> + <kbd>N</kbd> to 👎. This can be done like so:
 
 ```
 find_key(HID_KEY_Y) && send_unicode(0x1F44D):end
 find_key(HID_KEY_N) && send_unicode(0x1F44E):end
 ```
 
-This is a more complex example that would allow you to map: 
+For a more complex example, assuming that would allow you to map: 
 
 <kbd>Fn</kbd> + ![alt text](image-9.png) to the Unicode character **≠**
 
 and 
 
 <kbd>Fn</kbd> + <kbd>Shift</kbd> + ![alt text](image-9.png) to the Unicode character **±**
+
+You'll need these rules:
 
 ```
 !mod && find_key(HID_KEY_EQUAL) && send_unicode(0x2260):end
