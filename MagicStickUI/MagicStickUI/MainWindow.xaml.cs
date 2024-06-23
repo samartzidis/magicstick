@@ -494,9 +494,6 @@ namespace MagicStickUI
 
         private async void InitializeDevice_OnClick(object sender, RoutedEventArgs e)
         {
-            if (SelectedDevice == null)
-                return;
-
             try
             {
                 var updateCancellationTokenSource = new CancellationTokenSource();

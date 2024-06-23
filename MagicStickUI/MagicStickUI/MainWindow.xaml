@@ -104,9 +104,7 @@
                               IsChecked="{Binding AutoStart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               StaysOpenOnClick="True"/>
 
-
-                    <MenuItem Header="Initialize device" Click="InitializeDevice_OnClick" ToolTip="BEWARE: This erases the device firmware.">
-                    </MenuItem>
+                    <MenuItem Header="Initialize device" Click="InitializeDevice_OnClick" ToolTip="BEWARE: This erases the device firmware." />
 
                     <Separator/>
                     
