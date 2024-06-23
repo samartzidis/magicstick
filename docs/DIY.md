@@ -38,7 +38,7 @@ For the following process, you will need to work on a Windows PC.
 
 ![alt text](image-13.png)
 
-The device will automatically restart as a brand new raspikey.io device. 
+The device will automatically restart as a brand new magicstick.io device. 
 
 You can now refer to the user [manual](./README.md).
 
