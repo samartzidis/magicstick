@@ -136,11 +136,11 @@ Below is a further explanation of the default rules:
 
 ### Physical Key Remapping
 
-magicstick.io supports the remapping of a physical key via keymap rules. For instance, for swapping the blue and red circled keys.
+magicstick.io supports the remapping of a physical key via keymap rules. For instance, for swapping the blue and red circled keys,
 
 ![](20230928220051.png)
 
-The default keymap already includes the following 2 rules using the **ch_key** function:
+the default keymap already includes the following 2 rules using the **ch_key** function:
 
 ```
 ch_key(HID_KEY_EUROPE_2, HID_KEY_GRAVE):end
@@ -224,6 +224,7 @@ find_key(HID_KEY_3) && send_unicode(0x20A4):end
 ```
 
 You will need to add both of the above rules after the "label lbl_fn_on" line and before the "goto end" line so that they are activated when <kbd>Fn</kbd> is pressed, as seen in lines 23-24:
+
 ![alt text](image-8.png)
 
 You can also type Emojis, for example say that you would like to map <kbd>Fn</kbd> + <kbd>Y</kbd> to 👍 and <kbd>Fn</kbd> + <kbd>N</kbd> to 👎. This can be done like so:
