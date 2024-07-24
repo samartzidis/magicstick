@@ -251,7 +251,7 @@ You'll need these rules:
 
 Note how we also need to consult the **mod** keystroke modifiers (flags) variable value to check whether the <kbd>Shift</kbd> key is pressed or not.
 
-### Maping a Key to Multiple Sequential Keystrokes
+### Mapping a Key to Multiple Sequential Keystrokes
 
 This example shows how to map a single keystroke to multiple sequential keystrokes. We will map <kbd>Fn</kbd> + <kbd>H</kbd> to send 2 sequential keystrokes for typing the word "hi". This can be coded like so:
 
