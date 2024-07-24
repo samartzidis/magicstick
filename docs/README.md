@@ -177,11 +177,15 @@ Rule to swap left <kbd>⌥ Alt/Option</kbd> with left <kbd>⌘ Cmd</kbd>:
 ```
 You can add a similar rule to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys if needed.
 
+
 ### Emulating Numeric Keypad Number Keys
 
 Emulating these keys can be useful for entering Alt-codes under Windows, that require the use of a numeric keypad, which the Apple Magic keyboard does not have.
 
 The following set of rules shows how to map the <kbd>Fn</kbd> + <kbd>0 - 9</kbd> key combinations to: Numeric Keypad keys <kbd>0 - 9</kbd>:
+
+<details>    
+    <summary><b>Click to expand/collapse.</b></summary>
 
 ```
 ch_key(HID_KEY_1, HID_KEY_KEYPAD_1):end
@@ -195,6 +199,9 @@ ch_key(HID_KEY_8, HID_KEY_KEYPAD_8):end
 ch_key(HID_KEY_9, HID_KEY_KEYPAD_9):end
 ch_key(HID_KEY_0, HID_KEY_KEYPAD_0):end
 ```
+
+</details>
+</br>
 
 These rules must be entered after the "label lbl_fn_on" line and before the "goto end" line, so that they are taken into consideration when <kbd>Fn</kbd> is pressed.
 
