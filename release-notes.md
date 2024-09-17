@@ -3,6 +3,8 @@
 #### magicstick.2.0.155+release.6569e43
 - Added support for bitwise xor ^ operator to the rules engine.
 
+Downloads: [Firmware](https://github.com/samartzidis/magicstick.io/releases/tag/magicstick.2.0.155), [UI Utility](https://github.com/samartzidis/magicstick.io/releases/tag/magicstick-ui.2.0.7).
+
 #### magicstick.2.0.153+release.d935f6f
 > This is a **major** release, so if you are running an old magicstick-ui (v1) utility, you must also update the UI utility to the latest 2.* version after the firmware update completes.
 - Implementation of key programmability and extensive key remapping features. You can remap keys to perform multimedia functions, type Unicode/Emojis and more.
