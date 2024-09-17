@@ -278,7 +278,7 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 
 5. If desired, you can now also run the downloaded magicstick-ui.exe UI utility (from step 1) to control the device.
 
-## Entering to BOOTSEL Mode
+## Entering into BOOTSEL Mode
 
 BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this to run a manual firmware update or downgrade.
 
