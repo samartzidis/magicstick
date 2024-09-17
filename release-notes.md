@@ -1,4 +1,4 @@
-## Firmware Release Notes
+## Release Notes
 
 #### magicstick.2.0.155+release.6569e43
 - Added support for bitwise xor ^ operator to the rules engine.
