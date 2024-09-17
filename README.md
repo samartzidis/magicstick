@@ -45,8 +45,6 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 You can order a hand-made _plug-and-play_ magicstick.io dongle from [here](https://www.etsy.com/shop/MagicStickIO). 
 
-Or you can build it yourself by following the _Build your Own Device_ instructions from [here](./docs/DIY.md).
-
 ## User Manual
 
 The user manual is [here](docs/README.md).
