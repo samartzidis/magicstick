@@ -49,7 +49,7 @@ You can order a hand-made _plug-and-play_ magicstick.io dongle from [here](https
 
 The user manual is [here](docs/README.md).
 
-## Firmware Release Notes
+## Release Notes
 
 The firmware release notes are [here](release-notes.md).
 
