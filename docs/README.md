@@ -52,7 +52,7 @@ If this process fails repeat from step 1.
 
 The magicstick-ui utility allows you to monitor the keyboard's connection status, monitor the battery level (both when wired or in Bluetooth), as well as to change the keyboard's special keys configuration and default keymap. You can also use it for permanently turning the magicstick.io Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
 
-Download the latest magicstick-ui msi installer version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page.
+To download the magicstick-ui utility, check the [release notes](../release-notes.md) page.
 
 ## LED Status Reference
 
@@ -266,9 +266,7 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 
 ## Firmware Updates
 
-
-
-1. Download the latest (or the desired) **uf2** firmware version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page. If you download the zip file, unzip it to get the **uf2** file, e.g. the resulting file should be something like that: magicstick.x.x.x+release.xxxxxxx.**uf2**.
+1. Download the latest (or the desired) **uf2** firmware file and associated magicstick-ui utility **exe** file from the [release notes](../release-notes.md) page. The firmware file should be something like that: magicstick.x.x.x+release.xxxxxxx.**uf2**.
 2. Enter magicstick.io to [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
 3. Once magicstick.io is in BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open it manually in **File Explorer**:
 
@@ -276,9 +274,9 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
    
    ![](20230927212434.png)
 
-4. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your magicstick.io device will automatically restart running the new firmware.
+4. Copy the downloaded **uf2** firmware file there. Once the copy completes, your magicstick.io device will automatically restart, running the new firmware.
 
-5. Your magicstick-ui utility version must be in alignment with the flashed firmware version. Download the associated magicstick-ui utility for the same magicstick.io release that you downloaded the firmware that you just flashed and replace your older magicstick-ui utility with this one. 
+5. If desired, you can now also run the downloaded magicstick-ui.exe UI utility (from step 1) to control the device.
 
 ## Entering to BOOTSEL Mode
 
