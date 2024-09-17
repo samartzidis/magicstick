@@ -266,39 +266,21 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 
 ## Firmware Updates
 
-#### Firmware Update Using the magicstick-ui Utility
-This is the recommended way as it is easier than the manual one but you need to have access to a Windows PC to run magicstick-ui.
 
-1. Right-click on the magicstick-ui tray icon and select: _Check for updates_. 
 
-2. If a new update is found, you will get a confirmation dialog asking to update. Accept, and the upgrade will start and complete automatically. 
-
-   ![](20230927211852.png)
-
-3. The device will automatically reboot to the updated version.
-
-#### Manual Firmware Update
-This _"brute force"_ method is useful if you have no access to a Windows PC or if for any reason the device had been previously flashed with a bad, non-working firmware (bricked).
-
-1. To download the firmware for your magicstick.io device, you need your device's serial number. On **Windows**, use the magicstick-ui utility to retrieve it. On **Linux**, you can find it by typing this command in a terminal: ```upower -d```
-The content in the red box is the device's serial number.
-
-   ![](20230928223602.png)
-
-So in that case, the serial number starts with E66 and finishes with 32.
-
-2. Download the latest magicstick.io firmware by opening the following link in your browser, but by first replacing the word SERIAL with your actual serial number: ```https://magicstick-app.azurewebsites.net/api/download/SERIAL/magicstick-latest.uf2``` 
-(E.g. ```https://magicstick-app.azurewebsites.net/api/download/E66138468234AA31/magicstick-latest.uf2```)
-3. Enter magicstick.io into [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
-4. Once magicstick.io enters BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open it manually in **File Explorer**:
+1. Download the latest (or the desired) **uf2** firmware version from the [releases](https://github.com/samartzidis/magicstick.io/releases) page. If you download the zip file, unzip it to get the **uf2** file, e.g. the resulting file should be something like that: magicstick.x.x.x+release.xxxxxxx.**uf2**.
+2. Enter magicstick.io to [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
+3. Once magicstick.io is in BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open it manually in **File Explorer**:
 
    ![](20230927212729.png)
    
    ![](20230927212434.png)
 
-6. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your magicstick.io device will automatically restart running the new firmware.
+4. Copy the downloaded **magicstick-latest.uf2** firmware file there. Once the copy completes, your magicstick.io device will automatically restart running the new firmware.
 
-## Entering into BOOTSEL Mode
+5. Your magicstick-ui utility version must be in alignment with the flashed firmware version. Download the associated magicstick-ui utility for the same magicstick.io release that you downloaded the firmware that you just flashed and replace your older magicstick-ui utility with this one. 
+
+## Entering to BOOTSEL Mode
 
 BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this to run a manual firmware update or downgrade.
 
