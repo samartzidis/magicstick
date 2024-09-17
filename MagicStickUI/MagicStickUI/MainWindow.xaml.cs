@@ -400,6 +400,7 @@ namespace MagicStickUI
             SelectedDevice.Rpc.SaveConfig().GetAwaiter().GetResult();
         }
 
+        /*
         private async void CheckUpdate_OnClick(object sender, RoutedEventArgs e)
         {
             if (SelectedDevice == null)
@@ -491,7 +492,9 @@ namespace MagicStickUI
                     Constants.AppName, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+        */
 
+        /*
         private async void InitializeDevice_OnClick(object sender, RoutedEventArgs e)
         {
             try
@@ -540,8 +543,10 @@ namespace MagicStickUI
             }
 
         }
+        */
+
         #endregion
-    }
+    }    
 
     public class PresentationDeviceIsSelectedConverter : IMultiValueConverter
     {

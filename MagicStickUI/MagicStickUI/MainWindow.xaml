@@ -63,11 +63,11 @@
                         </MenuItem.Icon>
                     </MenuItem>
 
-                    <MenuItem Header="Check for updates" Click="CheckUpdate_OnClick" IsEnabled="{Binding HasConnectedDevice, UpdateSourceTrigger=PropertyChanged}">
+                    <!--<MenuItem Header="Check for updates" Click="CheckUpdate_OnClick" IsEnabled="{Binding HasConnectedDevice, UpdateSourceTrigger=PropertyChanged}">
                         <MenuItem.Icon>
                             <Image Source="pack://application:,,,/MagicStickUI;component/Resources/Chip.png" Width="16" Height="16"/>
                         </MenuItem.Icon>
-                    </MenuItem>
+                    </MenuItem>-->
 
                     <Separator/>
 
@@ -104,7 +104,7 @@
                               IsChecked="{Binding AutoStart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               StaysOpenOnClick="True"/>
 
-                    <MenuItem Header="Initialize device" Click="InitializeDevice_OnClick" ToolTip="BEWARE: This erases the device firmware." />
+                    <!--<MenuItem Header="Initialize device" Click="InitializeDevice_OnClick" ToolTip="BEWARE: This erases the device firmware." />-->
 
                     <Separator/>
                     

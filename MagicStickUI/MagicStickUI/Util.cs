@@ -12,6 +12,7 @@ namespace MagicStickUI
 {
     public static class Util
     {
+        /*
         public static async Task<string?> GetRpDriveRoot(int maxWaitSec = 10, CancellationToken ct = default)
         {
             for (int k = 0; k < maxWaitSec && !ct.IsCancellationRequested; k++)
@@ -28,6 +29,7 @@ namespace MagicStickUI
 
             return null;
         }
+        */
 
         public static Bitmap GetBitmapResource(string resourceName)
         {
@@ -65,6 +67,7 @@ namespace MagicStickUI
             return (deviceNameId, SemVersion.Parse(deviceNameVersion, SemVersionStyles.Any));
         }
 
+        /*
         public static async Task DownloadFileAsync(string fileUrl, string savePath, Action<double>? reportProgress = null)
         {
             using var httpClient = new HttpClient();
@@ -100,6 +103,7 @@ namespace MagicStickUI
                 throw new Exception($"Failed to download the file. HTTP status code: {response.StatusCode}");
             }
         }
+        */
 
         public static string GetHidString(byte[] bytes)
         {
