@@ -49,9 +49,9 @@ You can order a hand-made _plug-and-play_ magicstick.io dongle from [here](https
 
 The user manual is [here](docs/README.md).
 
-## Release Notes
+## Release Notes and Downloads
 
-The firmware release notes are [here](release-notes.md).
+The firmware release notes and relevant download links are [here](release-notes.md).
 
 ## Supported Apple Keyboard Models
 
