@@ -92,6 +92,18 @@ When you connect your keyboard for the first time, this is the default keymap:
 | <kbd>Fn</kbd> + <kbd>&larr;</kbd>   | <kbd>Home</kbd>   |
 | <kbd>Fn</kbd> + <kbd>&rarr;</kbd>   | <kbd>End</kbd>    |
 
+## Remapping of Special Keys (including standard modifier keys) Using the magicstick-ui Utility 
+
+### Swap Alt-Cmd
+
+This can be easily done in **Settings** by selecting:
+
+![alt text](image-2.png)
+
+### Swap Fn-Ctrl
+
+This is swapped by default but can be reverted in **Settings** as seen above.
+
 ## Keymap Programming
 
 > **Note:** This is an advanced feature and mostly suited to people with a bit of programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
@@ -163,24 +175,15 @@ Or
 
 #### Remapping of Special Keys (including standard modifier keys)
 
-##### Swap Fn-Ctrl
-
-This can be easily done in **Settings**.
-
-##### Swap Alt-Cmd
-
-This can be easily done in **Settings** by selecting:
-
-![alt text](image-2.png)
-
-Alternatively, you can code the rules in the key map editor. This will allow you more fine-grained control, such as to only swap the Left or the Right Alt-Cmd keys, etc.
+We saw in a previous section that you can use the magicstick-ui utility for that. As an alternative, you can also code the relevant rules in the keymap editor. 
+This will give you more fine-grained control, such as the ability to swap only the Left or only the Right Alt-Cmd keys, etc.
 
 Rule to swap left <kbd>⌥ Alt/Option</kbd> with left <kbd>⌘ Cmd</kbd>:
 
 ```
 (mod & KEYBOARD_MODIFIER_LEFTALT != 0) ^ (mod & KEYBOARD_MODIFIER_LEFTGUI != 0) && set_mod(mod ^ (KEYBOARD_MODIFIER_LEFTALT | KEYBOARD_MODIFIER_LEFTGUI))
 ```
-You can add a similar rule to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys if needed.
+You can add a similar rule to swap the **KEYBOARD_MODIFIER_RIGHTALT** and **KEYBOARD_MODIFIER_RIGHTGUI** keys if required.
 
 
 ### Emulating Numeric Keypad Number Keys
