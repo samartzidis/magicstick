@@ -94,8 +94,13 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 ## Keymap Programming
 
-> **Note:** This is an advanced feature and mostly suited to people with a programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
+> **Note:** This is an advanced feature and mostly suited to people with a bit of programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
 
+<details>
+<summary>
+   Expand.
+</summary>
+   
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
 - Physical key remapping. 
 - Remap keys to target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
@@ -263,6 +268,7 @@ Or as another example, we will map <kbd>Fn</kbd> + <kbd>X</kbd> to send the 2 em
 ```
 find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 ```
+</details>
 
 ## Firmware Updates
 
