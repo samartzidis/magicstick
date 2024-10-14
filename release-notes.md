@@ -1,4 +1,4 @@
-## Release Notes
+## Releases
 
 Please note that the downloadable firmware binaries will **only** work on a genuine magicstick.io hardware device. They are not supposed to be flashed on generic Raspberry Pi Pico or other RP2040-based microcontroller devices.
 
