@@ -49,7 +49,7 @@ You can order a hand-made _plug-and-play_ magicstick.io dongle from [Etsy](https
 
 The user manual is [here](docs/README.md).
 
-## Release Notes and Support Downloads
+## Release Notes and Support
 
 > Please note that the downloadable firmware binaries will only work on a genuine magicstick.io hardware device. They are not supposed to be flashed on generic Raspberry Pi Pico or other RP2040-based microcontroller devices.
 
