@@ -15,6 +15,8 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 <a href="docs/side-white.png"><img src="docs/side-white.png" width="100" title="White version" /></a>
 <a href="docs/wired.png"><img src="docs/wired.png" width="100" title="Wired USB Connection"/></a>
 <a href="docs/wireless.png"><img src="docs/wireless.png" width="100" title="Wireless Bluetooth Connection"></a>
+<a href="docs/20230927213111.png"><img src="docs/clear-front.jpg" width="100" title="Clear version"/></a>
+<a href="docs/20230927213111.png"><img src="docs/clear-back.jpg" width="100" title="Clear version"/></a>
 
 #### Supporting magicstick-ui Utility:
 <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" title="Settings"/></a>
