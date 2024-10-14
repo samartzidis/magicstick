@@ -17,7 +17,7 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 <a href="docs/wireless.png"><img src="docs/wireless.png" width="100" title="Wireless Bluetooth Connection"></a>
 <a href="docs/clear-front.jpg"><img src="docs/clear-front.jpg" width="100" title="Clear version"/></a>
 
-#### magicstick-ui Utility:
+#### Optional magicstick-ui Utility:
 <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" title="Settings"/></a>
 <a href="docs/Untitled-1.png"><img src="docs/Untitled-1.png" width="100" title="Battery Indicator"/></a>
         
