@@ -24,7 +24,7 @@ Please note that the downloadable firmware binaries will **only** work on a genu
     
 #### Downloads:
 - [Firmware & UI Utility](https://github.com/samartzidis/magicstick.io/releases/tag/MagicStickUI.1.2.1)
-- 
+
 ## magicstick.1.0.42+release.2808866
 #### Notes:
 - Initial release.
