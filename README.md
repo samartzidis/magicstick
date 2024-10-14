@@ -51,9 +51,7 @@ The user manual is [here](docs/README.md).
 
 ## Release Notes and Support
 
-> Please note that the downloadable firmware binaries will only work on a genuine magicstick.io hardware device. They are not supposed to be flashed on generic Raspberry Pi Pico or other RP2040-based microcontroller devices.
-
-The firmware release notes and relevant download links are [here](release-notes.md).
+The firmware release notes and relevant support file links are available [here](release-notes.md).
 
 ## Supported Apple Keyboard Models
 
