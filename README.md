@@ -11,34 +11,15 @@ You also get key programmability. You can remap keys to perform multimedia funct
 
 All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
-<table>
-    <tr>
-        <td><a href="docs/side-white.png"><img src="docs/side-white.png" width="100" alt="White"/></a></td>
-        <td><a href="docs/white-open.png"><img src="docs/white-open.png" width="100" alt="White"/></a></td>
-        <td><a href="docs/wired.png"><img src="docs/wired.png" width="100" alt="On Wired Connection"/></a></td>
-        <td><a href="docs/wireless.png"><img src="docs/wireless.png" width="100" alt="On Wireless BT Connection"></a></td>
-    </tr>
-    <tr>
-        <td>Side view</td>
-        <td>(In)side view <br/>for the curious:)</td>
-        <td>Wired</br>connection<br/>(Purple Version)</td>
-        <td>Wireless</br>connection<br/>(Purple Version)</td>
-    </tr>
-    <tr>
-        <td><a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" alt="MagicStickUI Settings"/></a></td>
-        <td><a href="docs/Untitled-1.png"><img src="docs/Untitled-1.png" width="100" alt="MagicStickUI Battery Indicator"/></a></td>
-        <td><a href="docs/20230927211852.png"><img src="docs/20230927211852.png" width="100" alt="MagicStickUI Firmware Update"/></a></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>magicstick-ui utility</br>Settings</td>
-        <td>magicstick-ui utility</br>Battery Indicator</td>
-        <td>magicstick-ui utility</br>Firmware update</td>
-        <td></td>
-    </tr>
-</table>
+#### Dongle:
+<a href="docs/side-white.png"><img src="docs/side-white.png" width="100" title="White version" /></a>
+<a href="docs/wired.png"><img src="docs/wired.png" width="100" title="Wired USB Connection"/></a>
+<a href="docs/wireless.png"><img src="docs/wireless.png" width="100" title="Wireless Bluetooth Connection"></a>
 
-
+#### Supporting magicstick-ui Utility:
+<a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" title="Settings"/></a>
+<a href="docs/Untitled-1.png"><img src="docs/Untitled-1.png" width="100" title="Battery Indicator"/></a>
+        
 **magicstick.io** started as a hobby. I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
 
 ## How to get a magicstick.io Device
