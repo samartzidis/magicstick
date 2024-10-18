@@ -12,10 +12,10 @@ You also get key programmability. You can remap keys to perform multimedia funct
 All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. Additionally, any device that accepts conventional USB keyboards should work with it, such as game consoles or smart TVs.
 
 #### magicstick.io Dongle:
-<a href="docs/1.png"><img src="docs/1.png" width="100" title="Clear version" /></a>
-<a href="docs/2.png"><img src="docs/2.png" width="100" title="Clear version"/></a>
-<a href="docs/4.png"><img src="docs/4.png" width="100" title="Clear version"/></a>
-<a href="docs/3.png"><img src="docs/3.png" width="100" title="Wired and Wireless Connections"></a>
+<a href="docs/1.png"><img src="docs/1.png" width="160" title="Clear version" /></a>
+<a href="docs/2.png"><img src="docs/2.png" width="160" title="Clear version"/></a>
+<a href="docs/4.png"><img src="docs/4.png" width="160" title="Clear version"/></a>
+<a href="docs/3.png"><img src="docs/3.png" width="160" title="Wired and Wireless Connections"></a>
 
 #### Optional magicstick-ui Utility:
 <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" title="Settings"/></a>
