@@ -28,8 +28,6 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 You can order a hand-made _plug-and-play_ dongle from **[ebay](https://www.ebay.co.uk/itm/315870335950)**. 
 
-_Not selling on Etsy anymore. Past Etsy [reviews](https://www.etsy.com/uk/shop/MagicStickIO#reviews) (thank you!)._
-
 ## User Manual
 
 The user manual is [here](docs/README.md).
