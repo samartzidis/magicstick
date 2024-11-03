@@ -106,7 +106,7 @@ This is swapped by default but can be reverted in **Settings** as seen above.
 
 ## Keymap Programming
 
-> **Note:** This is an advanced feature and mostly suited to people with a bit of programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
+> **Note:** This is an advanced feature and is mostly suited to people with a bit of programming background. If you do not feel that you have programming skills you may have difficulty in getting things right or you may even render the device slow and unresponsive if done something terribly wrong. If that happens there is always the [reset](#Factory-Resetting-the-Device) option.
 
 <details>
 <summary>
@@ -114,11 +114,11 @@ This is swapped by default but can be reverted in **Settings** as seen above.
 </summary>
    
 The magicstick.io keymap is programmable via custom rules. This allows you to: 
-- Physical key remapping. 
-- Remap keys to target the majority of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ of keys and functions.
-- Program keys for typing extended ASCII characters, unicode characters and emojis.
+- Remap physical keys. 
+- Remap keys to target most of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ keys and functions.
+- Program keys for typing extended ASCII characters, Unicode characters and emojis.
 
-To access the default key map, right-click on the utility icon and select Keymap to open the keymap editor.
+To access the default keymap, right-click the utility icon and select Keymap to open the editor.
 
 ![](image-1.png)
 
