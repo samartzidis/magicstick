@@ -26,7 +26,9 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 ## How to get a magicstick.io Device
 
-You can order a hand-made _plug-and-play_ dongle from [ebay](https://www.ebay.co.uk/itm/315888354490). 
+You can purchase a hand-made plug-and-play dongle from [![ebay-link](docs/ebay.png)]([link-url](https://www.ebay.co.uk/itm/315888354490)).
+Each item solds supports the BBC Children in Need [![ebay-link](docs/ribbon.gif)]([link-url](https://charity.ebay.co.uk/charity/i/BBC-Children-in-Need/11641)).
+
 
 ## User Manual
 
