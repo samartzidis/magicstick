@@ -5,7 +5,7 @@
 
 **magicstick.io** is an absolutely zero-hassle, USB adapter for connecting Apple keyboards (Magic 1, Magic 2 or the older Apple Wireless) to PCs, game consoles, smart TVs, etc. providing the correct keymap translation.
 
-That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You also get dual connection modes, wired and Bluetooth.
+That is, you get a working _Delete_, _Ctrl_, _Page Up/Down_, _Print Screen_, Multimedia keys etc. You get dual connection modes, wired and Bluetooth.
 
 You also get key programmability. You can remap keys to perform multimedia functions, type Unicode/Emojis and more.
 
