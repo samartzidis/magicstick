@@ -44,7 +44,7 @@ The firmware release notes and relevant support file links are available [here](
 | -------- | ------- |
 | A1314 | Old keyboard. Supported but no UI battery level indicator in magicstick-ui. |
 | A1644, A1843, A2450, A3203| Fully supported. |
-| A2449, A3118 | Supported - but without fingerprint sensor functionality (yet). |
+| A2449, A3118, A2520 | Supported - but without fingerprint sensor functionality (yet). |
 
 ## Features
 
