@@ -26,13 +26,16 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 ## How to get a magicstick.io Device
 
+Currently unavailable.
+
+<!--
 You can purchase a hand-made plug-and-play dongle from ![ebay](docs/ebay.png).</br>
 
 - [USB Type-A Version](https://www.ebay.co.uk/itm/316085733600) (for older Apple keyboards).
 - [USB-C Version](https://www.ebay.co.uk/itm/317035973932) (for newer Apple keyboards).
 
 Each item sold supports the _BBC Children in Need_ [![charity](docs/ribbon.gif)](https://charity.ebay.co.uk/charity/i/BBC-Children-in-Need/11641).
-
+-->
 
 ## User Manual
 
