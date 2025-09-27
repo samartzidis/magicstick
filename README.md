@@ -19,6 +19,8 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 <a href="docs/4.png"><img src="docs/4.png" width="160" /></a>
 <a href="docs/5.png"><img src="docs/5.png" width="160" /></a>
 
+The dongle dimensions are 64×25×7mm. The USB cable connecting to the keyboard is optional as magicstick can also connect wiressly. There is one operation LED and a button.
+
 #### Optional magicstick-ui utility:
 <a href="docs/20230927213111.png"><img src="docs/20230927213111.png" width="100" title="Settings"/></a>
 <a href="docs/Untitled-1.png"><img src="docs/Untitled-1.png" width="100" title="Battery Indicator"/></a>
