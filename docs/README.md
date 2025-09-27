@@ -1,4 +1,4 @@
-[![magicstick-logo](magicstick-logo.png)](https://github.com/samartzidis/magicstick.io)
+[![magicstick-logo](magicstick-logo.png)](https://github.com/samartzidis/magicstick)
 ###### Apple Keyboard USB Adapter for PC
 
 # User Manual
@@ -7,7 +7,7 @@
 
 | Label | Description |
 | -------- | ------- |
-| **A** | **Keyboard** connection, USB Type-A port. |
+| **A** | **Keyboard** connection, USB Type-A or USB-C port. |
 | **B** | **PC** connection, micro-USB port. |
 | **C** | **BOOTSEL**/**RESET** button. |
 | **D** | Operation **LED** |
@@ -26,23 +26,23 @@ The micro-USB connection labelled **B** must be connected to one of your PC's US
 
 Connecting any of these keyboards is pretty straightforward. 
 
-1. Remove any keyboard currently plugged-in to magicstick.io.
+1. Remove any keyboard currently plugged-in to magicstick.
 2. Turn the keyboard off and then on again. 
 
    ![](20230928230341.png)
 
-3. Plug the magicstick.io device to a USB port and keep it close to the keyboard. magicstick.io should discover the keyboard and pair with it. There is no PIN code entry required.
+3. Plug the magicstick device to a USB port and keep it close to the keyboard. magicstick should discover the keyboard and pair with it. There is no PIN code entry required.
 
 #### Connecting the Older [A1314](https://en.wikipedia.org/wiki/Apple_Wireless_Keyboard#/media/File:Apple-wireless-keyboard-aluminum-2007.jpg) Keyboard
 
 The older A1314 keyboard has a little bit more complicated pairing process. 
 
-**Important:** Make sure that the magicstick.io device is first **reset to factory settings**, so that it holds no previous paired keyboard data in its internal memory, by following [these steps](#Factory-Resetting-the-Device).
+**Important:** Make sure that the magicstick device is first **reset to factory settings**, so that it holds no previous paired keyboard data in its internal memory, by following [these steps](#Factory-Resetting-the-Device).
 
-1. Remove any keyboard currently plugged-in to magicstick.io.
+1. Remove any keyboard currently plugged-in to magicstick.
 2. Turn the A1314 keyboard off by constantly pressing the right side button for a few seconds. You will see the green keyboard led powering off in a fading out fashion.
 3. Turn the A1314 keyboard on by constantly pressing the right side button for a few seconds. Keep pressing it until the green led starts flashing. The keyboard is now in discovery mode.
-4. (Unplug if plugged-in and) plug-in again your magicstick.io device to a PC USB port. magicstick.io will try to discover the keyboard. When the magicstick.io LED starts flashing non-stop, the keyboard is discovered and pairing has started. Immediately type **0000** (that is, four zeros) on the keyboard and press <kbd>Enter</kbd>.
+4. (Unplug if plugged-in and) plug-in again your magicstick device to a PC USB port. magicstick will try to discover the keyboard. When the magicstick LED starts flashing non-stop, the keyboard is discovered and pairing has started. Immediately type **0000** (that is, four zeros) on the keyboard and press <kbd>Enter</kbd>.
 5. The keyboard should be now paired and connected.
 If this process fails repeat from step 1.
 
@@ -50,7 +50,7 @@ If this process fails repeat from step 1.
 
 ![alt text](Untitled-1.png)
 
-The magicstick-ui utility allows you to monitor the keyboard's connection status, monitor the battery level (both when wired or in Bluetooth), as well as to change the keyboard's special keys configuration and default keymap. You can also use it for permanently turning the magicstick.io Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
+The magicstick-ui utility allows you to monitor the keyboard's connection status, monitor the battery level (both when wired or in Bluetooth), as well as to change the keyboard's special keys configuration and default keymap. You can also use it for permanently turning the magicstick Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
 
 To download the magicstick-ui utility, check the [release notes](../release-notes.md) page.
 
@@ -63,9 +63,9 @@ The LED is located at the diagram position marked **D**. The following table sum
 | LED is **on**. | A keyboard is connected via wired or Bluetooth connection. |
 | LED is **off**. | Device malfunction. |
 | LED is **flashing** non-stop. | Bluetooth has initiated **pairing** mode. Depending on the keyboard model you may need to enter **0000** and press <kbd>Enter</kbd> on the keyboard to complete pairing or just wait, see [Connecting a Keyboard](#Connecting-a-Keyboard) for details. |
-| **1 flash** and a pause. | **IDLE**. magicstick.io is operational but no keyboard is connected via wire connection or Bluetooth. |
-| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick.io Bluetooth is trying to connect to an already paired keyboard via Bluetooth. |
-| **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. magicstick.io Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
+| **1 flash** and a pause. | **IDLE**. magicstick is operational but no keyboard is connected via wire connection or Bluetooth. |
+| **2 flashes** and a pause. | **Bluetooth** **CONNECTING**. magicstick Bluetooth is trying to connect to an already paired keyboard via Bluetooth. |
+| **3 flashes** and a pause. | **Bluetooth** **INQUIRING**. magicstick Bluetooth is in inquiry (aka discovery) mode trying to discover and pair with a suitable keyboard nearby. |
 
 ## Keymap
 
@@ -113,7 +113,7 @@ This is swapped by default but can be reverted in **Settings** as seen above.
    Expand.
 </summary>
    
-The magicstick.io keymap is programmable via custom rules. This allows you to: 
+The magicstick keymap is programmable via custom rules. This allows you to: 
 - Remap physical keys. 
 - Remap keys to target most of the HID Keyboard scan codes as per USB HID Usage Tables specification 1.12, under the Keyboard/Keypad and Consumer Pages, totalling 200+ keys and functions.
 - Program keys for typing extended ASCII characters, Unicode characters and emojis.
@@ -153,7 +153,7 @@ Below is a further explanation of the default rules:
 
 ### Physical Key Remapping
 
-magicstick.io supports the remapping of a physical key via keymap rules. For instance, for swapping the blue and red circled keys,
+magicstick supports the remapping of a physical key via keymap rules. For instance, for swapping the blue and red circled keys,
 
 ![](20230928220051.png)
 
@@ -276,14 +276,14 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 ## Firmware Updates
 
 1. Download the latest (or the desired) **uf2** firmware file and associated magicstick-ui utility **exe** file from the [release notes](../release-notes.md) page. The firmware file should be something like that: magicstick.x.x.x+release.xxxxxxx.**uf2**.
-2. Enter magicstick.io to [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
-3. Once magicstick.io is in BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open it manually in **File Explorer**:
+2. Enter magicstick to [BOOTSEL mode](#Entering-into-BOOTSEL-Mode). 
+3. Once magicstick is in BOOTSEL mode, a new **File Explorer** window will open in your desktop, titled: **RPI-RP2**. If this window does n't open automatically, you can still open it manually in **File Explorer**:
 
    ![](20230927212729.png)
    
    ![](20230927212434.png)
 
-4. Copy the downloaded **uf2** firmware file there. Once the copy completes, your magicstick.io device will automatically restart, running the new firmware.
+4. Copy the downloaded **uf2** firmware file there. Once the copy completes, your magicstick device will automatically restart, running the new firmware.
 
 5. If desired, you can now also run the downloaded magicstick-ui.exe UI utility (from step 1) to control the device.
 
@@ -291,7 +291,7 @@ find_key(HID_KEY_Y) && (send_unicode(0x1F44D), send_unicode(0x1F44E)):end
 
 BOOTSEL is a special device mode that allows you to write new firmware to it. You should only need to do this to run a manual firmware update or downgrade.
 
-To enter into BOOTSEL mode, unplug magicstick.io and then plug it in while the bootsel button is constantly pressed. This will enter the magicstick.io into bootsel mode.
+To enter into BOOTSEL mode, unplug magicstick and then plug it in while the bootsel button is constantly pressed. This will enter the magicstick into bootsel mode.
 
 ## Factory Resetting the Device
 
@@ -302,6 +302,7 @@ Unplug the device. Plug it in and as soon as the green LED turns on (it is impor
 It is important to press the BOOTSEL button **after** the LED turns on. If you press it before, the device will enter into BOOTSEL mode instead of resetting, which is not what you want in this case.
 
 As soon as the device resets back to factory settings, it will lose all key remapping information, special keys configuration, as well as any Bluetooth pairing information if it was previously paired with a Bluetooth keyboard. Therefore it will immediately enter into Bluetooth discovery mode again, trying to find a suitable keyboard to pair with.
+
 
 
 
