@@ -111,6 +111,7 @@ type WailsConfig struct {
 	Info                 struct {
 		ProductName    string `json:"productName"`
 		ProductVersion string `json:"productVersion"`
+		Copyright      string `json:"copyright"`
 	} `json:"info"`
 }
 
