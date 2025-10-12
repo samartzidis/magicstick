@@ -1,0 +1,36 @@
+{
+    "go.buildOnSave": "package",
+    "go.lintOnSave": "package",
+    "go.vetOnSave": "package",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "files.associations": {
+        "*.wails": "json"
+    },
+    "emmet.includeLanguages": {
+        "typescript": "html",
+        "typescriptreact": "html"
+    },
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell Core",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell Core": {
+            "path": "pwsh.exe",
+            "args": [
+                "-NoLogo",
+                "-NoProfile"
+            ]
+        },
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoLogo",
+                "-NoProfile"
+            ]
+        }
+    }
+}
