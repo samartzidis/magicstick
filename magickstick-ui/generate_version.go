@@ -3,6 +3,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
@@ -86,4 +87,60 @@ var (
 	}
 
 	fmt.Printf("Generated version.go with version: %s\n", version)
+
+	// Update wails.json with the new version
+	wailsJsonPath := filepath.Join(dir, "wails.json")
+	err = updateWailsJsonVersion(wailsJsonPath, version)
+	if err != nil {
+		fmt.Printf("//go:generate: Warning: Could not update wails.json: %v\n", err)
+	} else {
+		fmt.Printf("Updated wails.json with version: %s\n", version)
+	}
+}
+
+// WailsConfig represents the structure of wails.json
+type WailsConfig struct {
+	Schema               string            `json:"$schema"`
+	Name                 string            `json:"name"`
+	OutputFilename       string            `json:"outputfilename"`
+	FrontendInstall      string            `json:"frontend:install"`
+	FrontendBuild        string            `json:"frontend:build"`
+	FrontendDevWatcher   string            `json:"frontend:dev:watcher"`
+	FrontendDevServerURL string            `json:"frontend:dev:serverUrl"`
+	PreBuildHooks        map[string]string `json:"preBuildHooks"`
+	Info                 struct {
+		ProductName    string `json:"productName"`
+		ProductVersion string `json:"productVersion"`
+	} `json:"info"`
+}
+
+func updateWailsJsonVersion(wailsJsonPath, version string) error {
+	// Read the existing wails.json file
+	data, err := os.ReadFile(wailsJsonPath)
+	if err != nil {
+		return fmt.Errorf("could not read wails.json: %v", err)
+	}
+
+	// Parse the JSON
+	var config WailsConfig
+	err = json.Unmarshal(data, &config)
+	if err != nil {
+		return fmt.Errorf("could not parse wails.json: %v", err)
+	}
+
+	// Update the product version
+	config.Info.ProductVersion = version
+
+	// Write back to file with proper formatting
+	updatedData, err := json.MarshalIndent(config, "", "    ")
+	if err != nil {
+		return fmt.Errorf("could not marshal updated config: %v", err)
+	}
+
+	err = os.WriteFile(wailsJsonPath, updatedData, 0644)
+	if err != nil {
+		return fmt.Errorf("could not write updated wails.json: %v", err)
+	}
+
+	return nil
 }

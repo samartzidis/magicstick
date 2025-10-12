@@ -8,5 +8,9 @@
     "frontend:dev:serverUrl": "auto",
     "preBuildHooks": {
         "*/*": "go run ../../generate_version.go"
+    },
+    "info": {
+        "productName": "magicstick",
+        "productVersion": "3.0.237-sha.237049a"
     }
 }
