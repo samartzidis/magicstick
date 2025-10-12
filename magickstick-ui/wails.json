@@ -11,6 +11,7 @@
     },
     "info": {
         "productName": "magicstick",
-        "productVersion": "3.0.326-sha.05227c4"
+        "productVersion": "3.0.239-sha.3d38dfd",
+        "copyright": "Copyright © magicstick.io."
     }
 }
