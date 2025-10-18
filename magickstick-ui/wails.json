@@ -6,7 +6,7 @@
     "frontend:install": "npm install",
     "info": {
         "productName": "magicstick",
-        "productVersion": "3.0.250-sha.548223d"
+        "productVersion": "3.0.252-sha.241e35f"
     },
     "name": "magicstick-ui",
     "outputfilename": "magicstick-ui",

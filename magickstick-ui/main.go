@@ -66,7 +66,7 @@ func main() {
 			WindowIsTranslucent:  false,
 			About: &mac.AboutInfo{
 				Title:   "magicstick",
-				Message: "© 2024 George Samartzidis.",
+				Message: "© 2025 magicstick.",
 			},
 		},
 		SingleInstanceLock: &options.SingleInstanceLock{
