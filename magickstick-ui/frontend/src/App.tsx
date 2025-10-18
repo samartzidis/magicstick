@@ -34,6 +34,7 @@ function App() {
     const [currentDevice, setCurrentDevice] = useState<any>(null); // MagicStickDevice instance
     const [currentPage, setCurrentPage] = useState<PageType>('device-info');
     const [versionInfo, setVersionInfo] = useState<main.SemVerInfo | null>(null);
+    const [error, setError] = useState<{ title: string, message: string } | null>(null);
 
     // Reset to Device Info tab when selected device changes
     useEffect(() => {
@@ -246,6 +247,7 @@ function App() {
             setIsDeviceOpened(true);
             setIsOpeningDevice(false);
             setCurrentDevice(deviceInfo); // Store device info
+            setError(null); // Clear any previous errors
 
             // Update tray icon to show device connected using TrayIconManager
             trayIconManager.updateConnectedIcon();
@@ -258,6 +260,11 @@ function App() {
 
         } catch (error) {
             console.error('[Frontend] Failed to open device or set callbacks:', error);
+            const errorMessage = error instanceof Error ? error.message : String(error);
+            setError({
+                title: "⚠️ Device Connection Error",
+                message: `Failed to open device: ${errorMessage}`
+            });
             setIsOpeningDevice(false);
             setIsDeviceOpened(false);
             setCurrentDevice(null);
@@ -316,6 +323,30 @@ function App() {
                     </div>
                 </div>
             </nav>
+
+            {/* Error Modal */}
+            {error && (
+                <div className="modal fade show" style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }} tabIndex={-1}>
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title text-danger">
+                                    {error.title}
+                                </h5>
+                                <button type="button" className="btn-close" onClick={() => setError(null)} aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <p className="mb-0">{error.message}</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" onClick={() => setError(null)}>
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Main Content Area - Below fixed navbar */}
             <div className="d-flex" style={{ marginTop: '80px', height: 'calc(100vh - 80px)' }}>
