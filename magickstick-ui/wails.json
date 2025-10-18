@@ -1,0 +1,16 @@
+{
+    "$schema": "https://wails.io/schemas/config.v2.json",
+    "frontend:build": "npm run build",
+    "frontend:dev:serverUrl": "auto",
+    "frontend:dev:watcher": "npm run dev",
+    "frontend:install": "npm install",
+    "info": {
+        "productName": "magicstick",
+        "productVersion": "3.0.249-sha.ac09e6e"
+    },
+    "name": "magicstick-ui",
+    "outputfilename": "magicstick-ui",
+    "preBuildHooks": {
+        "*/*": "go run ../../generate_version.go"
+    }
+}
