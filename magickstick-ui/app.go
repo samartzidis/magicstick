@@ -302,6 +302,16 @@ func (a *App) GetAvailableIcons() ([]string, error) {
 
 // setupSystemTray creates and configures the system tray icon
 func (a *App) setupSystemTray() {
+	// Set the callback for tray icon clicks BEFORE starting the tray
+	// This ensures the callback is available immediately when the tray icon is created
+	slog.Debug("Setting tray icon click handler before tray startup")
+	systray.SetOnClick(func() {
+		slog.Debug("Tray icon click handler called - showing window")
+		wailsRuntime.WindowShow(a.ctx)
+		slog.Debug("Window shown from tray icon click")
+	})
+	slog.Debug("Tray icon click handler set successfully")
+
 	// Start the system tray in a goroutine
 	go func() {
 		systray.Run(a.onTrayReady(), a.onTrayExit)
@@ -314,14 +324,8 @@ func (a *App) onTrayReady() func() {
 		// Set title
 		systray.SetTitle("magicstick-ui")
 
-		// Set the callback for tray icon clicks AFTER the tray is ready
-		slog.Debug("Setting tray icon click handler")
-		systray.SetOnClick(func() {
-			slog.Debug("Tray icon click handler called - showing window")
-			wailsRuntime.WindowShow(a.ctx)
-			slog.Debug("Window shown from tray icon click")
-		})
-		slog.Debug("Tray icon click handler set successfully")
+		// Note: onClick callback is already set in setupSystemTray() before tray startup
+		slog.Debug("Tray ready - onClick callback already set")
 
 		// Add "Show Window" menu item
 		showItem := systray.AddMenuItem("Show Window", "Show the application window")

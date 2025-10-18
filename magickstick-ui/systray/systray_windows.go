@@ -212,15 +212,16 @@ func runPlatformSpecific(tray *SystemTray, onReady func(), onExit func()) {
 		LpszClassName: className,
 	}
 
-	ret, _, _ := procRegisterClass.Call(uintptr(unsafe.Pointer(&wndClass)))
-	if ret == 0 {
-		slog.Error("Failed to register window class")
+	registerRet, _, err := procRegisterClass.Call(uintptr(unsafe.Pointer(&wndClass)))
+	if registerRet == 0 {
+		slog.Error("Failed to register window class", "error", err)
 		return
 	}
+	slog.Debug("Window class registered successfully")
 
 	// Create window
 	windowName, _ := windows.UTF16PtrFromString("WailsTrayWindow")
-	hwnd, _, _ := procCreateWindowEx.Call(
+	hwnd, _, err := procCreateWindowEx.Call(
 		0,
 		uintptr(unsafe.Pointer(className)),
 		uintptr(unsafe.Pointer(windowName)),
@@ -236,9 +237,11 @@ func runPlatformSpecific(tray *SystemTray, onReady func(), onExit func()) {
 	)
 
 	if hwnd == 0 {
-		slog.Error("Failed to create window")
+		slog.Error("Failed to create window", "error", err)
+		procUnregisterClass.Call(uintptr(unsafe.Pointer(className)), 0)
 		return
 	}
+	slog.Debug("Window created successfully", "hwnd", hwnd)
 
 	wt.hwnd = windows.Handle(hwnd)
 	trayInstances[wt.hwnd] = wt
@@ -254,8 +257,89 @@ func runPlatformSpecific(tray *SystemTray, onReady func(), onExit func()) {
 
 	trayCounter++
 
-	// Add the tray icon to the system tray
-	procShell_NotifyIcon.Call(NIM_ADD, uintptr(unsafe.Pointer(&wt.notifyData)))
+	// Set the onClick callback
+	slog.Debug("Setting onClick callback", "onClick_nil", tray.onClick == nil)
+	wt.onClick = tray.onClick
+	slog.Debug("onClick callback set", "wt_onClick_nil", wt.onClick == nil)
+
+	// Start message loop in goroutine first (to avoid race condition)
+	messageLoopReady := make(chan struct{})
+	go func() {
+		// Signal that message loop is starting
+		close(messageLoopReady)
+
+		// Simple message loop
+		slog.Debug("Starting tray icon message loop", "hwnd", wt.hwnd, "callback_message", wt.notifyData.UCallbackMessage)
+
+		var msg struct {
+			Hwnd    windows.Handle
+			Message uint32
+			WParam  uintptr
+			LParam  uintptr
+			Time    uint32
+			Pt      POINT
+		}
+
+		for {
+			select {
+			case <-wt.ctx.Done():
+				slog.Debug("Tray message loop context cancelled, cleaning up")
+
+				// Cleanup
+				// Remove tray icon from system tray
+				wt.notifyData.UFlags = NIF_MESSAGE
+				procShell_NotifyIcon.Call(NIM_DELETE, uintptr(unsafe.Pointer(&wt.notifyData)))
+
+				if wt.icon != 0 {
+					procDestroyIcon.Call(uintptr(wt.icon))
+				}
+				procDestroyWindow.Call(uintptr(wt.hwnd))
+				procUnregisterClass.Call(uintptr(unsafe.Pointer(className)), 0)
+				if onExit != nil {
+					onExit()
+				}
+				return
+			default:
+				// Use GetMessage like the C implementation
+				ret, _, err := user32.NewProc("GetMessageW").Call(
+					uintptr(unsafe.Pointer(&msg)),
+					0,
+					0,
+					0,
+				)
+				if ret == 0 { // WM_QUIT
+					slog.Debug("Received WM_QUIT, exiting message loop")
+					break
+				} else if ret == ^uintptr(0) { // Error
+					slog.Error("GetMessage failed", "error", err)
+					break
+				}
+
+				user32.NewProc("TranslateMessage").Call(uintptr(unsafe.Pointer(&msg)))
+				user32.NewProc("DispatchMessageW").Call(uintptr(unsafe.Pointer(&msg)))
+			}
+		}
+	}()
+
+	// Wait for message loop to be ready
+	<-messageLoopReady
+
+	// Small delay to ensure message loop is processing
+	time.Sleep(5 * time.Millisecond)
+
+	// NOW add the tray icon to the system tray - after message loop is running
+	ret, _, err := procShell_NotifyIcon.Call(NIM_ADD, uintptr(unsafe.Pointer(&wt.notifyData)))
+	if ret == 0 {
+		slog.Error("Failed to add tray icon to system tray", "error", err)
+		// Clean up before panic
+		procDestroyWindow.Call(uintptr(wt.hwnd))
+		procUnregisterClass.Call(uintptr(unsafe.Pointer(className)), 0)
+		panic("procShell_NotifyIcon failed")
+	}
+	slog.Debug("Tray icon added successfully to system tray")
+
+	// Start Explorer monitoring to detect when Explorer restarts
+	wt.startExplorerMonitoring()
 
 	// Set initial icon and tooltip if they were set before Run()
 	if len(tray.icon) > 0 {
@@ -265,63 +349,9 @@ func runPlatformSpecific(tray *SystemTray, onReady func(), onExit func()) {
 		tray.setTooltipPlatform(tray.tooltip)
 	}
 
-	// Call onReady immediately after tray icon is added and message loop is about to start
+	// Call onReady AFTER tray icon is added and message loop is running
 	if onReady != nil {
 		onReady()
-	}
-
-	// Set the onClick callback after onReady has been called
-	slog.Debug("Setting onClick callback", "onClick_nil", tray.onClick == nil)
-	wt.onClick = tray.onClick
-	slog.Debug("onClick callback set", "wt_onClick_nil", wt.onClick == nil)
-
-	// Start Explorer monitoring to detect when Explorer restarts
-	wt.startExplorerMonitoring()
-
-	// Message loop
-	var msg struct {
-		Hwnd    windows.Handle
-		Message uint32
-		WParam  uintptr
-		LParam  uintptr
-		Time    uint32
-		Pt      POINT
-	}
-
-	for {
-		select {
-		case <-wt.ctx.Done():
-			// Cleanup
-			// Remove tray icon from system tray
-			wt.notifyData.UFlags = NIF_MESSAGE
-			procShell_NotifyIcon.Call(NIM_DELETE, uintptr(unsafe.Pointer(&wt.notifyData)))
-
-			if wt.icon != 0 {
-				procDestroyIcon.Call(uintptr(wt.icon))
-			}
-			procDestroyWindow.Call(uintptr(wt.hwnd))
-			procUnregisterClass.Call(uintptr(unsafe.Pointer(className)), 0)
-			if onExit != nil {
-				onExit()
-			}
-			return
-		default:
-			// Use GetMessage for better reliability and performance
-			ret, _, _ := user32.NewProc("GetMessageW").Call(
-				uintptr(unsafe.Pointer(&msg)),
-				0,
-				0,
-				0,
-			)
-			if ret == 0 { // WM_QUIT
-				break
-			} else if ret == ^uintptr(0) { // Error
-				break
-			}
-
-			user32.NewProc("TranslateMessage").Call(uintptr(unsafe.Pointer(&msg)))
-			user32.NewProc("DispatchMessageW").Call(uintptr(unsafe.Pointer(&msg)))
-		}
 	}
 }
 
@@ -334,12 +364,15 @@ func wndProc(hwnd windows.Handle, msg uint32, wParam, lParam uintptr) uintptr {
 
 	switch msg {
 	case WM_TRAYICON:
+		slog.Debug("Tray icon message received", "hwnd", hwnd, "wParam", wParam, "lParam", lParam)
 		switch lParam {
 		case WM_LBUTTONUP:
 			// Left click - show window if callback is set
 			slog.Debug("Tray icon left click received", "onClick_set", tray.onClick != nil)
 			if tray.onClick != nil {
 				go tray.onClick()
+			} else {
+				slog.Warn("Tray icon clicked but onClick callback is nil")
 			}
 		case WM_RBUTTONUP:
 			// Right click - show context menu
@@ -350,7 +383,11 @@ func wndProc(hwnd windows.Handle, msg uint32, wParam, lParam uintptr) uintptr {
 			slog.Debug("Tray icon double click received", "onClick_set", tray.onClick != nil)
 			if tray.onClick != nil {
 				go tray.onClick()
+			} else {
+				slog.Warn("Tray icon double-clicked but onClick callback is nil")
 			}
+		default:
+			slog.Debug("Unknown tray icon message", "lParam", lParam)
 		}
 		return 0
 	case WM_THEMECHANGED, WM_DWMCOMPOSITIONCHANGED, WM_DISPLAYCHANGE, WM_SYSCOLORCHANGE:
@@ -537,7 +574,6 @@ func createHIconFromData(iconData []byte) windows.Handle {
 
 	slog.Debug("System icon size", "width", iconWidth, "height", iconHeight)
 
-	// Try the exact same approach as v3
 	hIcon, _, err := procCreateIconFromResourceEx.Call(
 		uintptr(unsafe.Pointer(&iconData[0])), // presbits
 		uintptr(len(iconData)),                // dwResSize
