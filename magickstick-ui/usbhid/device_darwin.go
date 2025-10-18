@@ -99,6 +99,8 @@ const (
 
 	kIOReturnSuccess         _IOReturn = 0
 	kIOReturnExclusiveAccess _IOReturn = -0x1ffffd3b
+	kIOReturnNotPermitted    _IOReturn = -0x1ffffd1e
+	kIOReturnNotPrivileged   _IOReturn = -0x1ffffd1f
 )
 
 var (
@@ -383,7 +385,10 @@ func (d *Device) open(lock bool) error {
 		if rv == kIOReturnExclusiveAccess {
 			return ErrDeviceLocked
 		}
-		return fmt.Errorf("0x%08x", rv)
+		if rv == kIOReturnNotPermitted || rv == kIOReturnNotPrivileged {
+			return fmt.Errorf("HID device access denied: insufficient permissions (error code: 0x%08x)", rv)
+		}
+		return fmt.Errorf("failed to open HID device (error code: 0x%08x)", rv)
 	}
 
 	wait := make(chan struct{})
