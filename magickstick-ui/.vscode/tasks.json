@@ -57,7 +57,7 @@
         {
             "label": "dist-darwin",
             "type": "shell",
-            "command": "${workspaceFolder}/.vscode/dist-darwin.sh",
+            "command": "chmod +x ${workspaceFolder}/.vscode/dist-darwin.sh && ${workspaceFolder}/.vscode/dist-darwin.sh",
             "group": "build",
             "presentation": {
                 "echo": true,
