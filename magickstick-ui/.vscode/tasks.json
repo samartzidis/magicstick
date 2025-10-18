@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Wails Build",
+            "label": "build",
             "type": "shell",
             "command": "wails",
             "args": [
@@ -32,11 +32,13 @@
             }
         },
         {
-            "label": "Wails Dev",
+            "label": "dev",
             "type": "shell",
             "command": "wails",
             "args": [
-                "dev"
+                "dev",
+                "-loglevel",
+                "debug"
             ],
             "group": "build",
             "presentation": {
