@@ -1,0 +1,125 @@
+/* App.css - All custom styles for the MagicStick UI */
+
+/* Global HTML and Body styles - only for the root app container */
+html {
+    background-color: rgba(27, 38, 54, 1);
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+        url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+/* Override Bootstrap's default background for our app */
+#App {
+    background-color: #f5f5f5 !important;
+}
+
+/* Custom styles for CodeMirror editor */
+.keymap-editor .cm-editor {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    flex: 1;
+    height: 100%;
+}
+
+.keymap-editor .cm-focused {
+    outline: none;
+}
+
+.keymap-editor .cm-editor.cm-focused {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Light theme adjustments for better contrast */
+.keymap-editor .cm-editor {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.keymap-editor .cm-gutters {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.keymap-editor .cm-lineNumbers .cm-gutterElement {
+    color: #6c757d;
+}
+
+.keymap-editor .cm-activeLineGutter {
+    background-color: #e9ecef;
+}
+
+.keymap-editor .cm-activeLine {
+    background-color: #f8f9fa;
+}
+
+.keymap-editor .cm-selectionBackground {
+    background-color: #b3d4fc;
+}
+
+.keymap-editor .cm-cursor {
+    border-left: 2px solid #007bff;
+}
+
+.keymap-editor .cm-focused .cm-cursor {
+    border-left-color: #007bff;
+}
+
+/* Ensure all lines are left-aligned */
+.keymap-editor .cm-line {
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+
+.keymap-editor .cm-content {
+    text-align: left !important;
+    padding-left: 0 !important;
+}
+
+/* MagicStick syntax highlighting */
+.keymap-editor .cm-keyword {
+    color: #0000ff !important;
+    font-weight: bold !important;
+}
+
+.keymap-editor .cm-variable {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.keymap-editor .cm-hid-key {
+    color: #8b4513 !important;
+    font-weight: bold !important;
+}
+
+.keymap-editor .cm-modifier {
+    color: #8b4513 !important;
+    font-weight: bold !important;
+}
+
+.keymap-editor .cm-consumer {
+    color: #ff8c00 !important;
+    font-weight: bold !important;
+}
+
+.keymap-editor .cm-comment {
+    color: #008000 !important;
+}
+
+/* Ensure proper spacing for version info */
+.position-absolute.bottom-0.start-0 {
+    z-index: 1000;
+}
+
