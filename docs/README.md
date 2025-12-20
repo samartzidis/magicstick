@@ -48,7 +48,7 @@ If this process fails repeat from step 1.
 
 ## The magicstick-ui Windows Utility
 
-![alt text](Untitled-1.png)
+![alt text](20251220132418.png)
 
 The magicstick-ui utility allows you to monitor the keyboard's connection status, monitor the battery level (both when wired or in Bluetooth), as well as to change the keyboard's special keys configuration and default keymap. You can also use it for permanently turning the magicstick Bluetooth chip on or off, for instance if you are in a very high IT security work environment.
 
@@ -94,15 +94,13 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 ## Remapping of Special Keys (including standard modifier keys) Using the magicstick-ui Utility 
 
-### Swap Alt-Cmd
+### Swap Alt-Cmd / Swap Fn-Ctrl
 
-This can be easily done in **Settings** by selecting:
+This can be easily done in **Settings** by selecting the relevant checkboxes:
 
-![alt text](image-2.png)
+<a href="20251220133125.png"><img src="20251220133125.png" width="360" /></a>
 
-### Swap Fn-Ctrl
-
-This is swapped by default but can be reverted in **Settings** as seen above.
+Please do not forget to press **Save** if you need to persist any changes to the device memory.
 
 ## Keymap Programming
 
