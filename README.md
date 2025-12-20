@@ -38,9 +38,6 @@ Each item sold supports the _BBC Children in Need_ [![charity](docs/ribbon.gif)]
 
 The user manual is [here](docs/README.md).
 
-## Release Notes and Support
-
-The firmware release notes and relevant support file links are available [here](releases).
 
 ## Supported Apple Keyboard Models
 
