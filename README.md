@@ -25,6 +25,7 @@ The dongle dimensions are 64×25×7mm. The USB cable connecting to the keyboard 
 
 ![](docs/20251220132418.png)
 <a href="docs/20251220132019.png"><img src="docs/20251220132019.png" width="160" /></a>
+<a href="docs/20251220133125.png"><img src="docs/20251220133125.png" width="160" /></a>
 <a href="docs/20251220132156.png"><img src="docs/20251220132156.png" width="160" /></a>
         
 This project started as a hobby as I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
