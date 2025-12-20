@@ -40,7 +40,7 @@ The user manual is [here](docs/README.md).
 
 ## Release Notes and Support
 
-The firmware release notes and relevant support file links are available [here](release-notes.md).
+The firmware release notes and relevant support file links are available [here](releases).
 
 ## Supported Apple Keyboard Models
 
