@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { BatteryReportEvent } from "../../bindings/magicstick-ui/models";
+import { parseBatteryStatus } from "../batteryStatus";
 
 // Placeholder type - will be replaced with generated type
 interface DeviceInfo {
@@ -11,11 +11,6 @@ interface DeviceInfo {
     Manufacturer: string;
 }
 
-// Battery status constants (matching backend)
-const BatteryStatusGood = 0x01;  // present/OK
-const BatteryStatusCharging = 0x02;  // charging
-const BatteryStatusDischarging = 0x04;  // discharging
-
 // Device Info Page Component
 interface DeviceInfoPageProps {
     selectedDevice: DeviceInfo | null;
@@ -26,7 +21,7 @@ interface DeviceInfoPageProps {
 
 export function DeviceInfoPage({ selectedDevice, isDeviceOpened, isOpeningDevice, batteryStatus }: DeviceInfoPageProps) {
     const isKeyboardConnected = batteryStatus !== null;
-    const [showPaths, setShowPaths] = useState(false);
+    const battery = batteryStatus ? parseBatteryStatus(batteryStatus) : null;
 
     if (!selectedDevice) {
         return (
@@ -60,16 +55,10 @@ export function DeviceInfoPage({ selectedDevice, isDeviceOpened, isOpeningDevice
                                     ' ❌ Disconnected'}
                             </div>
                             <div className="mb-1"><strong>Battery Level:</strong>
-                                {isKeyboardConnected && batteryStatus ? ` ${batteryStatus.level}%` :
-                                    isKeyboardConnected ? 'Unknown' : ''}
+                                {battery ? ` ${battery.level}%` : ''}
                             </div>
                             <div className="mb-1"><strong>Battery Status:</strong>
-                                {isKeyboardConnected && batteryStatus ?
-                                    (batteryStatus.status & BatteryStatusCharging ? ' Charging' :
-                                        batteryStatus.status & BatteryStatusGood ? ' Idle' :
-                                            batteryStatus.status & BatteryStatusDischarging ? ' Discharging' :
-                                                ' Unknown') :
-                                    isKeyboardConnected ? ' Unknown' : ''}
+                                {battery ? ` ${battery.statusText}` : ''}
                             </div>
                         </div>
                     </div>

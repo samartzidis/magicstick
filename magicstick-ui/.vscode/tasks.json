@@ -30,7 +30,7 @@
         {
             "label": "dev",
             "type": "shell",
-            "command": "wails",
+            "command": "wails3",
             "args": [
                 "dev"
             ],

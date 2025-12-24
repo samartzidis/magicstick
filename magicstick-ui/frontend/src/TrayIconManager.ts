@@ -1,10 +1,7 @@
 import * as Log from "../bindings/github.com/wailsapp/wails/v3/pkg/services/log/logservice";
 import * as AppService from "../bindings/magicstick-ui/appservice";
-
-// Battery status constants (matching backend)
-const BatteryStatusGood = 0x01;  // present/OK
-const BatteryStatusCharging = 0x02;  // charging
-const BatteryStatusDischarging = 0x04;  // discharging
+import { BatteryReportEvent } from "../bindings/magicstick-ui/models";
+import { parseBatteryStatus } from "./batteryStatus";
 
 // Tray icon manager class
 export class TrayIconManager {
@@ -47,23 +44,19 @@ export class TrayIconManager {
         return this.isDarkMode ? "assets/icons/Battery_dark.png" : "assets/icons/Battery.png";
     }
 
-    // Get status overlay icon
-    private getStatusIcon(status: number): string | null {
-        if (status & BatteryStatusCharging)
-            return this.isDarkMode ? "assets/icons/Charging_dark.png" : "assets/icons/Charging.png";
-        if (status & BatteryStatusGood)
-            return this.isDarkMode ? "assets/icons/Charged_dark.png" : "assets/icons/Charged.png";        
-        return null;
+    // Get charging overlay icon (only shown when charging)
+    private getChargingIcon(): string {
+        return this.isDarkMode ? "assets/icons/Charging_dark.png" : "assets/icons/Charging.png";
     }
 
     // Update tray icon with battery data
-    async updateBatteryIcon(level: number, status: number) {
+    async updateBatteryIcon(event: BatteryReportEvent) {
         try {
-            const iconPaths = [this.getBaseIcon(), this.getIndicatorIcon(level)];
+            const battery = parseBatteryStatus(event);
+            const iconPaths = [this.getBaseIcon(), this.getIndicatorIcon(battery.level)];
 
-            const statusIcon = this.getStatusIcon(status);
-            if (statusIcon) {
-                iconPaths.push(statusIcon);
+            if (battery.isCharging) {
+                iconPaths.push(this.getChargingIcon());
             }
 
             const iconData = await AppService.BlendIconData(iconPaths);
@@ -72,18 +65,12 @@ export class TrayIconManager {
             await AppService.UpdateTrayIcon(iconData);
 
             // Update tooltip with battery info
-            let statusText = "";
-            if (status & BatteryStatusCharging) {
-                statusText = " (charging)";
-            } else if (status & BatteryStatusGood) {
-                statusText = "";
-            } else if (status & BatteryStatusDischarging) {
-                statusText = " (discharging)";
-            }
-            const tooltip = `magicstick - ${level}%${statusText}`;
+            const statusSuffix = battery.isCharging ? " (charging)" : 
+                                 battery.isDischarging ? " (discharging)" : "";
+            const tooltip = `magicstick - ${battery.level}%${statusSuffix}`;
             await AppService.UpdateTrayTooltip(tooltip);
 
-            Log.Debug(`[TrayIconManager] Updated battery icon: ${level}%, status: ${status}`);
+            Log.Debug(`[TrayIconManager] Updated battery icon: ${battery.level}%, status: ${battery.statusText}`);
         } catch (error) {
             Log.Error('[TrayIconManager] Failed to update battery icon:', error);
         }

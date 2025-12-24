@@ -151,7 +151,7 @@ function App() {
             
             // Update tray icon with battery data using TrayIconManager
             if (trayIconManagerRef.current) {
-                trayIconManagerRef.current.updateBatteryIcon(ev.data.level, ev.data.status);
+                trayIconManagerRef.current.updateBatteryIcon(ev.data);
             }
         });
 
@@ -384,7 +384,7 @@ function App() {
                             <option value="">Select a device...</option>
                             {magicStickDevices.map((device) => (
                                 <option key={device.Serial} value={device.Serial}>
-                                    {device.Product}
+                                    {device.Serial}
                                 </option>
                             ))}
                         </select>
@@ -433,27 +433,27 @@ function App() {
                             onClick={() => selectedDevice && setCurrentPage('device-info')}
                             disabled={!selectedDevice}
                         >
-                            📱 Device Info
+                            Device Info
                         </button>
                         <button
                             className={`btn btn-outline-light mb-2 text-start ${currentPage === 'settings' ? 'active' : ''} ${!selectedDevice ? 'disabled' : ''}`}
                             onClick={() => selectedDevice && setCurrentPage('settings')}
                             disabled={!selectedDevice}
                         >
-                            ⚙️ Settings
+                            Settings
                         </button>
                         <button
                             className={`btn btn-outline-light mb-2 text-start ${currentPage === 'keymap' ? 'active' : ''} ${!selectedDevice ? 'disabled' : ''}`}
                             onClick={() => selectedDevice && setCurrentPage('keymap')}
                             disabled={!selectedDevice}
                         >
-                            ⌨️ Keymap
+                            Keymap
                         </button>
                         <button
                             className={`btn btn-outline-light mb-2 text-start ${currentPage === 'about' ? 'active' : ''}`}
                             onClick={() => setCurrentPage('about')}
                         >
-                            ℹ️ About
+                            About
                         </button>
                     </nav>
 
