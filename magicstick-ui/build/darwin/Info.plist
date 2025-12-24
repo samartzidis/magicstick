@@ -10,11 +10,11 @@
         <key>CFBundleIdentifier</key>
             <string>com.magicstick.magicstick-iu</string>
         <key>CFBundleVersion</key>
-            <string>3.0.1</string>
+            <string>3.0.2</string>
         <key>CFBundleGetInfoString</key>
             <string>magicstick</string>
         <key>CFBundleShortVersionString</key>
-            <string>3.0.1</string>
+            <string>3.0.2</string>
         <key>CFBundleIconFile</key>
             <string>icons</string>
         <key>LSMinimumSystemVersion</key>

@@ -11,7 +11,7 @@ info:
   description: "magicstick" # The application description
   copyright: "(c) 2025" # Copyright text
   comments: "magicstick" # Comments
-  version: "3.0.1" # The application version
+  version: "3.0.2" # The application version
 
 # Dev mode configuration
 dev_mode:

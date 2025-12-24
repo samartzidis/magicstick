@@ -13,7 +13,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-//go:embed assets/icons/Battery.png assets/icons/Battery_dark.png assets/icons/Indicator_*.png assets/icons/Missing.png assets/icons/Missing_dark.png assets/icons/Charging.png assets/icons/Charging_dark.png assets/icons/Charged.png assets/icons/Charged_dark.png
+//go:embed assets/icons/Battery.png assets/icons/Battery_dark.png assets/icons/Indicator_*.png assets/icons/Missing.png assets/icons/Missing_dark.png assets/icons/Charging.png assets/icons/Charging_dark.png
 var batteryIcons embed.FS
 
 //go:embed build/config.yml
