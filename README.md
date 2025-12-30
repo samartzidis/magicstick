@@ -52,7 +52,7 @@ The user manual is [here](docs/README.md).
 
 ## Features
 
-- Powered by a **133MHz dual-core Arm Cortex M0+** processor. All processing logic is implemented in **optimized C/C++** code and is utilizing both processor cores (the dual USB stack is managed by the first core and the Bluetooth stack is managed by the second core).
+- Powered by a **133MHz dual-core Arm Cortex M0+** processor. All processing logic is implemented in **optimized C/C++** code and uses both processor cores (the dual USB stack is managed by the first core and the Bluetooth stack is managed by the second core).
 - Works **both wired and wirelessly**. You can connect your Apple keyboard either via a standard USB to Lightning cable or wirelessly via Bluetooth. 
 - You can freely switch between wired or wireless connection modes at any time.
 - Wired and Bluetooth operation modes provide **surprisingly fast response times**. Tests performed with online measurement tools could not detect any extra delays over the default 16ms rebounce delay of a A1644 keyboard.
