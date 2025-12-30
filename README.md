@@ -46,9 +46,9 @@ The user manual is [here](docs/README.md).
 
 | Model | Status |
 | -------- | ------- |
-| A1314 | Old keyboard. Supported but no UI battery level indicator in magicstick-ui. |
+| A1314 | Old keyboard. Works, but no UI battery level indicator in magicstick-ui. |
 | A1644, A1843, A2450, A3203| Fully supported. |
-| A2449, A3118, A3119, A2520 | Supported - but without fingerprint sensor functionality (yet). |
+| A2449, A3118, A3119, A2520 | Supported - but without fingerprint sensor functionality. |
 
 ## Features
 
