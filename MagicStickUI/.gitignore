@@ -1,0 +1,7 @@
+build/**
+.vs
+bin
+obj
+**/build
+bin
+*.exe
