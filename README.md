@@ -21,13 +21,6 @@ All modern versions of Windows (since Windows 95 OSR2) and Linux are supported. 
 
 The dongle dimensions are 64×25×7mm. The USB cable connecting to the keyboard is optional as magicstick can also connect wiressly. There is one operation LED and a button.
 
-#### Optional magicstick-ui utility:
-
-![](docs/20251220132418.png)
-<a href="docs/20251220132019.png"><img src="docs/20251220132019.png" width="160" /></a>
-<a href="docs/20251220133125.png"><img src="docs/20251220133125.png" width="160" /></a>
-<a href="docs/20251220132156.png"><img src="docs/20251220132156.png" width="160" /></a>
-        
 This project started as a hobby as I wanted to use my Apple keyboard on Windows but without developing a dedicated Windows kernel-mode driver, especially given how difficult this is with the latest Windows kernel-mode driver signing restrictions (e.g. see my [WinAppleKey](https://github.com/samartzidis/WinAppleKey) project). 
 
 ## How to get a Device

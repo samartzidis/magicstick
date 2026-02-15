@@ -98,9 +98,9 @@ When you connect your keyboard for the first time, this is the default keymap:
 
 This can be easily done in **Settings** by selecting the relevant checkboxes:
 
-<a href="20251220133125.png"><img src="20251220133125.png" width="360" /></a>
+<a href="image.png"><img src="image.png" width="360" /></a>
 
-Please do not forget to press **Save** if you need to persist any changes to the device memory.
+Please do not forget to click **Save configuration** if you need to persist any configuration changes to the device memory.
 
 ## Keymap Programming
 
