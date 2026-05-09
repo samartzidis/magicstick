@@ -25,11 +25,9 @@ This project started as a hobby as I wanted to use my Apple keyboard on Windows 
 
 ## How to get a Device
 
-~~You can purchase a plug-and-play dongle package from the [ebay magicstick-shop](https://www.ebay.co.uk/usr/magicstick-shop)~~.
-Currently out of stock.
+~~You can purchase a plug-and-play dongle package from the [ebay magicstick-shop](https://www.ebay.co.uk/usr/magicstick-shop). Each item sold supports the _BBC Children in Need_ [![charity](docs/ribbon.gif)](https://charity.ebay.co.uk/charity/i/BBC-Children-in-Need/11641).~~
 
-Each item sold supports the _BBC Children in Need_ [![charity](docs/ribbon.gif)](https://charity.ebay.co.uk/charity/i/BBC-Children-in-Need/11641).
-
+**Currently out of stock.**
 
 ## User Manual
 
