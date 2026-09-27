@@ -31,6 +31,10 @@ Provided there is stock available, you will be able to purchase one from the [eb
 
 The user manual is [here](docs/README.md).
 
+## Downloads
+
+Latest [magicstick-ui](https://github.com/samartzidis/magicstick/releases/tag/v3.2.0) release.
+Latest [firmware](https://github.com/samartzidis/magicstick/releases/tag/magicstick.3.1.0) release
 
 ## Supported Apple Keyboard Models
 
