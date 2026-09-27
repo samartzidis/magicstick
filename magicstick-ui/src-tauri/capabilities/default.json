@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Permissions for the main window: device/app calls through the .NET bridge, tray icon updates and window chrome through Tauri's own APIs.",
   "windows": ["main"],
-  "permissions": ["core:default", "dotnet:default", "opener:default"]
+  "permissions": ["core:default", "dotnet:default", "opener:default", "autostart:default"]
 }
