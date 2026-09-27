@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply m-0 h-full min-w-80 font-sans antialiased;
+    @apply bg-white text-[#213547];
+    @apply dark:bg-[#242424] dark:text-white/87;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    @apply h-full w-full box-border py-8 px-12 flex flex-col;
+  }
+}
+
+/* Keymap editor: light mode syntax colors */
+.keymap-editor .cm-comment { color: #008000; }
+.keymap-editor .cm-keyword { color: #0000ff; font-weight: bold; }
+.keymap-editor .cm-variable { color: #881280; font-weight: bold; }
+.keymap-editor .cm-hid-key { color: #a31515; }
+.keymap-editor .cm-modifier { color: #795e26; }
+.keymap-editor .cm-consumer { color: #0451a5; }
+
+/* Keymap editor: dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .keymap-editor .cm-comment { color: #6a9955; }
+  .keymap-editor .cm-keyword { color: #569cd6; }
+  .keymap-editor .cm-variable { color: #c586c0; }
+  .keymap-editor .cm-hid-key { color: #ce9178; }
+  .keymap-editor .cm-modifier { color: #dcdcaa; }
+  .keymap-editor .cm-consumer { color: #4ec9b0; }
+  .keymap-editor .cm-editor,
+  .keymap-editor .cm-scroller,
+  .keymap-editor .cm-gutters {
+    background: #000;
+  }
+}

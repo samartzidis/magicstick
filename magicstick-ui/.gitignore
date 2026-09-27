@@ -1,0 +1,30 @@
+# Rust (src-tauri/target and src-tauri/gen/schemas are covered by src-tauri/.gitignore)
+
+# .NET
+**/bin/
+**/obj/
+*.nupkg
+# The Release backend built into src-tauri/backend by `beforeBuildCommand`, shipped by bundle.resources.
+# An empty folder is created on demand by the first Debug build (tauri-build needs it to exist).
+src-tauri/backend/
+# Backend bundles made by -p:TauriDotNetEmbed=true
+*.tdnbundle
+
+# Node
+node_modules/
+dist/
+
+# Generated TypeScript bindings (created by `dotnet build`)
+src/bindings/
+
+# Tauri
+/.tauri
+
+# Editors / OS
+.vs/
+.idea/
+*.swp
+*.user
+.DS_Store
+Thumbs.db
+Desktop.ini

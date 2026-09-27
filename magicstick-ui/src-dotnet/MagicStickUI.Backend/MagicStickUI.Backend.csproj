@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Version>3.2.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      From the local feed in src-dotnet\NuGet.Config (..\tauri-plugin-dotnet\artifacts, where
+      `dotnet pack` writes it) - not on nuget.org. Its .props/.targets are auto-imported from the
+      package, and the generator and the dev-only sidecar-runner tool ship prebuilt inside it
+      (tools\net8.0\), so nothing here points at the plugin's source tree.
+    -->
+    <PackageReference Include="Tauri.Plugin.DotNet" Version="0.1.0" />
+    <!-- Console output for the bridge's own logging (see Backend.LoggerFactory). -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.*" />
+    <!-- Tray icon PNG compositing (TrayIconRenderer). -->
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+    <!-- USB HID device discovery and I/O (MagicStick/*). -->
+    <PackageReference Include="HidSharp" Version="2.6.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\**\*.png" />
+    <EmbeddedResource Include="Assets\Icons\**\*.ico" />
+  </ItemGroup>
+
+</Project>

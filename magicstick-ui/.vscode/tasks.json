@@ -1,0 +1,140 @@
+{
+    // Build and run tasks for magicstick-ui.
+    // Run with Ctrl+Shift+B (build) or "Tasks: Run Task".
+    // Rust: src-tauri/Cargo.toml has a plain path dependency on the sibling tauri-plugin-dotnet
+    // checkout (../../tauri-plugin-dotnet) - every change there is picked up on the next cargo build,
+    // no extra step.
+    // .NET: src-dotnet/MagicStickUI.Backend.csproj takes tauri-plugin-dotnet as a PackageReference from
+    // the local feed in src-dotnet/NuGet.Config (../../tauri-plugin-dotnet/artifacts, where
+    // `dotnet pack` writes the nupkg). After a plugin change, `dotnet pack` there, bump the matching
+    // `Version` on the PackageReference here, then `dotnet restore`/`build` - a new version number means
+    // nothing to cache-bust.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "npm install",
+            "type": "shell",
+            "command": "npm install",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": []
+        },
+        {
+            // Builds the C# backend the host loads, and generates src/bindings for the frontend.
+            "label": "build backend",
+            "type": "shell",
+            "command": "dotnet build src-dotnet/MagicStickUI.Backend",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            // Needs the generated bindings, hence the backend build first.
+            "label": "build frontend",
+            "type": "shell",
+            "command": "npm run build",
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": ["build backend"],
+            "problemMatcher": "$tsc"
+        },
+        {
+            // `custom-protocol` embeds the frontend; a plain cargo build would load devUrl instead.
+            "label": "build app",
+            "type": "shell",
+            "command": "cargo build --features custom-protocol",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend"],
+            "problemMatcher": "$rustc",
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "run app",
+            "type": "shell",
+            "command": "cargo run --features custom-protocol",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend"],
+            "problemMatcher": "$rustc",
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        },
+        // ---- With the backend embedded in the executable (optional; see the README) ----
+        {
+            // Also writes MagicStickUI.Backend.tdnbundle into bin\Debug\net8.0, which the `embedded-backend` feature includes.
+            "label": "build backend (embedded bundle)",
+            "type": "shell",
+            "command": "dotnet build src-dotnet/MagicStickUI.Backend -p:TauriDotNetEmbed=true",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build frontend (embedded)",
+            "type": "shell",
+            "command": "npm run build",
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": ["build backend (embedded bundle)"],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "build app (embedded backend)",
+            "type": "shell",
+            "command": "cargo build --features custom-protocol,embedded-backend",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend (embedded)"],
+            "problemMatcher": "$rustc",
+            "group": "build"
+        },
+        {
+            "label": "run app (embedded backend)",
+            "type": "shell",
+            "command": "cargo run --features custom-protocol,embedded-backend",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend (embedded)"],
+            "problemMatcher": "$rustc",
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        },
+        // ---- The single-file exe: a Release build with the backend embedded ----
+        {
+            // Release assemblies, bundled into bin\Release\net8.0\MagicStickUI.Backend.tdnbundle, which a release
+            // cargo build embeds (the debug tasks above use the Debug folder's bundle).
+            "label": "build backend (embedded bundle, Release)",
+            "type": "shell",
+            "command": "dotnet build src-dotnet/MagicStickUI.Backend -c Release -p:TauriDotNetEmbed=true",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build frontend (embedded, Release)",
+            "type": "shell",
+            "command": "npm run build",
+            "options": { "cwd": "${workspaceFolder}" },
+            "dependsOn": ["build backend (embedded bundle, Release)"],
+            "problemMatcher": "$tsc"
+        },
+        {
+            // Produces src-tauri\target\release\magicstick-ui.exe: one file, with the frontend
+            // and the .NET backend inside. It still needs WebView2 and a .NET 8+ runtime on the machine.
+            "label": "build single-file exe (Release)",
+            "type": "shell",
+            "command": "cargo build --release --features custom-protocol,embedded-backend",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend (embedded, Release)"],
+            "problemMatcher": "$rustc",
+            "group": "build"
+        },
+        {
+            "label": "run single-file exe (Release)",
+            "type": "shell",
+            "command": "cargo run --release --features custom-protocol,embedded-backend",
+            "options": { "cwd": "${workspaceFolder}/src-tauri" },
+            "dependsOn": ["build frontend (embedded, Release)"],
+            "problemMatcher": "$rustc",
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        },
+        {
+            // What tauri.conf.json is set up for (beforeDevCommand builds the backend, then starts Vite).
+            "label": "tauri dev",
+            "type": "shell",
+            "command": "npm run tauri dev",
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": [],
+            "presentation": { "reveal": "always", "panel": "dedicated" }
+        }
+    ]
+}
