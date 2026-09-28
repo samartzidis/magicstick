@@ -20,7 +20,7 @@ tauri = { version = "2.8.5", features = ["tray-icon", "image-png", "image-ico"] 
 tauri-plugin-single-instance = "2"
 tauri-plugin-autostart = "2"
 tauri-plugin-opener = "2"
-tauri-plugin-dotnet = { path = "../../../tauri-plugin-dotnet" }
+tauri-plugin-dotnet = "0.1.1"
 
 [features]
 # Embeds the frontend in the binary. `tauri dev` / `tauri build` enable it; a plain `cargo build` needs it explicitly.
