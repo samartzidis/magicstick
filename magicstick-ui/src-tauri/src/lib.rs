@@ -23,6 +23,21 @@ fn toggle_window(window: &WebviewWindow) {
   }
 }
 
+/// The .NET backend plugin: the embedded bundle with the `embedded-backend` feature, otherwise the
+/// `backend!` default (dev-only sidecar in a debug build, in-process from files in a release build).
+/// tauri-plugin-dotnet 0.1.2 removed `any_backend_host!`, so the choice is made here.
+#[cfg(feature = "embedded-backend")]
+fn backend_plugin<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
+  tauri_plugin_dotnet::init_with(|app| {
+    tauri_plugin_dotnet::embedded_backend_host!(app, "MagicStickUI.Backend")
+  })
+}
+
+#[cfg(not(feature = "embedded-backend"))]
+fn backend_plugin<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
+  tauri_plugin_dotnet::backend!("MagicStickUI.Backend")
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   tauri::Builder::default()
@@ -43,9 +58,7 @@ pub fn run() {
     // embedded at compile time (see the crate's `Cargo.toml` for how that bundle is built). In a
     // debug build this runs the backend as a dev-only sidecar process, so a C# rebuild restarts
     // just that process instead of relaunching the whole app.
-    .plugin(tauri_plugin_dotnet::init_with(|app| {
-      tauri_plugin_dotnet::any_backend_host!(app, "MagicStickUI.Backend")
-    }))
+    .plugin(backend_plugin())
     .setup(|app| {
       // Right-click menu: just Exit, since there is otherwise no way to quit once the window is
       // hidden (minimized-to-tray, or "start minimized") - closing a window you can't see isn't

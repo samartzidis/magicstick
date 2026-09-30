@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tauri.Plugin.DotNet" Version="0.1.1" />
+    <PackageReference Include="Tauri.Plugin.DotNet" Version="0.1.2" />
     <!-- Console output for the bridge's own logging (see Backend.LoggerFactory). -->
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.*" />
     <!-- Tray icon PNG compositing (TrayIconRenderer). -->
