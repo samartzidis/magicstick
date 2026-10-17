@@ -27,6 +27,10 @@ This project started as a hobby as I wanted to use my Apple keyboard on Windows 
 
 Provided there is stock available, you will be able to purchase one from the [ebay magicstick-shop](https://www.ebay.co.uk/usr/magicstick-shop). Each item sold supports the _BBC Children in Need_ [![charity](docs/ribbon.gif)](https://charity.ebay.co.uk/charity/i/BBC-Children-in-Need/11641).
 
+## Downloads
+
+The magicstick UI application and firmware downloads are under the [releases page](https://github.com/samartzidis/magicstick/releases).
+
 ## User Manual
 
 The user manual is [here](docs/README.md).
