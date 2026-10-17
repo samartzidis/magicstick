@@ -1,5 +1,3 @@
-###### Apple Keyboard USB Adapter for PC
-
 # User Manual
 
 ![model](model.png)
